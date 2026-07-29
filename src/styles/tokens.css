@@ -1,0 +1,138 @@
+
+@font-face {
+  font-family: "LINE Seed KR";
+  src: url("../assets/fonts/LINESeedKR-Rg.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINE Seed KR";
+  src: url("../assets/fonts/LINESeedKR-Bd.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINE Seed KR";
+  src: url("../assets/fonts/LINESeedKR-Th.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SEBANG Gothic";
+  src: url("../assets/fonts/SEBANG Gothic.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SEBANG Gothic";
+  src: url("../assets/fonts/SEBANG Gothic Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sarina";
+  src: url("../assets/fonts/Sarina-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+
+  /* Primitive Colors */
+
+  --white: #FFFCF5;
+  --black: #141414;
+
+  --gray-dark: #2F2F2F;
+  --gray: #999999;
+
+  --muted: rgba(78, 78, 78, 0.34);
+
+  --purple: #CEA6E0;
+  --purple-light: #F1DBFA;
+
+  --red: #FF7173;
+
+  --gradient: linear-gradient(135deg, #AEC7D8 0%, #CEA6E0 100%);
+
+  /* Semantic Colors */
+
+  
+
+
+  /* Typography */
+  --font-body: "LINE Seed KR", sans-serif;
+  --font-heading: "SEBANG Gothic", sans-serif;
+
+  /* Weight */
+  --fw-100: 100; /* font-thin */
+  --fw-400: 400; /* font-normal */
+  --fw-700: 700; /* font-bold */
+
+  /*  Shadow  */
+  --shadow-white :0.2rem 0.1rem 0 0 rgba(255, 255, 255, 0.25);
+  --shadow-base: 0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --container-width: 130rem;
+  --container-padding: 2rem;
+}
+
+@theme {
+  --text-xs: 1.2rem;  
+  --text-sm: 1.4rem;   
+  --text-base: 1.6rem; 
+  --text-lg: 1.8rem; 
+  --text-xl: 2rem;     
+  --text-2xl: 2.4rem;  
+  --text-3xl: 3rem;   
+  --text-4xl: 3.6rem; 
+  --text-5xl: 4.8rem;  
+  --text-6xl: 5.2rem;   
+  --text-7xl: 6rem;   
+
+  --color-black:var(--black);
+  --color-white:var(--white);
+
+  --background: var(--black);
+  --foreground: var(--white);
+
+  --primary: var(--purple);
+  --primary-foreground: var(--black);
+
+  --color-primary: var(--purple);
+  --color-primary-foreground: var(--black);
+
+  --secondary: var(--purple-light);
+  --secondary-foreground: var(--black);
+
+  --color-secondary: var(--purple-light);
+  --color-secondary-foreground: var(--black);
+
+  --accent: var(--red);
+  --accent-foreground: var(--white);
+
+  --destructive: var(--red);
+  --destructive-foreground: var(--white);
+
+  --border: var(--gray);
+  --border-white: var(--white);
+
+  --spacing: 0.1rem;
+
+  --font-body: "LINE Seed KR", sans-serif;
+  --font-heading: "SEBANG Gothic", sans-serif;
+  --font-point: "Sarina", cursive;
+
+  /* Radius */
+  --radius-sm: 0.8rem;
+  --radius-md: 1.6rem;
+  --radius-lg: 2.4rem;
+  --radius-xl: 3.2rem;
+  --radius-full: 99rem;
+}
