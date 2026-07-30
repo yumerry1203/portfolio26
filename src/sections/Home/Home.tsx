@@ -1,5 +1,8 @@
 import Header from "@/components/layout/Header";
 import Profile from "@/assets/images/me.png";
+import Badge from "@/components/common/Badge";
+import DotLabel from "@/components/common/DotLabel";
+import Button from "@/components/common/Button";
 
 const Home = () => {
   return (
@@ -7,7 +10,7 @@ const Home = () => {
       <div className="w-full bg-primary">
         <section className="content-container h-dvh py-32" id="home">
           <Header />
-          <div className="relative mt-50">
+          <div className="relative mt-40">
             <div className="relative flex items-center bg-black rounded-xl px-72 w-1076 h-533">
               <h1 className="font-heading text-[160px] font-bold z-10">Portfolio</h1>
               <h2 className="absolute top-120 right-170 font-point text-primary text-[76px]">Front-End</h2>
@@ -19,6 +22,13 @@ const Home = () => {
               className="absolute top-50 right-0 z-10 w-540 h-510 
               bg-[url('/src/assets/images/shape.svg')] bg-no-repeat bg-contain "
             >
+              <Badge 
+                variant="default" 
+                className="absolute bottom-[102%] right-8 gap-8 font-heading"
+              >
+                <DotLabel variant="green" />
+                August 2026
+              </Badge>
               <img 
                 src={Profile} 
                 className="absolute w-253 bottom-3 left-174"
@@ -29,6 +39,10 @@ const Home = () => {
                 Publisher · UI/UIX design
               </span>
             </div>
+          </div>
+          <div>
+            <Button variant="gradient" className="text-2xl">{`{ PROJECT }`}</Button>
+            <Button variant="white" className="text-2xl">{`{ CONTACT }`}</Button>
           </div>
         </section>
       </div>

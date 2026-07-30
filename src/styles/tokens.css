@@ -57,6 +57,7 @@
   --purple-light: #F1DBFA;
 
   --red: #FF7173;
+  --green: #74D07D;
 
   --gradient: linear-gradient(135deg, #AEC7D8 0%, #CEA6E0 100%);
 
@@ -117,8 +118,15 @@
   --accent: var(--red);
   --accent-foreground: var(--white);
 
+  --color-accent: var(--red);
+  --accent-foreground: var(--white);
+
+  --color-green:var(--green);
+
   --destructive: var(--red);
   --destructive-foreground: var(--white);
+
+  --background-image-gradient: var(--gradient);
 
   --border: var(--gray);
   --border-white: var(--white);
