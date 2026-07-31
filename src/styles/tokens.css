@@ -99,6 +99,7 @@
 
   --color-black:var(--black);
   --color-white:var(--white);
+  --color-gray-dark:var(--gray-dark);
 
   --background: var(--black);
   --foreground: var(--white);

@@ -17,7 +17,7 @@ const Badge = ({
 }: BadgeProps) => {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-22 py-7 text-xs ${variantStyles[variant]} ${className}`}
+      className={`inline-flex items-center rounded-full px-14 py-7 text-xs ${variantStyles[variant]} ${className}`}
     >
       {children}
     </span>

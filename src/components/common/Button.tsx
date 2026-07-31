@@ -6,7 +6,7 @@ interface BadgeProps {
 
 const variantStyles = {
   gradient: "bg-gradient border rounded-full",
-  white: "bg-white border rounded-full",
+  white: "bg-white rounded-full",
   purple: "bg-purple rounded-md",
 };
 
@@ -17,7 +17,7 @@ const Button = ({
 }: BadgeProps) => {
   return (
     <button
-      className={`inline-flex items-center justify-center px-20 py-12 text-black ${variantStyles[variant]} ${className}`}
+      className={`inline-flex items-center justify-center px-32 py-12 text-black cursor-pointer ${variantStyles[variant]} ${className}`}
     >
         {children}
     </button>
