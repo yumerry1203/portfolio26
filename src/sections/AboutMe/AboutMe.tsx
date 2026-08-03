@@ -1,6 +1,8 @@
 
 import SectionTitle from "@/components/layout/SectionTitle";
 import Experience from "./Experience";
+import Certifications from "./Certifications";
+import Education from "./Education";
 
 const AboutMe = () => {
   return (
@@ -18,8 +20,9 @@ const AboutMe = () => {
         </div>
         <div className="flex justify-between mt-75">
           <Experience/>
-          <div>
-
+          <div className="flex flex-col">
+            <Education/>
+            <Certifications/>
           </div>
         </div>
       </section>

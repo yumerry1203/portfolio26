@@ -5,7 +5,7 @@ interface AboutTitleProps {
 
 const AboutTitle = ({ title, icon }: AboutTitleProps) => {
   return (
-    <div className="flex items-center gap-8 border-b border-secondary pb-4">
+    <div className="flex items-center gap-8 h-50 border-b-2 border-secondary pb-4">
       <img
         src={icon}
         alt=""
