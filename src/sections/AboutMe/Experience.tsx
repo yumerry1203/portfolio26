@@ -10,7 +10,7 @@ const Experience = () => {
         title="경력"
         icon={IconExperience}
       />
-      <ol className="relative mt-80 pb-8 before:absolute before:inset-y-0 before:left-1/2 before:w-px before:-translate-x-1/2 before:bg-white max-sm:before:left-16">
+      <ol className="relative mt-80 flex flex-col gap-16 pb-8 before:absolute before:inset-y-0 before:left-1/2 before:w-px before:-translate-x-1/2 before:bg-white max-sm:before:left-16">
         {experiences.map((item, index) => {
           const isRight = index % 2 === 0;
 
@@ -22,10 +22,11 @@ const Experience = () => {
               <AboutmeCard
                 variant="experience"
                 {...item}
+                isRight={isRight}
                 className={
                   isRight
-                    ? "col-start-2 pl-52 text-left"
-                    : "col-start-1 pr-52 text-right max-sm:col-start-2 max-sm:pl-28 max-sm:pr-0 max-sm:text-left"
+                    ? "col-start-2 pl-52"
+                    : "col-start-1 text-right pr-52 max-sm:col-start-2 max-sm:pl-28 max-sm:pr-0 max-sm:text-left"
                 }
               />
             </li>

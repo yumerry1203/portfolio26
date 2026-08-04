@@ -18,9 +18,9 @@ const AboutMe = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-between mt-75">
+        <div className="flex justify-between mt-100">
           <Experience/>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-73">
             <Education/>
             <Certifications/>
           </div>

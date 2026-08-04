@@ -1,17 +1,23 @@
 interface DotLabelProps {
-  variant?: "red" | "green" | "purpleLine" | "redLine";
+  variant:
+    | "red"
+    | "green"
+    | "redLine"
+    | "purpleLine"
+    | "purpleLightLine"
   className?: string;
 }
 
 const variantStyles = {
   red: "bg-accent",
   green: "bg-green",
-  purpleLine: "bg-black text-white",
   redLine: "bg-accent border-2 border-white",
+  purpleLine: "bg-primary border-2 border-white",
+  purpleLightLine: "bg-secondary border-2 border-white",
 };
 
 const DotLabel = ({
-  variant = "red",
+  variant,
   className = "",
 }: DotLabelProps) => {
   return (
