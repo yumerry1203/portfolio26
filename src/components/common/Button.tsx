@@ -2,18 +2,20 @@ interface BadgeProps {
   children: React.ReactNode;
   variant: "gradient" | "white" | "purple" ;
   className?: string;
+  onClick?: () => void;
 }
 
 const variantStyles = {
   gradient: "bg-gradient border rounded-full",
   white: "bg-white rounded-full",
-  purple: "bg-purple rounded-md",
+  purple: "bg-primary rounded-md",
 };
 
 const Button = ({
   children,
   variant = "white",
   className = "",
+  onClick
 }: BadgeProps) => {
   return (
     <button
