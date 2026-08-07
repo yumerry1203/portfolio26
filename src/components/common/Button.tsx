@@ -1,6 +1,6 @@
 interface BadgeProps {
   children: React.ReactNode;
-  variant: "gradient" | "white" | "purple" ;
+  variant: "gradient" | "white" | "purple" | "purpleLine";
   className?: string;
   onClick?: () => void;
 }
@@ -9,6 +9,7 @@ const variantStyles = {
   gradient: "bg-gradient border rounded-full",
   white: "bg-white rounded-full",
   purple: "bg-primary rounded-md",
+  purpleLine:"rounded-full text-primary border border-primary"
 };
 
 const Button = ({
@@ -19,7 +20,8 @@ const Button = ({
 }: BadgeProps) => {
   return (
     <button
-      className={`inline-flex items-center justify-center px-32 py-12 text-black cursor-pointer ${variantStyles[variant]} ${className}`}
+      onClick={onClick}
+      className={`inline-flex items-center justify-center text-black cursor-pointer ${variantStyles[variant]} ${className}`}
     >
         {children}
     </button>

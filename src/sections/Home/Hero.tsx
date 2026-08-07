@@ -38,11 +38,11 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex gap-12 mt-20">
-        <Button variant="gradient" className="text-2xl gap-12">
+        <Button variant="gradient" className="text-2xl gap-12 px-30 py-15">
           {`{ PROJECT }`}
           <img src={ArrowBlack} alt="화살표" />
           </Button>
-        <Button variant="white" className="text-2xl">{`{ CONTACT }`}</Button>
+        <Button variant="white" className="text-2xl px-30 py-15">{`{ CONTACT }`}</Button>
       </div>
           
     </>

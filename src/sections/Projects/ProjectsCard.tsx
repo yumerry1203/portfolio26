@@ -11,12 +11,14 @@ import "swiper/css/pagination";
 
 interface ProjectsCardProps {
   project: Project;
+  index: number;
 }
 
-const ProjectsCard = ({ project }: ProjectsCardProps) => {
+const ProjectsCard = ({ project, index }: ProjectsCardProps) => {
   return (
-    <div className="flex gap-60">
-      <div className="flex items-center justify-center w-480 h-340 bg-gray-dark rounded-tl-md rounded-br-md">
+    <div className="flex flex-col">
+      <div className={`flex gap-60 justify-between ${index % 2 === 1 ? "flex-row-reverse" : ""}`}>
+        <div className="flex items-center justify-center w-480 h-340 bg-gray-dark rounded-tl-md rounded-br-md">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -35,9 +37,9 @@ const ProjectsCard = ({ project }: ProjectsCardProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+        </div>
 
-      <div className="flex flex-col">
+        <div className="flex flex-col">
         <div className="flex flex-wrap items-center gap-10">
           <Badge variant="gradient" className="min-w-70 font-heading text-base font-bold text-white">
             {project.year}
@@ -89,7 +91,12 @@ const ProjectsCard = ({ project }: ProjectsCardProps) => {
             <img src={arrowBlack} alt="다음 이미지" className="h-16 w-16 rotate-45" />
           </Button>
         </div>
+        </div>
       </div>
+      <div
+        aria-hidden="true"
+        className="mt-70 h-2 w-full bg-gradient [mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)] [-webkit-mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)]"
+      />
     </div>
   );
 };
