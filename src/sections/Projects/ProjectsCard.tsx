@@ -12,9 +12,10 @@ import "swiper/css/pagination";
 interface ProjectsCardProps {
   project: Project;
   index: number;
+  onDetailClick: (project: Project) => void;
 }
 
-const ProjectsCard = ({ project, index }: ProjectsCardProps) => {
+const ProjectsCard = ({ project, index, onDetailClick }: ProjectsCardProps) => {
   return (
     <div className="flex flex-col">
       <div className={`flex gap-60 justify-between ${index % 2 === 1 ? "flex-row-reverse" : ""}`}>
@@ -83,6 +84,7 @@ const ProjectsCard = ({ project, index }: ProjectsCardProps) => {
             variant="purple" 
             children="DETAIL" 
             className="w-220 h-54 text-xl"
+            onClick={() => onDetailClick(project)}
           />          
           <Button
             variant="purple"

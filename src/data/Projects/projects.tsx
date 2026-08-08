@@ -2,6 +2,12 @@ import type { Project } from "@/type/project";
 
 import sampleImg from "@/assets/images/sample.png"
 
+const detailTitle = (
+  <>
+    관리자 페이지의 전반적인 코딩 컴포넌트 만들기, <span className="text-primary">교통수단 관리</span> 객실 배정 관리를 작업하였습니다.
+  </>
+);
+
 export const projects: Project[] = [
   /* moggoji */
   {
@@ -26,16 +32,7 @@ export const projects: Project[] = [
         sampleImg,
       ],
     detail: {
-      links: [
-        {
-          label: "Web",
-          url: "https://example.com",
-        },
-        {
-          label: "App",
-          url: "https://example.com",
-        },
-      ],
+      links: "https://example.com",
       heroImages: [
         sampleImg,
         sampleImg,
@@ -46,19 +43,19 @@ export const projects: Project[] = [
       sections: [
         {
           number: "01",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [ sampleImg, ],
         },
         {
           number: "02",
-          title:"관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [sampleImg,],
         },
         {
           number: "03",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",        
+          title: detailTitle,
 				},
       ],
     },
@@ -84,16 +81,7 @@ export const projects: Project[] = [
         sampleImg,
       ],
     detail: {
-      links: [
-        {
-          label: "Web",
-          url: "https://example.com",
-        },
-        {
-          label: "App",
-          url: "https://example.com",
-        },
-      ],
+      links: "https://example.com",
       heroImages: [
         sampleImg,
         sampleImg,
@@ -104,19 +92,19 @@ export const projects: Project[] = [
       sections: [
         {
           number: "01",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [ sampleImg, ],
         },
         {
           number: "02",
-          title:"관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [sampleImg,],
         },
         {
           number: "03",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",        
+          title: detailTitle,
 				},
       ],
     },
@@ -141,16 +129,7 @@ export const projects: Project[] = [
         sampleImg,
       ],
     detail: {
-      links: [
-        {
-          label: "Web",
-          url: "https://example.com",
-        },
-        {
-          label: "App",
-          url: "https://example.com",
-        },
-      ],
+      links: "https://example.com",
       heroImages: [
         sampleImg,
         sampleImg,
@@ -161,19 +140,19 @@ export const projects: Project[] = [
       sections: [
         {
           number: "01",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [ sampleImg, ],
         },
         {
           number: "02",
-          title:"관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [sampleImg,],
         },
         {
           number: "03",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",        
+          title: detailTitle,
 				},
       ],
     },
@@ -200,16 +179,7 @@ export const projects: Project[] = [
         sampleImg,
       ],
     detail: {
-      links: [
-        {
-          label: "Web",
-          url: "https://example.com",
-        },
-        {
-          label: "App",
-          url: "https://example.com",
-        },
-      ],
+      links: "https://example.com",
       heroImages: [
         sampleImg,
         sampleImg,
@@ -220,19 +190,19 @@ export const projects: Project[] = [
       sections: [
         {
           number: "01",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [ sampleImg, ],
         },
         {
           number: "02",
-          title:"관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",
+          title: detailTitle,
           description: "자바스크립트와 Shadcn의 표를 커스텀하여 나타냈습니다. 인풋은 커스텀하여 검색버튼을 클릭시 아래 드롭다운 형식으로 나타냈습니다.",
           images: [sampleImg,],
         },
         {
           number: "03",
-          title: "관리자 페이지의 전반적인 코딩 컴포넌트 만들기, 교통수단 관리 객실 배정 관리를 작업하였습니다.",        
+          title: detailTitle,
 				},
       ],
     },

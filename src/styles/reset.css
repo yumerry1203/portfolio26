@@ -12,6 +12,20 @@ body {
   color: var(--foreground);
 }
 
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 999px;
+}
+
 .content-container {
   width: min(
     var(--container-width),

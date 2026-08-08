@@ -38,7 +38,11 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex gap-12 mt-20">
-        <Button variant="gradient" className="text-2xl gap-12 px-30 py-15">
+        <Button 
+          variant="gradient" 
+          className="text-2xl gap-12 px-30 py-15"
+          onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
+        >
           {`{ PROJECT }`}
           <img src={ArrowBlack} alt="화살표" />
           </Button>

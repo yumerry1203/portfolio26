@@ -1,7 +1,9 @@
 
+import type { ReactNode } from "react";
+
 export interface ProjectDetailSection {
   number: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   images?: string[];
 }
@@ -19,10 +21,7 @@ export interface Project {
   image: string[];
   // 상세 팝업
   detail: {
-    links?: {
-      label: string;
-      url: string;
-    }[];
+    links?:string;
     heroImages: string[];
     role: string;
     workPeriod: string;

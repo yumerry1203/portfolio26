@@ -1,15 +1,18 @@
 
 import { useState } from "react";
 import SectionTitle from "@/components/layout/SectionTitle";
-import { projects } from "@/data/Projects/projects"
+import { projects } from "@/data/Projects/projects.tsx"
 import { showcase } from "@/data/Projects/projectsshowcase"
 import ProjectsCard from "./ProjectsCard";
 import ProjectShowcaseCard from "./ProjectShowcaseCard";
+import ProjectDetailModal from "./ProjectDetailModal";
 import Button from "@/components/common/Button";
 import IcoArrowPurple from "@/assets/images/ico-arrow-purple.svg"
+import type { Project } from "@/type/project";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="w-full">
@@ -17,7 +20,7 @@ const Projects = () => {
         <SectionTitle number="02" title="PROJECTS" subTit="Client Work" />
         <div className="mt-60 space-y-70 bg-white rounded-md py-90 px-60">
           {projects.map((item, index) => (
-            <ProjectsCard key={item.id} project={item} index={index} />
+            <ProjectsCard key={item.id} project={item} index={index} onDetailClick={setSelectedProject} />
           ))}
 
           {isOpen && (
@@ -45,6 +48,9 @@ const Projects = () => {
           </div>
         </div>
       </section>
+      {selectedProject && (
+        <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </div>
   )
 };

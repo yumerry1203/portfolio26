@@ -5,7 +5,7 @@ import WorkedWith from "./WorkedWith";
 const Home = () => {
   return (
     <div className="w-full bg-primary">
-      <section className="content-container h-dvh py-32" id="home">
+      <section className="content-container py-40" id="home">
         <Header />
         <Hero />
         <WorkedWith />
