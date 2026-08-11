@@ -22,20 +22,27 @@ const SideProjects = () => {
 
     const ctx = gsap.context(() => {
       const horizontalDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
-      const columns = Math.ceil(sideproject.length / 2);
+      const pauseDistance = () => window.innerHeight * 0.6;
+      const updateTrackPosition = (progress: number) => {
+        const distance = horizontalDistance();
+        const travelProgress = distance === 0
+          ? 0
+          : Math.min(1, (progress * (distance + pauseDistance())) / distance);
 
-      gsap.to(track, {
-        x: () => -horizontalDistance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${horizontalDistance()}`,
-          pin: true,
-          scrub: 1,
-          snap: columns > 1 ? 1 / (columns - 1) : undefined,
-          invalidateOnRefresh: true,
-        },
+        gsap.set(track, { x: -distance * travelProgress });
+      };
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `+=${horizontalDistance() + pauseDistance()}`,
+        pin: true,
+        pinType: "fixed",
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => updateTrackPosition(self.progress),
+        onRefresh: (self) => updateTrackPosition(self.progress),
       });
     }, section);
 
@@ -44,18 +51,19 @@ const SideProjects = () => {
 
   return (
     <div className="w-full">
-      <section ref={sectionRef} className="h-screen overflow-hidden py-80" id="side-projects">
-        <div className="content-container flex h-full flex-col">
-          <div className="flex items-end justify-between">
-            <SectionTitle number="03" title="SIDE PROJECTS" subTit="Personal Work" />
-            <p className="text-base text-gray">SCROLL TO EXPLORE →</p>
-          </div>
-          <div ref={viewportRef} className="mt-50 flex-1 overflow-hidden">
-            <div ref={trackRef} className="grid h-full w-max grid-flow-col grid-rows-2 auto-cols-[62rem] gap-20">
-          {sideproject.map((project, index) => (
-            <SideProjectCard key={`${project.id}-${index}`} project={project} />
-          ))}
-            </div>
+      <section ref={sectionRef} className="flex h-screen flex-col overflow-hidden py-80" id="side-projects">
+        <div className="content-container">
+          <SectionTitle number="03" title="SIDE PROJECTS" subTit="Personal Work" />          
+        </div>
+        <div ref={viewportRef} className="mt-50 min-h-0 flex-1 overflow-hidden">
+          <div
+            ref={trackRef}
+            className="grid h-full w-max grid-flow-col grid-rows-2 auto-cols-[62rem] gap-20"
+            style={{ paddingLeft: "max(var(--container-padding), calc((100vw - var(--container-width)) / 2))" }}
+          >
+            {sideproject.map((project, index) => (
+              <SideProjectCard key={`${project.id}-${index}`} project={project} />
+            ))}
           </div>
         </div>
       </section>
