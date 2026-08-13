@@ -3,3 +3,16 @@
 @import "./styles/reset.css";
 @import "./styles/tokens.css";
 
+.skills-card-list {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-light) transparent;
+}
+
+.skills-card-list::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.skills-card-list::-webkit-scrollbar-thumb {
+  background: var(--purple-light);
+}

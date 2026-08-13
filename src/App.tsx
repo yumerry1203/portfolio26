@@ -3,6 +3,7 @@ import AboutMe from "./sections/AboutMe/AboutMe"
 import Projects from "./sections/Projects/Projects"
 import SideProjects from "./sections/SideProjects/SideProjects"
 import Skills from "./sections/Skills/Skills"
+import Contact from "./sections/Contact/Contact"
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
       <Projects />
       <SideProjects />
       <Skills />
+      <Contact />
     </>
   )
 }
