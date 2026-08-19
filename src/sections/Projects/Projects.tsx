@@ -2,16 +2,11 @@
 import { useState } from "react";
 import SectionTitle from "@/components/layout/SectionTitle";
 import { projects } from "@/data/Projects/projects.tsx"
-import { showcase } from "@/data/Projects/projectsshowcase"
 import ProjectsCard from "./ProjectsCard";
-import ProjectShowcaseCard from "./ProjectShowcaseCard";
 import ProjectDetailModal from "./ProjectDetailModal";
-import Button from "@/components/common/Button";
-import IcoArrowPurple from "@/assets/images/ico-arrow-purple.svg"
 import type { Project } from "@/type/project";
 
 const Projects = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
@@ -20,18 +15,24 @@ const Projects = () => {
         <SectionTitle number="02" title="PROJECTS" subTit="Client Work" />
         <div className="mt-60 space-y-70 bg-white rounded-md py-90 px-60">
           {projects.map((item, index) => (
-            <ProjectsCard key={item.id} project={item} index={index} onDetailClick={setSelectedProject} />
+            <ProjectsCard
+              key={item.id}
+              project={item}
+              index={index}
+              isLast={index === projects.length - 1}
+              onDetailClick={setSelectedProject}
+            />
           ))}
 
-          {isOpen && (
+          {/* {isOpen && (
             <div className="grid grid-cols-1 gap-30 md:grid-cols-2 xl:grid-cols-3">
               {showcase.map((item) => (
                 <ProjectShowcaseCard key={item.id} project={item} />
               ))}
             </div>
-          )}
+          )} */}
           
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <Button
               variant="purpleLine"
               className="w-120 h-40 text-lg px-0"
@@ -45,7 +46,7 @@ const Projects = () => {
                 className={`transition-transform duration-200 ml-12 ${isOpen ? "" : "rotate-180"}`}
               />
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
       {selectedProject && (

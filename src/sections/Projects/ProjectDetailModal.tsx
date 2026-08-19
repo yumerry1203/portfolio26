@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import type { Project } from "@/type/project";
-import Close from "@/assets/images/close.svg"
-import Link from "@/assets/images/link.svg";
-import Unlink from "@/assets/images/unlink.svg";
+import Close from "@/assets/images/ico-close.svg";
+import Link from "@/assets/images/ico-link.svg";
+import Unlink from "@/assets/images/ico-unlink.svg";
+import DotLabel from "@/components/common/DotLabel";
 
 interface ProjectDetailModalProps {
   project: Project; //클릭한 프로젝트 
@@ -20,12 +21,15 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
 
     document.addEventListener("keydown", handleKeyDown);
 
-    //본문 스크롤 막기
+    // 본문 스크롤 막기
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.body.style.overflow = previousOverflow;
     };
   }, [onClose]);
@@ -104,6 +108,10 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">개요</h3>
             <p className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.overview}</p>
           </section>
+          <section className="mt-44">
+            <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">담당 역할</h3>
+            <div className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.responsibility}</div>
+          </section>
 
           <section className="mt-60">
             <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">주요 작업 내용</h3>
@@ -116,7 +124,16 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                         <span className="text-primary">{section.number}. </span>
                         {section.title}
                       </h4>
-                      {section.description && <p className="mt-20 text-sm leading-relaxed">{section.description}</p>}
+                      {section.description && (
+                        <ul className="mt-20 space-y-10 text-sm leading-relaxed">
+                          {section.description.map((item, index) => (
+                            <li key={`${project.id}-${section.number}-description-${index}`} className="flex items-start gap-12">
+                              <DotLabel variant="red" className="mt-7 h-8 w-8 shrink-0 rounded-none" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                     {section.images?.length && (
                       <div className="grid grid-cols-2 gap-12">
@@ -125,7 +142,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                             key={`${project.id}-${section.number}-${imageIndex}`}
                             src={image}
                             alt={`${project.title} 주요 작업 ${section.number}-${imageIndex + 1}`}
-                            className="aspect-[1.2/1] w-full object-contain shadow-base"
+                            className="aspect-[1.2/1] w-full object-contain shadow-[var(--shadow-base)]"
                           />
                         ))}
                       </div>
