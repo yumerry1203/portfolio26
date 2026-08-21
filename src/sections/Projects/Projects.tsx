@@ -5,6 +5,7 @@ import { projects } from "@/data/Projects/projects.tsx"
 import ProjectsCard from "./ProjectsCard";
 import ProjectDetailModal from "./ProjectDetailModal";
 import type { Project } from "@/type/project";
+import ExpandingToast from "@/components/common/ExpandingToast";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -13,7 +14,11 @@ const Projects = () => {
     <div className="w-full">
       <section className="content-container h-auto py-120" id="projects">
         <SectionTitle number="02" title="PROJECTS" subTit="Client Work" />
-        <div className="mt-60 space-y-70 bg-white rounded-md py-90 px-60">
+        <ExpandingToast
+          title="주요 프로젝트"
+          description="최근 작업한 프로젝트의 내용을 자세히 확인할 수 있습니다."
+        />
+        <div className="space-y-70 bg-white rounded-md py-90 px-60">
           {projects.map((item, index) => (
             <ProjectsCard
               key={item.id}

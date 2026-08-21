@@ -50,7 +50,7 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
           <h3 className="mt-18 font-heading text-4xl font-bold leading-tight text-black">
             {project.title}
           </h3>
-          <p className="mt-20 text-2xl text-gray-dark">
+          <p className="mt-20 text-xl text-gray-dark">
             {project.description}
           </p>
 

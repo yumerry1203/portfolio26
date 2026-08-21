@@ -186,7 +186,6 @@ export const projects: Project[] = [
     detail: {
       heroImages: [
         Cleverse01,
-        Cleverse02,
       ],
       role: "화면 UI 구현 · 공통 컴포넌트 설계 · API 응답 기반 화면 처리",      
       workPeriod: "10개월",
@@ -204,7 +203,7 @@ export const projects: Project[] = [
             "업무 정보를 전달하는 게시판 목록·상세·댓글 UI 구현",
             "조직 구성원을 검색하고 필요한 사람을 빠르게 찾는 사람 조회 기능 구현"
           ],
-          images: [ Cleverse03 ],
+          images: [ Cleverse02 ],
         },
         {
           number: "02",
