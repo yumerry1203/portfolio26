@@ -8,5 +8,6 @@ export interface Sideproject {
   image: string;
   isNew?: boolean;
   isInProgress?: boolean;
-  siteUrl?: string;
+  link?: string;
+  viewImg?:string;
 }

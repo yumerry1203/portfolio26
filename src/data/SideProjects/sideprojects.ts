@@ -1,12 +1,17 @@
 import type { Sideproject } from "@/type/sideproject";
 import ImgShake from "@/assets/images/img-shake.svg"
+import ViewShake from "@/assets/images/view-shake.svg"
 import ImgBr from "@/assets/images/img-br.svg"
+import ViewBr from "@/assets/images/view-br.svg"
 import ImgBook from "@/assets/images/img-book.svg"
+import ViewBook from "@/assets/images/view-book.svg"
 import ImgMirae from "@/assets/images/img-mirae.svg"
 import ImgDyson from "@/assets/images/img-dyson.svg"
+import ViewDyson from "@/assets/images/view-dyson.svg"
 import ImgDalock from "@/assets/images/img-dalock.svg"
 import ImgAir from "@/assets/images/img-air.svg"
 import ImgMg from "@/assets/images/img-mg.svg"
+import ViewMg from "@/assets/images/view-mg.svg"
 
 export const sideproject: Sideproject[] = [
   {
@@ -17,6 +22,7 @@ export const sideproject: Sideproject[] = [
     description: "쉐이크쉑 App 리뉴얼",
     image: ImgShake,
     isNew: true,
+    viewImg:ViewShake,
   },
   {
     id: "air-seoul",
@@ -25,6 +31,7 @@ export const sideproject: Sideproject[] = [
     title: "에어서울",
     description: "Web 전체 페이지 리뉴얼",
     image: ImgAir,
+    link: "https://yumerry1203.github.io/portfolio/airseoul/index.html",
   },
   {
     id: "baskin-robbins",
@@ -33,6 +40,8 @@ export const sideproject: Sideproject[] = [
     title: "배스킨라빈스",
     description: "Web 리뉴얼·기능 확장",
     image: ImgBr,
+    link: "https://yumerry1203.github.io/portfolio/onepage/index.html",
+    viewImg:ViewBr,
   },
   {
     id: "mirae-asset",
@@ -42,6 +51,7 @@ export const sideproject: Sideproject[] = [
     description: "App 리뉴얼",
     image: ImgMirae,
     isInProgress: true,
+    link: "https://yumerry1203.github.io/mobile/",
   },
   {
     id: "aladin",
@@ -50,6 +60,7 @@ export const sideproject: Sideproject[] = [
     title: "알라딘 중고서점",
     description: "Web 메인·서브 리뉴얼",
     image: ImgBook,
+    viewImg:ViewBook,
   },
   {
     id: "dyson",
@@ -58,6 +69,7 @@ export const sideproject: Sideproject[] = [
     title: "다이슨",
     description: "Web 반응형 리뉴얼",
     image: ImgDyson,
+    viewImg:ViewDyson,
   },
   {
     id: "dalock",
@@ -66,6 +78,7 @@ export const sideproject: Sideproject[] = [
     title: "미니창고 다락",
     description: "Web 메인 + 서브1p 리뉴얼",
     image: ImgDalock,
+    link: "https://yumerry1203.github.io/darak/",
   },
   {
     id: "Mg",
@@ -74,5 +87,6 @@ export const sideproject: Sideproject[] = [
     title: "새마을금고",
     description: "Web 반응형 리뉴얼",
     image: ImgMg,
+    viewImg:ViewMg,
   },
 ];

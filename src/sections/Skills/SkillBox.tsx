@@ -37,11 +37,11 @@ const DonutChart = () => {
   }, []);
 
   return (
-    <div className="relative mt-24 h-300" aria-label="React, HTML, Vue3로 구성된 프론트엔드 기술 그래프">
-      <div className="absolute left-1/2 top-0 h-300 w-300 -translate-x-1/2"><canvas ref={canvasRef} /></div>
-      <span className="absolute right-0 top-35 rounded-full bg-white px-24 py-10 font-heading text-2xl font-bold text-black">react</span>
-      <span className="absolute right-19 bottom-48 rounded-full bg-white px-24 py-10 font-heading text-2xl font-bold text-black">html</span>
-      <span className="absolute left-0 top-120 rounded-full bg-white px-24 py-10 font-heading text-2xl font-bold text-black">vue3</span>
+    <div className="relative mt-24 h-250" aria-label="React, HTML, Vue3로 구성된 프론트엔드 기술 그래프">
+      <div className="absolute left-1/2 top-0 h-250 w-250 -translate-x-1/2"><canvas ref={canvasRef} /></div>
+      <span className="absolute right-0 top-25 rounded-full bg-white px-20 py-8 font-heading text-xl font-bold text-black">react</span>
+      <span className="absolute right-12 bottom-36 rounded-full bg-white px-20 py-8 font-heading text-xl font-bold text-black">html</span>
+      <span className="absolute left-0 top-100 rounded-full bg-white px-20 py-8 font-heading text-xl font-bold text-black">vue3</span>
     </div>
   );
 };
