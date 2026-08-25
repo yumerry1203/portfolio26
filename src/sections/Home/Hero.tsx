@@ -46,7 +46,13 @@ const Hero = () => {
           {`{ PROJECT }`}
           <img src={ArrowBlack} alt="화살표" />
           </Button>
-        <Button variant="white" className="text-2xl px-30 py-15">{`{ CONTACT }`}</Button>
+        <Button
+          variant="white"
+          className="text-2xl px-30 py-15"
+          onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+        > 
+          {`{ CONTACT }`}
+        </Button>
       </div>
           
     </>
