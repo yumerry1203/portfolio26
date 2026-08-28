@@ -1,0 +1,54 @@
+.intro {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--black);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro__mark {
+  --intro-mark-size: 18.4rem;
+  position: relative;
+  display: grid;
+  width: var(--intro-mark-size);
+  aspect-ratio: 1;
+  place-items: center;
+}
+
+.intro__logo {
+  position: relative;
+  top: 1.2rem;
+  z-index: 1;
+  width: 7.5rem;
+  height: 6.2rem;
+  object-fit: contain;
+  transform-style: preserve-3d;
+  will-change: opacity, transform;
+}
+
+.intro__archive-text {
+  position: absolute;
+  inset: 0;
+}
+
+.intro__character {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 1.4rem;
+  margin-left: -0.7rem;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  opacity: 0;
+  transform: rotate(var(--character-angle)) translateY(calc(var(--intro-mark-size) / -2 + 1.4rem));
+  will-change: opacity, transform;
+}

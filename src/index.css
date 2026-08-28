@@ -3,6 +3,30 @@
 @import "./styles/reset.css";
 @import "./styles/tokens.css";
 
+.hero-main-panel,
+.hero-profile-panel {
+  visibility: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.hero-main-panel {
+  transform: translateX(-56px);
+}
+
+.hero-profile-panel {
+  transform: translateX(56px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-main-panel,
+  .hero-profile-panel {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .skills-card-list {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
