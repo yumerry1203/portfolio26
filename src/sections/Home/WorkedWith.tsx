@@ -7,18 +7,18 @@ import HyundaiCapital from "@/assets/images/hyundai-capital.svg";
 import BeautyPoint from "@/assets/images/beauty-point.svg";
 import Cleverse from "@/assets/images/cleverse.svg";
 import HaruShare from "@/assets/images/haru-share.svg";
-import Koen from "@/assets/images/koen.svg";
+import Koen from "@/assets/images/koen-transparent.png";
 import Samsung from "@/assets/images/samsung.svg";
 import Moggoji from "@/assets/images/moggoji.svg";
 
 const logos = [
   { name: "Classic Blanc", src: ClassicBlanc },
   { name: "Hyundai Card", src: HyundaiCard },
-  { name: "Hyundai Capital", src: HyundaiCapital },
   { name: "Beauty Point", src: BeautyPoint },
   { name: "Cleverse", src: Cleverse },
   { name: "Haru Share", src: HaruShare },
   { name: "Koen", src: Koen },
+  { name: "Hyundai Capital", src: HyundaiCapital },
   { name: "Samsung", src: Samsung },
   { name: "Moggoji", src: Moggoji },
 ];
@@ -65,6 +65,7 @@ const WorkedWith = () => {
               <img
                 src={logo.src}
                 alt={logo.name}
+                className="h-64 w-220 object-contain grayscale contrast-125"
               />
             </li>
           ))}
