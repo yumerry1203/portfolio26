@@ -6,16 +6,18 @@ import { educations } from "@/data/AboutMe/aboutme";
 const Education = () => {
   return (
     <div className="w-486">
-      <AboutTitle
-        title="교육"
-        icon={IconEducation}
-      />
+      <div className="about-education-title">
+        <AboutTitle
+          title="교육"
+          icon={IconEducation}
+        />
+      </div>
       <ol className="mt-24 flex flex-col gap-20">
         {educations.map((item) => {
           return (
             <li
               key={item.id}
-              className="bg-muted rounded-md shadow-[var(--shadow-white)] py-16 px-32"
+              className="about-education-card bg-muted rounded-md shadow-[var(--shadow-white)] py-16 px-32"
             >
               <AboutmeCard
                 variant="education"

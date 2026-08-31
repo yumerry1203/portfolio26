@@ -11,14 +11,16 @@ const Hero = () => {
   const mainPanelRef = useRef<HTMLDivElement>(null);
   const profilePanelRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
+  const sparklesRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
     const mainPanel = mainPanelRef.current;
     const profilePanel = profilePanelRef.current;
     const buttons = buttonsRef.current;
+    const sparkles = sparklesRef.current?.children;
 
-    if (!hero || !mainPanel || !profilePanel || !buttons) return;
+    if (!hero || !mainPanel || !profilePanel || !buttons || !sparkles) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const context = gsap.context(() => {
@@ -27,6 +29,7 @@ const Hero = () => {
       if (reduceMotion) {
         timeline
           .set([mainPanel, profilePanel], { x: 0, opacity: 1 })
+          .set(sparkles, { autoAlpha: 1, scale: 1 })
           .fromTo(buttons, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
         return;
       }
@@ -35,7 +38,9 @@ const Hero = () => {
         .set([mainPanel, profilePanel], { visibility: "visible" })
         .to(mainPanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" })
         .to(profilePanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, "<0.1")
-        .fromTo(buttons, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.05");
+        .fromTo(buttons, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.05")
+        .fromTo(sparkles, { autoAlpha: 0, scale: 0.35, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.2, stagger: 0.08, ease: "back.out(2.5)" }, "-=0.05")
+        .to(sparkles, { autoAlpha: 0, scale: 1.45, duration: 0.24, stagger: 0.06, ease: "power2.in" });
     }, hero);
 
     return () => context.revert();
@@ -65,9 +70,17 @@ const Hero = () => {
           </Badge>
           <img 
             src={Profile} 
-            className="absolute w-253 bottom-3 left-174"
+            className="absolute w-270 bottom-3 left-190"
             alt="나유형 프로필 사진"               
           /> 
+          <div ref={sparklesRef} className="pointer-events-none absolute left-406 top-98 z-20 h-42 w-42" aria-hidden="true">
+            <svg className="absolute left-0 top-13 h-22 w-22 text-primary opacity-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="m12 0 1.2 10.8L24 12l-10.8 1.2L12 24l-1.2-10.8L0 12l10.8-1.2L12 0Z" />
+            </svg>
+            <svg className="absolute right-0 top-0 h-16 w-16 text-secondary opacity-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="m12 0 1.2 10.8L24 12l-10.8 1.2L12 24l-1.2-10.8L0 12l10.8-1.2L12 0Z" />
+            </svg>
+          </div>
           {/* <span className="absolute top-34 right-34 font-heading text-secondary text-lg text-right">
             Front-end Developer · Web<br /> 
             Publisher
