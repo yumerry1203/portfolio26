@@ -16,11 +16,8 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
           alt={`${project.title} 프로젝트 미리보기`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {project.isNew && (
-          <ProjectStatusBadge status="new" className="absolute left-10 top-10 !rounded-sm" />
-        )}
-        {project.isInProgress && (
-          <ProjectStatusBadge status="inProgress" className="absolute right-10 top-10" />
+        {project.status && (
+          <ProjectStatusBadge status={project.status} />
         )}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 bg-black/70 px-24 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
           <button
@@ -52,12 +49,14 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
       </Badge>
 
       <div className="p-20 pt-30">
-        <div className="flex flex-wrap gap-x-10 gap-y-4 text-xs font-bold text-accent">
-          {project.category.map((category) => (
-            <span key={category} className="before:mr-5 before:content-['▪']">{category}</span>
-          ))}
-        </div>
-        <h3 className="mt-8 font-heading text-xl font-bold">{project.title}</h3>
+        {project.category.length > 0 && (
+          <div className="flex flex-wrap gap-x-10 gap-y-4 text-xs font-bold text-accent">
+            {project.category.map((category) => (
+              <span key={category} className="before:mr-5 before:content-['▪']">{category}</span>
+            ))}
+          </div>
+        )}
+        <h3 className={`${project.category.length > 0 ? "mt-8" : ""} font-heading text-xl font-bold`}>{project.title}</h3>
         <p className="mt-5 text-sm text-white/80">{project.description}</p>
       </div>
     </article>

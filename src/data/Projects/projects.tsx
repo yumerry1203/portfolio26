@@ -46,7 +46,7 @@ export const projects: Project[] = [
     contribution: "퍼블리싱 60%",
     image: ImgMoggoji,
     detail: {
-      links: "https://apps.apple.com/ph/app/%EB%AA%A8%EA%BC%AC%EC%A7%80-%ED%96%89%EC%82%AC%EC%9D%98-%EC%8B%9C%EC%9E%91/id6768188369",
+      links: "https://moggoji.kr/",
       heroImages: [
         Moggoji01,
         Moggoji02,

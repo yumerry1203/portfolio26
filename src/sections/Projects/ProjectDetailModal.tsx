@@ -128,7 +128,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                         <ul className="mt-20 space-y-10 text-sm leading-relaxed">
                           {section.description.map((item, index) => (
                             <li key={`${project.id}-${section.number}-description-${index}`} className="flex items-start gap-12">
-                              <DotLabel variant="red" className="mt-7 h-8 w-8 shrink-0 rounded-none" />
+                              <DotLabel variant="red" className="mt-8 h-6 w-6 shrink-0 rounded-none" />
                               <span>{item}</span>
                             </li>
                           ))}

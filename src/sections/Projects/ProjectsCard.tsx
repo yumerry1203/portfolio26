@@ -3,9 +3,13 @@ import linkPurpleIcon from "@/assets/images/ico-link-purple.svg";
 import unlinkIcon from "@/assets/images/ico-unlink-gray.svg";
 import Badge from "@/components/common/Badge";
 import type { Project } from "@/type/project";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DotLabel from "@/components/common/DotLabel";
 import Button from "@/components/common/Button";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ProjectsCardProps {
   project: Project;
@@ -16,12 +20,44 @@ interface ProjectsCardProps {
 
 const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardProps) => {
   const [activeAction, setActiveAction] = useState<"detail" | "link" | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const projectLink = project.detail.links?.trim();
   const isLink = Boolean(projectLink);
   const isLinkActive = activeAction === "link";
 
+  useLayoutEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const context = gsap.context(() => {
+      if (reduceMotion) {
+        gsap.set(card, { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      gsap.fromTo(
+        card,
+        { autoAlpha: 0, y: 44 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    }, card);
+
+    return () => context.revert();
+  }, []);
+
   return (
-    <div className="flex flex-col">
+    <div ref={cardRef} className="flex flex-col">
       <div className={`flex gap-60 justify-between ${index % 2 === 1 ? "flex-row-reverse" : ""}`}>
           <img
             src={project.image}

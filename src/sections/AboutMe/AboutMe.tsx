@@ -47,18 +47,19 @@ const AboutMe = () => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 72%",
-          toggleActions: "play none none reverse",
+          start: "top 85%",
+          toggleActions: "play none none none",
+          fastScrollEnd: true,
         },
       });
 
       timeline
-        .fromTo(introItems, { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.12, ease: "power3.out" })
-        .fromTo([experienceTitle, educationTitle, certificationTitle], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power3.out" }, "-=0.2")
-        .fromTo(experienceLine, { autoAlpha: 0, scaleY: 0 }, { autoAlpha: 1, scaleY: 1, duration: 0.7, ease: "power2.out" }, "-=0.1")
-        .fromTo(experienceCards, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.14, ease: "power3.out" }, "-=0.15")
-        .fromTo(educationCards, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.14, ease: "power3.out" }, "-=0.5")
-        .fromTo(certificationCards, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.14, ease: "power3.out" }, "-=0.3");
+        .fromTo(introItems, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.07, ease: "power3.out" })
+        .fromTo([experienceTitle, educationTitle, certificationTitle], { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.06, ease: "power3.out" }, "-=0.18")
+        .fromTo(experienceLine, { autoAlpha: 0, scaleY: 0 }, { autoAlpha: 1, scaleY: 1, duration: 0.42, ease: "power2.out" }, "-=0.14")
+        .fromTo(experienceCards, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.08, ease: "power3.out" }, "-=0.16")
+        .fromTo(educationCards, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.08, ease: "power3.out" }, "-=0.32")
+        .fromTo(certificationCards, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.08, ease: "power3.out" }, "-=0.24");
     }, section);
 
     return () => context.revert();
@@ -75,7 +76,7 @@ const AboutMe = () => {
             <h3 className="text-2xl font-heading font-bold">Fronted Developer & Web Publisher</h3>
             <p className="mt-12 text-base">
               4년간 다양한 웹 서비스를 구축하며, 사용자 경험과 유지보수를 고려한 인터페이스를 만드는 데 집중했습니다.<br />
-              React와 TypeScript를 활용한 컴포넌트 기반 개발 경험도 보유하고 있습니다.
+              React&Vue3와 TypeScript를 활용한 컴포넌트 기반 개발 경험도 보유하고 있습니다.
             </p>
           </div>
         </div>

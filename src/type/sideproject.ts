@@ -6,8 +6,7 @@ export interface Sideproject {
   title: string;
   description: string;
   image: string;
-  isNew?: boolean;
-  isInProgress?: boolean;
+  status?: "new" | "inProgress";
   link?: string;
   viewImg?:string;
 }

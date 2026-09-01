@@ -66,7 +66,7 @@ const Hero = () => {
             className="absolute bottom-[102%] right-8 gap-8 font-heading"
           >
             <DotLabel variant="green" />
-            August 2026
+            September 2026
           </Badge>
           <img 
             src={Profile} 

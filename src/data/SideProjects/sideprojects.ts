@@ -12,8 +12,19 @@ import ImgDalock from "@/assets/images/img-dalock.svg"
 import ImgAir from "@/assets/images/img-air.svg"
 import ImgMg from "@/assets/images/img-mg.svg"
 import ViewMg from "@/assets/images/view-mg.svg"
+import ImgNote from "@/assets/images/Img-note.svg"
 
 export const sideproject: Sideproject[] = [
+  {
+    id: "react-practice-note",
+    year: "2026",
+    category: [],
+    title: "React 개인 연습 노트",
+    description: "React 구현 방식과 트러블슈팅 과정을 기록하는 개인 학습 노트",
+    image: ImgNote,
+    status: "inProgress",
+    link: "https://yumerry1203.github.io/react-practice-note/",
+  },
   {
     id: "shake-shack",
     year: "2024",
@@ -21,7 +32,6 @@ export const sideproject: Sideproject[] = [
     title: "쉐이크쉑",
     description: "쉐이크쉑 App 리뉴얼",
     image: ImgShake,
-    isNew: true,
     viewImg:ViewShake,
   },
   {
@@ -50,7 +60,6 @@ export const sideproject: Sideproject[] = [
     title: "미래에셋",
     description: "App 리뉴얼",
     image: ImgMirae,
-    isInProgress: true,
     link: "https://yumerry1203.github.io/mobile/",
   },
   {
