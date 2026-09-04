@@ -106,7 +106,7 @@ export const projects: Project[] = [
     category: ["Web"],
     title: "보험 상담지원 솔루션, ISP",
     description:"보험 설계사의 고객 관리·보장 분석·상품 비교·맞춤 리포트 제작을 하나로 연결한 상담 업무 통합 플랫폼",
-    period: "2025.08 ~ 2025.12",
+    period: "2025.08 ~ 2025.10",
     skills: [
       "Vue 3",
       "TypeScript",
