@@ -39,7 +39,7 @@ const SideProjectModal = ({ project, onClose }: SideProjectModalProps) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-[90vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black shadow-2xl">
+      <div className="flex max-h-[90vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
         <header className="shrink-0 flex items-center justify-between bg-[#ffffff] border-b border-black/10 py-20 md:px-60 md:py-20">
           <p className="font-heading text-2xl font-bold text-gray-dark">{project.title} 작업 과정</p>
           <button

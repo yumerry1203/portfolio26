@@ -3,21 +3,13 @@ import type { Project } from "@/type/project";
 import ImgCleverse from "@/assets/images/img-cleverse.svg"
 import ImgIsp from "@/assets/images/img-isp.svg"
 import ImgMoggoji from "@/assets/images/img-moggoji.svg"
-import Moggoji01 from "@/assets/images/moggoji-01.svg"
-import Moggoji02 from "@/assets/images/moggoji-02.svg"
-import Moggoji03 from "@/assets/images/moggoji-03.svg"
-import Moggoji04 from "@/assets/images/moggoji-04.svg"
-import Moggoji05 from "@/assets/images/moggoji-05.svg"
-import Moggoji06 from "@/assets/images/moggoji-06.svg"
-import Moggoji07 from "@/assets/images/moggoji-07.svg"
-import Moggoji08 from "@/assets/images/moggoji-08.svg"
-import Isp01 from "@/assets/images/isp-01.svg"
-import Isp02 from "@/assets/images/isp-02.svg"
-import Isp03 from "@/assets/images/isp-03.svg"
-import Isp04 from "@/assets/images/isp-04.svg"
-import Isp05 from "@/assets/images/isp-05.svg"
-import Isp06 from "@/assets/images/isp-06.svg"
-import Isp07 from "@/assets/images/isp-07.svg"
+import Moggoji01 from "@/assets/images/img-moggoji-01.svg"
+import Moggoji02 from "@/assets/images/img-moggoji-02.svg"
+import Moggoji03 from "@/assets/images/img-moggoji-03.svg"
+import Moggoji04 from "@/assets/images/img-moggoji-04.svg"
+import Isp01 from "@/assets/images/img-isp-01.svg"
+import Isp02 from "@/assets/images/img-isp-02.svg"
+import Isp03 from "@/assets/images/img-isp-03.svg"
 import Cleverse01 from "@/assets/images/cleverse-01.svg"
 import Cleverse02 from "@/assets/images/cleverse-02.svg"
 import Cleverse03 from "@/assets/images/cleverse-03.svg"
@@ -47,10 +39,7 @@ export const projects: Project[] = [
     image: ImgMoggoji,
     detail: {
       links: "https://moggoji.kr/",
-      heroImages: [
-        Moggoji01,
-        Moggoji02,
-      ],
+      heroImage: Moggoji01,
       role: "모바일 앱·웹 어드민·랜딩 페이지 화면 UI 구현",      
       workPeriod: "6개월",
       overview: "보험 설계사를 위한 온·오프라인 통합 행사 운영 플랫폼입니다.운영자는 웹 어드민에서 행사, 조직, 구성원, 참가자 정보와 운영 항목을 관리하고, 참가자는 모바일 앱에서 행사 일정과 안내를 확인할 수 있습니다",
@@ -74,7 +63,7 @@ export const projects: Project[] = [
             "로그인, 회원가입, 아이디·비밀번호 찾기, 초대 처리",
             "프로필·소속 조직·설정·탈퇴 등 내 정보 관리"
           ],
-          images: [ Moggoji03, Moggoji04, Moggoji05 ],
+          image: Moggoji02,
         },
         {
           number: "02",
@@ -89,7 +78,7 @@ export const projects: Project[] = [
             "교통수단, 객실 배정 등 행사 운영 항목 관리",
             "테이블, 입력 폼, 드롭다운, 모달 등 반복 UI 컴포넌트 적용"
           ],
-          images: [Moggoji06],
+          image: Moggoji03,
         },
         {
           number: "03",
@@ -103,7 +92,7 @@ export const projects: Project[] = [
             "다양한 디바이스 환경에서도 일관된 경험을 제공하도록 반응형 UI를 구현",
             "사용자 흐름에 맞는 CTA 버튼을 배치해 서비스 문의 및 이용으로 연결",
           ],
-          images: [Moggoji07, Moggoji08],
+          image: Moggoji04,
 
 				},
       ],
@@ -127,10 +116,7 @@ export const projects: Project[] = [
     contribution: "퍼블리싱 50%",
     image: ImgIsp,
     detail: {
-      heroImages: [
-        Isp01,
-        Isp02,
-      ],
+      heroImage: Isp01,
       role: "웹 플랫폼·모바일 웹뷰 UI 구현",      
       workPeriod: "6개월",
       overview: "보험 설계사가 고객 정보를 관리하고, 보험 보장을 분석·비교하여 맞춤형 상담과 설계를 진행할 수 있도록 지원하는 통합 보험 상담 플랫폼입니다.",
@@ -149,7 +135,7 @@ export const projects: Project[] = [
             "설계사의 편리함을 위한 일정관리 캘린더 구현",
             "테이블, 검색·필터, 입력 폼, 상세 화면 등 반복 UI 컴포넌트 적용"
           ],
-          images: [ Isp03, Isp04 ],
+          image: Isp02,
         },
         {
           number: "02",
@@ -162,7 +148,7 @@ export const projects: Project[] = [
             "폼 항목별 상태와 입력 흐름을 고려한 인터랙션 구현",
             "웹 플랫폼의 상담 프로세스와 연결되는 모바일 입력 경험 제공",
           ],
-          images: [Isp05, Isp06, Isp07],
+          image: Isp03,
         },
       ],
     },
@@ -184,9 +170,7 @@ export const projects: Project[] = [
     contribution: "퍼블리싱 40%",
     image: ImgCleverse,
     detail: {
-      heroImages: [
-        Cleverse01,
-      ],
+      heroImage: Cleverse01,
       role: "화면 UI 구현 · 공통 컴포넌트 설계 · API 응답 기반 화면 처리",      
       workPeriod: "10개월",
       overview: "한화 그룹 내부 임직원의 결재·일정·공지·문서 업무를 통합하고, 더 빠르고 일관된 협업 경험을 업무 효율성과 사용성을 개선",
@@ -203,7 +187,7 @@ export const projects: Project[] = [
             "업무 정보를 전달하는 게시판 목록·상세·댓글 UI 구현",
             "조직 구성원을 검색하고 필요한 사람을 빠르게 찾는 사람 조회 기능 구현"
           ],
-          images: [ Cleverse02 ],
+          image: Cleverse02,
         },
         {
           number: "02",
@@ -218,7 +202,7 @@ export const projects: Project[] = [
             "나만 볼 수 있는 비공개 데이터와 협업 보드 데이터의 화면 분리",
             "개인 전용 노트 작성·수정·삭제 기능 구현",
           ],
-          images: [Cleverse03],
+          image: Cleverse03,
         },
         {
           number: "03",
@@ -231,7 +215,7 @@ export const projects: Project[] = [
             "게시글, 댓글, 멘션 등 주요 협업 정보 확인 기능 구현",
             "전자결재·게시판·파일 등 핵심 업무 정보의 모바일 조회 화면 적용",
           ],
-          images: [Cleverse04],
+          image: Cleverse04,
         },
       ],
     },

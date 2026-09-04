@@ -44,7 +44,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-full w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black shadow-2xl">
+      <div className="flex max-h-full w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
         <header className="shrink-0 flex items-center justify-between bg-[#ffffff] border-b border-black/10 py-20 md:px-60 md:py-20">
           <p className="font-heading text-2xl font-bold text-gray">Project Detail</p>
           <button
@@ -77,12 +77,12 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             )}
           </div>
 
-          <div className="mt-40 grid gap-20 md:grid-cols-2">
-            {detail.heroImages.map((image, index) => (
-              <div key={`${project.id}-hero-${index}`} className="flex aspect-[1.45/1] items-center justify-center overflow-hidden bg-gray-dark/5">
-                <img src={image} alt={`${project.title} 대표 화면 ${index + 1}`} className="h-full w-full object-contain" />
-              </div>
-            ))}
+          <div className="mt-40">
+            <img
+              src={detail.heroImage}
+              alt={`${project.title} 대표 화면`}
+              className="block h-auto w-full"
+            />
           </div>
 
           <dl className="mt-40 grid gap-20 rounded-md bg-[#F9F8FB] p-24 md:grid-cols-4 md:gap-0 md:p-30">
@@ -118,7 +118,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             <div className="mt-36 space-y-60">
               {detail.sections.map((section) => (
                 <article key={`${project.id}-${section.number}`} className="border-b border-black/15 pb-40 last:border-b-0">
-                  <div className={`grid items-center gap-30 ${section.images?.length ? "md:grid-cols-2" : ""}`}>
+                  <div className={`grid items-center gap-30 ${section.image ? "md:grid-cols-2" : ""}`}>
                     <div>
                       <h4 className="text-2xl font-bold leading-snug">
                         <span className="text-primary">{section.number}. </span>
@@ -135,17 +135,12 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                         </ul>
                       )}
                     </div>
-                    {section.images?.length && (
-                      <div className="grid grid-cols-2 gap-12">
-                        {section.images.map((image, imageIndex) => (
-                          <img
-                            key={`${project.id}-${section.number}-${imageIndex}`}
-                            src={image}
-                            alt={`${project.title} 주요 작업 ${section.number}-${imageIndex + 1}`}
-                            className="aspect-[1.2/1] w-full object-contain shadow-[var(--shadow-base)]"
-                          />
-                        ))}
-                      </div>
+                    {section.image && (
+                      <img
+                        src={section.image}
+                        alt={`${project.title} 주요 작업 ${section.number}`}
+                        className="block h-auto w-full"
+                      />
                     )}
                   </div>
                 </article>

@@ -5,7 +5,7 @@ export interface ProjectDetailSection {
   number: string;
   title: ReactNode;
   description?: ReactNode[];
-  images?: string[];
+  image?: string;
 }
 
 export interface Project {
@@ -22,7 +22,7 @@ export interface Project {
   // 상세 팝업
   detail: {
     links?:string;
-    heroImages: string[];
+    heroImage: string;
     role: string;
     workPeriod: string;
     overview: ReactNode;
