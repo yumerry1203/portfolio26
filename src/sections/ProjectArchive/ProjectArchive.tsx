@@ -43,11 +43,11 @@ const ProjectArchive = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="project-archive" className="relative overflow-hidden bg-black py-80 md:py-120">
+    <section ref={sectionRef} id="project-archive" className="relative overflow-hidden bg-black py-60 sm:py-80 md:py-48">
       <div ref={wipeRef} aria-hidden="true" className="absolute inset-0 origin-left scale-x-0 bg-gray-dark" />
       <div ref={contentRef} className="content-container relative z-10">
         <ExpandingToast />
-        <div className="mt-34">
+        <div className="mt-16 sm:mt-34">
           {archiveProjects.map((project) => (
             <ProjectArchiveCard key={project.id} project={project} />
           ))}

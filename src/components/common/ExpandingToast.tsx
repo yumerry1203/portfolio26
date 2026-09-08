@@ -29,16 +29,16 @@ const ExpandingToast = ({
   }, []);
 
   return (
-    <div ref={alertRef} className="flex justify-center py-40" aria-live="polite">
+    <div ref={alertRef} className="flex justify-center py-24 sm:py-40" aria-live="polite">
       <div
-        className={`flex h-56 items-center justify-center shadow-[var(--shadow-base)] overflow-hidden rounded-full bg-white px-28 transition-[width,transform] duration-700 ease-out motion-reduce:transition-none ${
+        className={`flex min-h-48 items-center justify-center overflow-hidden rounded-full bg-[#ffffff] px-14 py-10 shadow-[var(--shadow-base)] transition-[width,transform] duration-700 ease-out motion-reduce:transition-none sm:h-56 sm:px-28 sm:py-0 ${
           isVisible ? "w-full max-w-760 scale-100" : "w-74 scale-90"
         }`}
       >
-        <div className={`flex items-center gap-16 whitespace-nowrap transition-opacity duration-300 delay-400 motion-reduce:transition-none ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <DotLabel variant="purpleLightLine" className="size-22 shrink-0 border-0 bg-gradient" />
-          <strong className="mt-2 font-heading text-xl text-black">{title}</strong>
-          <span className="text-lg text-gray-dark">{description}</span>
+        <div className={`flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center whitespace-normal transition-opacity duration-300 delay-400 motion-reduce:transition-none sm:flex-nowrap sm:gap-16 sm:whitespace-nowrap ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <DotLabel variant="purpleLightLine" className="size-16 shrink-0 border-0 bg-gradient sm:size-22" />
+          <strong className="font-heading text-base text-black sm:mt-2 sm:text-xl">{title}</strong>
+          <span className="w-full text-xs leading-snug text-gray-dark sm:w-auto sm:text-lg">{description}</span>
         </div>
       </div>
     </div>

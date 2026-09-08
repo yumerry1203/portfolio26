@@ -58,14 +58,14 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
 
   return (
     <div ref={cardRef} className="flex flex-col">
-      <div className={`flex gap-60 justify-between ${index % 2 === 1 ? "flex-row-reverse" : ""}`}>
+      <div className={`flex flex-col gap-30 justify-between xl:flex-row xl:gap-60 ${index % 2 === 1 ? "xl:flex-row-reverse" : ""}`}>
           <img
             src={project.image}
             alt={`${project.title} 화면`}
-            className="h-full w-full max-w-470 object-contain rounded-md shadow-[var(--shadow-base)]"
+            className="h-auto w-full self-start rounded-md object-contain shadow-[var(--shadow-base)] xl:max-w-470"
           />
 
-        <div className="flex flex-col min-w-500">
+        <div className="flex min-w-0 flex-1 flex-col xl:min-w-500">
           <div className="flex flex-wrap items-center gap-10">
             <Badge variant="gradient" className="min-w-70 font-heading text-base font-bold text-white">
               {project.year}
@@ -73,7 +73,7 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
             <Badge variant="black" className="min-w-70 font-heading text-base font-bold">
               {project.type}
             </Badge>
-            <div className="flex gap-12 text-base font-bold text-accent font-heading">
+            <div className="flex flex-wrap gap-x-12 gap-y-4 text-sm font-heading font-bold text-accent sm:text-base">
               {project.category.map((category) => (
                 <div key={category} className="flex items-center gap-4">
                   <DotLabel variant="red" className="w-9 h-9 rounded-none"/>
@@ -83,30 +83,30 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
             </div>
           </div>
 
-          <h3 className="mt-18 font-heading text-4xl font-bold leading-tight text-black">
+          <h3 className="mt-18 font-heading text-2xl font-bold leading-tight text-black sm:text-4xl">
             {project.title}
           </h3>
-          <p className="mt-20 text-xl text-gray-dark">
+          <p className="mt-16 text-base text-gray-dark sm:mt-20 sm:text-xl">
             {project.description}
           </p>
 
-          <dl className="mt-16 flex flex-col gap-8 text-lg">
-            <div className="flex gap-35">
+          <dl className="mt-16 flex flex-col gap-8 text-sm sm:text-lg">
+            <div className="flex gap-16 sm:gap-35">
               <dt className="min-w-50 shrink-0 font-bold text-black">기간</dt>
               <dd className="text-gray-dark">{project.period}</dd>
             </div>
-            <div className="flex gap-35">
+            <div className="flex gap-16 sm:gap-35">
               <dt className="min-w-50 shrink-0 font-bold text-black">기술</dt>
               <dd className="text-gray-dark">{project.skills.join(" · ")}</dd>
             </div>
-            <div className="flex gap-35">
+            <div className="flex gap-16 sm:gap-35">
               <dt className="min-w-50 shrink-0 font-bold text-black">기여도</dt>
               <dd className="text-gray-dark">{project.contribution}</dd>
             </div>
           </dl>
 
           <div
-            className="mt-26 flex w-274"
+            className="mt-26 flex w-full max-w-274"
             onMouseLeave={() => setActiveAction(null)}
           >
             <Button
@@ -160,7 +160,7 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
       {!isLast && (
         <div
           aria-hidden="true"
-          className="mt-70 h-2 w-full bg-gradient [mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)] [-webkit-mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)]"
+          className="mt-50 h-2 w-full bg-gradient sm:mt-70 [mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)] [-webkit-mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)]"
         />
       )}
     </div>

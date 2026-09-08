@@ -54,38 +54,40 @@ const AboutmeCard = ({
             variant={styles.dotLabel}
             className={
               variant === "experience"
-                ? `absolute top-0 h-16 w-16 ${isRight ? "-left-8" : "-right-8"}`
-                : "w-16 h-16"
+                ? `absolute top-0 h-16 w-16 max-sm:!left-[calc(var(--spacing)*-24)] max-sm:!right-auto ${isRight ? "-left-8" : "-right-8"}`
+                : "h-14 w-14 sm:h-16 sm:w-16"
             }
           />
 
           <p
-            className={`text-xl font-bold leading-none ${styles.color} ${
+            className={`${variant === "experience" ? "text-xl" : "text-lg sm:text-xl"} font-bold leading-none ${styles.color} ${
               variant === "experience" ? "w-full" : ""
             } ${
-              variant === "experience" && !isRight ? "text-right" : ""
+              variant === "experience" && !isRight ? "text-right max-sm:text-left" : ""
             }`}
           >
             {date}
           </p>
-          {variant === "certifications" &&  (
-            <div className={`text-base font-bold leading-none `}>
+          {variant === "certifications" && (
+            <div className="hidden text-base font-bold leading-none sm:block">
               {title}
-            </div>   
-          )}  
+            </div>
+          )}
         </div>     
           {variant !== "experience" &&  (
-            <p className="text-xs font-bold text-gray leading-none">
+            <p className="text-[1.1rem] font-bold leading-none text-gray sm:text-xs">
               {description}
             </p>
           )}
       </div>
-      {variant !== "certifications" &&  (
-        <div className={`mt-22 text-base font-bold leading-none `}>
+      {variant === "education" && (
+        <div className="mt-14 text-sm font-bold leading-none sm:mt-22 sm:text-base">
           {title}
         </div>   
-        )
-      }
+      )}
+      {variant === "certifications" && (
+        <div className="mt-14 text-sm font-bold leading-none sm:hidden">{title}</div>
+      )}
       {variant === "experience" &&  (
         <p className="mt-16 text-sm font-bold text-gray leading-none">
           {description}

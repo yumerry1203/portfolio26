@@ -1,4 +1,6 @@
-import type { ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import reactIcon from "@/assets/images/ico-react.svg";
 import vueIcon from "@/assets/images/img-vue.svg";
 import htmlIcon from "@/assets/images/img-html.svg";
@@ -6,6 +8,8 @@ import typescriptIcon from "@/assets/images/img-ts.svg";
 import gitIcon from "@/assets/images/img-git.svg";
 import sassIcon from "@/assets/images/img-sass.svg";
 import SkillCard from "./SkillCard";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface SkillItem { id: string; name: string; icon: string; description: ReactNode; }
 
@@ -19,12 +23,50 @@ const skillItems: SkillItem[] = [
   { id: "scss", name: "SCSS", icon: sassIcon, description: <><span className={highlight}>Nesting</span>과 &amp;를 활용해 상태별 스타일을 효율적으로 작성<br />변수와 <span className={highlight}>mixin</span>으로 반복 스타일을 모듈화하고 유지보수성 향상</> },
 ];
 
-const SkillList = () => (
-  <div className="mt-60 min-w-0 flex-1 pl-24 pr-40 pb-40" aria-label="기술 목록">
-    <div className="space-y-40">
+const SkillList = () => {
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+
+    const cards = Array.from(list.children) as HTMLElement[];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const context = gsap.context(() => {
+      if (reduceMotion) {
+        gsap.set(cards, { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      cards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { autoAlpha: 0, y: 28 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.45,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 120%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      });
+    }, list);
+
+    return () => context.revert();
+  }, []);
+
+  return (
+    <div className="mt-20 min-w-0 flex-1 pb-20 sm:mt-60 sm:px-24 sm:pb-40 xl:pr-40" aria-label="기술 목록">
+    <div ref={listRef} className="space-y-32 sm:space-y-40">
       {skillItems.map((skill) => <SkillCard key={skill.id} {...skill} />)}
     </div>
-  </div>
-);
+    </div>
+  );
+};
 
 export default SkillList;

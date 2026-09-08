@@ -6,7 +6,7 @@ interface SkillCardProps {
 
 const SkillCard = ({ name, description, icon }: SkillCardProps) => (
   <article className="relative rounded-lg border-3 border-white bg-gray-dark px-32 py-25">
-    <div className="absolute -top-38 left-24 flex h-75 w-75 items-center justify-center bg-gray-dark p-10">
+    <div className="absolute -top-30 left-20 flex h-60 w-60 items-center justify-center bg-gray-dark p-8 sm:-top-38 sm:left-24 sm:h-75 sm:w-75 sm:p-10">
       <img src={icon} alt="" className="h-full w-full object-contain" />
     </div>
     <div className="flex flex-col gap-18 sm:flex-row sm:items-center">

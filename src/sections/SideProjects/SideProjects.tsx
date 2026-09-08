@@ -21,35 +21,61 @@ const SideProjects = () => {
 
     const cards = Array.from(grid.children) as HTMLElement[];
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const media = gsap.matchMedia();
     const context = gsap.context(() => {
       if (reduceMotion) {
         gsap.set(cards, { autoAlpha: 1, y: 0 });
         return;
       }
 
-      gsap.fromTo(
-        cards,
-        { autoAlpha: 0, y: 120 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.75,
-          ease: "power3.out",
-          stagger: { each: 0.13, from: "random" },
-          scrollTrigger: {
-            trigger: grid,
-            start: "top 78%",
-            toggleActions: "play none none reverse",
+      media.add("(max-width: 639px)", () => {
+        cards.forEach((card) => {
+          gsap.fromTo(
+            card,
+            { autoAlpha: 0, y: 28 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.45,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 120%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        });
+      });
+
+      media.add("(min-width: 640px)", () => {
+        gsap.fromTo(
+          cards,
+          { autoAlpha: 0, y: 120 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            ease: "power3.out",
+            stagger: { each: 0.13, from: "random" },
+            scrollTrigger: {
+              trigger: grid,
+              start: "top 105%",
+              toggleActions: "play none none reverse",
+            },
           },
-        },
-      );
+        );
+      });
     }, grid);
 
-    return () => context.revert();
+    return () => {
+      media.revert();
+      context.revert();
+    };
   }, []);
 
   return (
-    <section className="py-100" id="side-projects">
+    <section className="py-32 sm:py-100" id="side-projects">
       <div className="content-container">
         <SectionTitle number="03" title="SIDE PROJECTS" subTit="Personal Work" />
         <div className="mt-15">

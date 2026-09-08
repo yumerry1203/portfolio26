@@ -35,3 +35,9 @@ body {
   );
   margin-inline: auto;
 }
+
+@media (max-width: 639px) {
+  .content-container {
+    width: min(100% - 3.2rem, var(--container-width));
+  }
+}

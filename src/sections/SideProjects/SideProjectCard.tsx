@@ -19,7 +19,7 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
         {project.status && (
           <ProjectStatusBadge status={project.status} />
         )}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 bg-black/70 px-24 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 bg-black/70 px-24 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
           <button
             type="button"
             disabled={!project.viewImg}

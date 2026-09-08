@@ -46,25 +46,38 @@
   /* Primitive Colors */
 
   --white: #FFFCF5;
-  /* --white: #FFFFFF; */
   --black: #141414;
-
   --gray-dark: #2F2F2F;
   --gray: #999999;
-
   --muted: rgba(78, 78, 78, 0.34);
-
   --purple: #CEA6E0;
   --purple-light: #F1DBFA;
-
   --red: #EC563B;
   --green: #74D07D;
-
   --gradient: linear-gradient(135deg, #AEC7D8 0%, #CEA6E0 100%);
 
+  /* Semantic aliases used by regular CSS outside Tailwind utilities */
+  --background: var(--black);
+  --foreground: var(--white);
+  --primary: var(--purple);
+  --primary-foreground: var(--black);
+  --secondary: var(--purple-light);
+  --secondary-foreground: var(--black);
+  --accent: var(--red);
+  --accent-foreground: var(--white);
+  --destructive: var(--red);
+  --destructive-foreground: var(--white);
+  --border: var(--gray);
+  --border-white: var(--white);
+
   /* Typography */
-  --font-body: "LINE Seed KR", sans-serif;
-  --font-heading: "SEBANG Gothic", sans-serif;
+  --token-font-body: "LINE Seed KR", sans-serif;
+  --token-font-heading: "SEBANG Gothic", sans-serif;
+  --token-font-point: "Sarina", cursive;
+
+  --font-body: var(--token-font-body);
+  --font-heading: var(--token-font-heading);
+  --font-point: var(--token-font-point);
 
   /* Weight */
   --fw-100: 100; /* font-thin */
@@ -72,9 +85,13 @@
   --fw-700: 700; /* font-bold */
 
   /*  Shadow  */
-  --shadow-white :0.2rem 0.1rem 0 0 rgba(255, 255, 255, 0.25);
-  --shadow-base: 0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.1);
-  --shadow-gray: 0 0.5rem 1.8rem rgba(0, 0, 0, 0.22);
+  --token-shadow-white: 0.2rem 0.1rem 0 0 rgba(255, 255, 255, 0.25);
+  --token-shadow-base: 0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.1);
+  --token-shadow-gray: 0 0.5rem 1.8rem rgba(0, 0, 0, 0.22);
+
+  --shadow-white: var(--token-shadow-white);
+  --shadow-base: var(--token-shadow-base);
+  --shadow-gray: var(--token-shadow-gray);
 
   /* Layout */
   --container-width: 130rem;
@@ -94,48 +111,30 @@
   --text-6xl: 5.2rem;   
   --text-7xl: 6rem;   
 
-  --color-black:var(--black);
-  --color-white:var(--white);
-  --color-gray-dark:var(--gray-dark);
-
-  --background: var(--black);
-  --foreground: var(--white);
-
-  --primary: var(--purple);
-  --primary-foreground: var(--black);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --color-gray-dark: var(--gray-dark);
 
   --color-primary: var(--purple);
   --color-primary-foreground: var(--black);
 
-  --secondary: var(--purple-light);
-  --secondary-foreground: var(--black);
-
   --color-secondary: var(--purple-light);
   --color-secondary-foreground: var(--black);
 
-  --accent: var(--red);
-  --accent-foreground: var(--white);
-
   --color-accent: var(--red);
-  --accent-foreground: var(--white);
+  --color-accent-foreground: var(--white);
 
-  --color-muted:var(--muted);
-  --color-green:var(--green);
-  --color-gray:var(--gray);
-
-  --destructive: var(--red);
-  --destructive-foreground: var(--white);
+  --color-muted: var(--muted);
+  --color-green: var(--green);
+  --color-gray: var(--gray);
 
   --background-image-gradient: var(--gradient);
 
-  --border: var(--gray);
-  --border-white: var(--white);
-
   --spacing: 0.1rem;
 
-  --font-body: "LINE Seed KR", sans-serif;
-  --font-heading: "SEBANG Gothic", sans-serif;
-  --font-point: "Sarina", cursive;
+  --font-body: var(--token-font-body);
+  --font-heading: var(--token-font-heading);
+  --font-point: var(--token-font-point);
 
   /* Radius */
   --radius-sm: 0.8rem;
@@ -144,5 +143,7 @@
   --radius-xl: 3.2rem;
   --radius-full: 99rem;
 
-  --shadow-gray: var(--shadow-gray);
+  --shadow-white: var(--token-shadow-white);
+  --shadow-base: var(--token-shadow-base);
+  --shadow-gray: var(--token-shadow-gray);
 }

@@ -18,6 +18,27 @@
   transform: translateX(56px);
 }
 
+/* Keep the desktop composition intact at xl, then scale the complete hero
+   proportionally through the narrow desktop range. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-stage {
+    height: calc(53.3rem * var(--hero-scale, 1));
+  }
+
+  .hero-stage .hero-main-panel,
+  .hero-stage .hero-profile-panel {
+    scale: var(--hero-scale, 1);
+  }
+
+  .hero-stage .hero-main-panel {
+    transform-origin: left top;
+  }
+
+  .hero-stage .hero-profile-panel {
+    transform-origin: right top;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-main-panel,
   .hero-profile-panel {

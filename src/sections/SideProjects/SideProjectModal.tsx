@@ -32,16 +32,16 @@ const SideProjectModal = ({ project, onClose }: SideProjectModalProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-16 md:p-32 backdrop-blur"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-10 sm:p-16 md:p-32 backdrop-blur"
       role="dialog"
       aria-modal="true"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-[90vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
-        <header className="shrink-0 flex items-center justify-between bg-[#ffffff] border-b border-black/10 py-20 md:px-60 md:py-20">
-          <p className="font-heading text-2xl font-bold text-gray-dark">{project.title} 작업 과정</p>
+      <div className="flex max-h-[94vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
+        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-[#ffffff] px-20 py-16 sm:px-32 sm:py-20 md:px-60">
+          <p className="font-heading text-xl font-bold text-gray-dark sm:text-2xl">{project.title} 작업 과정</p>
           <button
             type="button"
             aria-label="상세 팝업 닫기"

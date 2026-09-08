@@ -26,7 +26,7 @@ const ContactInfo = ({ icon, label, value, href }: ContactInfoProps) => (
 
 const ContactFooter = () => (
   <footer className="bg-black text-white">
-    <div className="content-container relative min-h-500 px-20 pb-70 pt-90 sm:px-30">
+    <div className="content-container relative min-h-400 px-20 pb-70 pt-70 sm:min-h-500 sm:px-30 sm:pt-90">
       <address className="not-italic">
         <div className="flex items-center gap-8 font-heading text-base text-accent">
           <DotLabel variant="red" />
@@ -49,7 +49,7 @@ const ContactFooter = () => (
         </div>
       </address>
 
-      <nav className="absolute right-20 top-90 text-right sm:right-30" aria-label="Footer navigation">
+      <nav className="absolute right-20 top-70 text-right sm:right-30 sm:top-90" aria-label="Footer navigation">
         <p className="font-heading text-lg text-primary">MENU</p>
         <ul className="mt-16 space-y-8 text-lg leading-none text-white/55">
           <li><a className="transition-colors hover:text-white" href="#home">Intro</a></li>
@@ -60,7 +60,7 @@ const ContactFooter = () => (
         </ul>
       </nav>
 
-      <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-xs text-white/45">
+      <p className="absolute bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap text-[1rem] text-white/45 sm:text-xs">
         © Copyright 2026. NAYUHYEONG All rights reserved.
       </p>
     </div>

@@ -5,14 +5,14 @@ import { experiences } from "@/data/AboutMe/aboutme";
 
 const Experience = () => {
   return (
-    <div className="w-565">
+    <div className="w-full lg:w-565">
       <div className="about-experience-title">
         <AboutTitle
           title="경력"
           icon={IconExperience}
         />
       </div>
-      <ol className="relative mt-80 flex flex-col gap-16 pb-8">
+      <ol className="relative mt-16 flex flex-col gap-16 pb-8 sm:mt-80">
         <li aria-hidden="true" role="presentation" className="about-experience-line absolute inset-y-0 left-1/2 w-px -translate-x-1/2 origin-top bg-white max-sm:left-16" />
         {experiences.map((item, index) => {
           const isRight = index % 2 === 0;
@@ -28,7 +28,7 @@ const Experience = () => {
                 isRight={isRight}
                 className={
                   isRight
-                    ? "col-start-2 pl-52"
+                    ? "col-start-2 pl-52 max-sm:pl-28"
                     : "col-start-1 text-right pr-52 max-sm:col-start-2 max-sm:pl-28 max-sm:pr-0 max-sm:text-left"
                 }
               />

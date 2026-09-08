@@ -36,7 +36,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-16 md:p-32 backdrop-blur"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-10 sm:p-16 md:p-32 backdrop-blur"
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-detail-title"
@@ -44,9 +44,9 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-full w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
-        <header className="shrink-0 flex items-center justify-between bg-[#ffffff] border-b border-black/10 py-20 md:px-60 md:py-20">
-          <p className="font-heading text-2xl font-bold text-gray">Project Detail</p>
+      <div className="flex max-h-[94vh] w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
+        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-[#ffffff] px-20 py-16 sm:px-32 sm:py-20 md:px-60">
+          <p className="font-heading text-xl font-bold text-gray sm:text-2xl">Project Detail</p>
           <button
             type="button"
             aria-label="상세 팝업 닫기"
@@ -57,9 +57,9 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
           </button>
         </header>
 
-        <div className="min-h-0 overflow-y-auto px-32 py-40 md:px-60 md:py-50">
+        <div className="min-h-0 overflow-y-auto px-20 py-28 sm:px-32 sm:py-40 md:px-60 md:py-50">
           <div className="flex flex-wrap items-center gap-16">
-            <h2 id="project-detail-title" className="font-heading text-3xl font-bold leading-tight">
+            <h2 id="project-detail-title" className="font-heading text-2xl font-bold leading-tight sm:text-3xl">
               {project.title}
             </h2>
             {detail.links ? (
@@ -85,16 +85,16 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             />
           </div>
 
-          <dl className="mt-40 grid gap-20 rounded-md bg-[#F9F8FB] p-24 md:grid-cols-4 md:gap-0 md:p-30">
-            <div className="md:border-r md:border-primary">
+          <dl className="mt-28 grid gap-18 rounded-md bg-[#F9F8FB] p-20 sm:mt-40 sm:p-24 md:grid-cols-4 md:gap-0 md:p-30">
+            <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0">
               <dt className="text-xs text-primary font-heading">역할</dt>
               <dd className="mt-6 pr-16 text-xs leading-relaxed">{detail.role}</dd>
             </div>
-            <div className="md:border-r md:border-primary md:pl-24">
+            <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
               <dt className="text-xs text-primary font-heading">기여도</dt>
               <dd className="mt-6 text-xs">{project.contribution}</dd>
             </div>
-            <div className="md:border-r md:border-primary md:pl-24">
+            <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
               <dt className="text-xs text-primary font-heading">기술</dt>
               <dd className="mt-6 text-xs leading-relaxed">{project.skills.join(" · ")}</dd>
             </div>
@@ -105,22 +105,22 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
           </dl>
 
           <section className="mt-44">
-            <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">개요</h3>
+            <h3 className="inline-flex h-32 w-100 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:w-120 sm:text-base">개요</h3>
             <p className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.overview}</p>
           </section>
           <section className="mt-44">
-            <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">담당 역할</h3>
+            <h3 className="inline-flex h-32 w-100 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:w-120 sm:text-base">담당 역할</h3>
             <div className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.responsibility}</div>
           </section>
 
           <section className="mt-60">
-            <h3 className="inline-flex rounded-sm w-120 h-32 items-center justify-center bg-primary text-base text-white font-bold">주요 작업 내용</h3>
+            <h3 className="inline-flex h-32 w-120 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:text-base">주요 작업 내용</h3>
             <div className="mt-36 space-y-60">
               {detail.sections.map((section) => (
                 <article key={`${project.id}-${section.number}`} className="border-b border-black/15 pb-40 last:border-b-0">
-                  <div className={`grid items-center gap-30 ${section.image ? "md:grid-cols-2" : ""}`}>
+                  <div className={`grid items-center gap-24 sm:gap-30 ${section.image ? "md:grid-cols-2" : ""}`}>
                     <div>
-                      <h4 className="text-2xl font-bold leading-snug">
+                      <h4 className="text-xl font-bold leading-snug sm:text-2xl">
                         <span className="text-primary">{section.number}. </span>
                         {section.title}
                       </h4>

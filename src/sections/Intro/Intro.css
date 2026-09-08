@@ -52,3 +52,22 @@
   transform: rotate(var(--character-angle)) translateY(calc(var(--intro-mark-size) / -2 + 1.4rem));
   will-change: opacity, transform;
 }
+
+@media (max-width: 639px) {
+  .intro__mark {
+    --intro-mark-size: 14.4rem;
+  }
+
+  .intro__logo {
+    top: 0.9rem;
+    width: 6rem;
+    height: 5rem;
+  }
+
+  .intro__character {
+    width: 1rem;
+    margin-left: -0.5rem;
+    font-size: 1.8rem;
+    transform: rotate(var(--character-angle)) translateY(calc(var(--intro-mark-size) / -2 + 1rem));
+  }
+}
