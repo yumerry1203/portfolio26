@@ -96,11 +96,11 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
           <dl className="mt-28 grid gap-18 rounded-md bg-[#F9F8FB] p-20 sm:mt-40 sm:p-24 md:grid-cols-[1fr_2fr_2fr_1fr] md:gap-0 md:p-30">
             <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0">
               <dt className="font-heading text-sm text-primary">역할</dt>
-              <dd className="mt-6 pr-16 text-sm leading-relaxed">{detail.role}</dd>
+              <dd className="mt-6 pr-16 text-sm leading-relaxed">{project.role}</dd>
             </div>
             <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
-              <dt className="font-heading text-sm text-primary">담당 범위</dt>
-              <dd className="mt-6 text-sm">{project.contribution}</dd>
+              <dt className="font-heading text-sm text-primary">카테고리</dt>
+              <dd className="mt-6 text-sm">{project.category.join(" · ")}</dd>
             </div>
             <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
               <dt className="font-heading text-sm text-primary">기술</dt>
@@ -141,12 +141,6 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                             </li>
                           ))}
                         </ul>
-                      )}
-                      {project.id !== "isp" && project.id !== "clevers" && (
-                        <p className="mt-20 text-sm leading-relaxed">
-                          <strong className="font-bold">주요 기술 : </strong>
-                          <span className="text-gray-dark">{section.technologies.join(" · ")}</span>
-                        </p>
                       )}
                     </div>
                     {section.image && (
