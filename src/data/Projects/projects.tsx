@@ -25,77 +25,107 @@ export const projects: Project[] = [
     type: "구축",
     category: ["Web", "App", "Landing Page"],
     title: "모꼬지, 행사관리 APP & Admin",
-    description:"행사 운영자와 참가자가 필요한 정보를 편리하게 관리하고 이용할 수 있도록 설계한 통합 행사 운영 플랫폼",
-    period: "2025.12 ~ 2026.06",
+    description:"행사 운영자와 참가자가 필요한 정보를 하나의 서비스에서 관리하고 이용할 수 있도록 구축한 통합 행사 운영 플랫폼",
+    period: "2025.12 – 2026.06",
+    role: "Frontend UI Development",
     skills: [
       "React",
       "TypeScript",
       "ReactNative",
-      "Tailwind",
-      "Shadcn",
-      "Figma",
+      "Expo",
+      "TanStack Query",
+      "Zustand",
     ],
-    contribution: "퍼블리싱 60%",
+    contribution: "Web Admin · Mobile App · Landing Page",
     image: ImgMoggoji,
     detail: {
       links: "https://moggoji.kr/",
       heroImage: Moggoji01,
-      role: "모바일 앱·웹 어드민·랜딩 페이지 화면 UI 구현",      
+      role: "UI Development",
       workPeriod: "6개월",
-      overview: "보험 설계사를 위한 온·오프라인 통합 행사 운영 플랫폼입니다.운영자는 웹 어드민에서 행사, 조직, 구성원, 참가자 정보와 운영 항목을 관리하고, 참가자는 모바일 앱에서 행사 일정과 안내를 확인할 수 있습니다",
-      responsibility: <>
-        <strong className="block">모바일 앱</strong>
-        React Native·Expo 환경에서 참가자용 모바일 앱의 UI를 구현했습니다. Expo Router 기반 화면 전환을 구성하고, 공통 디자인 토큰을 적용해 로그인, 행사 목록·상세, 초대 수락, 내 정보 화면의 일관된 UI를 구현했습니다.
-        <strong className="mt-16 block">웹 어드민</strong>
-        React·TypeScript·Vite 환경에서 행사 운영 웹 어드민의 UI를 구현했습니다.  Tailwind CSS와 shadcn/ui를 서비스 디자인에 맞게 커스텀했습니다. 행사·조직·구성원·참가자 관리 화면을 중심으로 테이블, 검색·필터, 드롭다운, 입력 폼, 모달 등 반복 사용되는 인터페이스를 컴포넌트화했습니다.
+      overview: <>
+        대규모 행사가 잦은 GA 조직의 복잡하고 반복적인 행사 운영 업무를 효율화하기 위해 구축한 통합 행사 운영 플랫폼입니다.<br/>
+
+        행사운영자는 웹 어드민에서 행사, 조직, 구성원, 참가자와 숙박·교통 등 모든 행사 운영 정보를 한번에 관리하고, 참가자는 모바일 앱을 통해 참가 여부부터 행사 일정 및 운영자공지를 실시간으로 확인할 수 있습니다.
       </>,
+      /* responsibility: <>
+        <strong className="mt-16 block">Web Admin</strong>
+        React · TypeScript · Vite 환경에서 행사 운영자가 사용하는 웹 어드민 UI를 구현했습니다.
+        Tailwind CSS와 shadcn/ui를 서비스 디자인에 맞게 커스텀하고, 행사·조직·구성원·참가자 관리 화면에서 반복적으로 사용되는 테이블, 검색·필터, 드롭다운, 입력 폼, 모달 등의 UI를 재사용 가능한 형태로 구성했습니다.<br /><br />
+        <strong className="block">Mobile App</strong>
+        React Native와 Expo 환경에서 참가자용 모바일 앱 UI를 구현했습니다.Expo Router를 기반으로 화면 이동 구조를 구성하고, 공통 디자인 토큰을 적용해 로그인·회원가입, 초대 수락, 행사 목록 및 상세, TODAY 홈, 내 정보 등 주요 사용자 화면을 구현했습니다.<br /><br />
+        <strong className="block">Landing Page</strong>
+        서비스의 주요 기능과 이용 흐름을 효과적으로 전달할 수 있도록 반응형 랜딩 페이지를 구현했습니다.
+      </>, */
       sections: [
         {
           number: "01",
           title: <>
-             <span className="text-primary">참가자용 모바일 앱</span> 에서 초대 수락부터<br />
-             행사 목록·상세 조회, 알림, 내 정보 관리까지<br/>
-             참가자의  <span className="text-primary">주요 이용 흐름</span>을 구현했습니다.
+             행사 정보와 참가자 데이터를 한곳에서 관리할 수 있는 <span className="text-primary">운영자용 Web Admin</span> 을 구현했습니다.<br />
           </>,
           description: [
-            "TODAY 홈에서 당일 행사 정보와 빠른 접근 제공",
-            "행사 일정·옵션 등 상세 정보 확인",
-            "로그인, 회원가입, 아이디·비밀번호 찾기, 초대 처리",
-            "프로필·소속 조직·설정·탈퇴 등 내 정보 관리"
+            "행사·조직·구성원·참가자 관리",
+            "객실·교통수단 등 옵션 및 배정 관리",
+            "검색·필터 기반 데이터 조회",
+            "공통 DataGrid·폼·모달 UI 구현"
           ],
-          image: Moggoji02,
+          technologies: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query", "Zustand"],
+          image: Moggoji03,
         },
         {
           number: "02",
           title: <>
-             <span className="text-primary">대규모 행사</span> 의 복잡한 운영 업무를 빠르고 <br />
-             정확하게 처리할 수 있도록, <br/>
-             운영자용  <span className="text-primary">웹 어드민 페이지</span>를 구현했습니다.
+             행사 초대부터 행사 당일까지 이어지는 참가자의 주요 이용 흐름을<span className="text-primary"> 모바일 APP </span> 으로 구현했습니다.
           </>,
           description: [
-            "행사·조직·구성원 관리 화면 구현",
-            "참가자 현황 조회 및 검색·필터 인터랙션 구성",
-            "교통수단, 객실 배정 등 행사 운영 항목 관리",
-            "테이블, 입력 폼, 드롭다운, 모달 등 반복 UI 컴포넌트 적용"
+            "TODAY 기반 당일 일정·날씨 정보 제공",
+            "행사 일정·옵션 및 개인 배정 정보 조회",
+            "로그인·회원가입·초대 처리",
+            "알림·프로필·소속 조직 등 내정보 관리"
           ],
-          image: Moggoji03,
+          technologies: ["React Native", "Expo Router", "TanStack Query", "Zustand", "NativeWind"],
+          image: Moggoji02,
         },
         {
           number: "03",
           title: <>
-             모꼬지 서비스의 <span className="text-primary">핵심 가치를<br/> 효과적으로 전달 </span> 하고 <br />
-             이용을 유도할 수 있도록, 
-             <span className="text-primary">반응형 랜딩 페이지</span>를 구현했습니다.
+            서비스 소개와 도입 문의를 위한 반응형<span className="text-primary"> Landing Page</span> 를 구현했습니다. <br />
           </>,
           description: [
-            "서비스 소개, 주요 기능, 이용 흐름 등 섹션별 화면을 구성",
-            "다양한 디바이스 환경에서도 일관된 경험을 제공하도록 반응형 UI를 구현",
-            "사용자 흐름에 맞는 CTA 버튼을 배치해 서비스 문의 및 이용으로 연결",
+            "HTML · CSS · Vanilla JavaScript 기반",
+            "PC·모바일 반응형 UI",
+            "GSAP · ScrollTrigger 스크롤 인터랙션",
+            "도입 문의 폼 및 모달 구현"
           ],
+          technologies: ["HTML", "CSS", "Vanilla JavaScript", "GSAP", "ScrollTrigger"],
           image: Moggoji04,
 
 				},
       ],
+      development: {
+        items: [
+          {
+            number: "01",
+            title: "Kendo UI → TanStack Table 전환",
+            description: "컬럼 고정 기능에 사용하던 Kendo UI의 외부 라이선스 의존성을 줄이기 위해 TanStack Table v8 기반 DataGrid로 전환했습니다. 필요한 테이블 기능을 직접 구성해 커스터마이징이 용이한 구조로 개선했습니다.",
+          },
+          {
+            number: "02",
+            title: "FSD 기반 프로젝트 구조 적용",
+            description: "features · entities · shared 등 역할별 레이어를 구분해 비즈니스 로직과 공통 UI의 책임을 분리하고 유지보수가 용이하도록 구성했습니다.",
+          },
+          {
+            number: "03",
+            title: "WeatherAPI 연동",
+            description: "모바일 TODAY 화면에 행사 지역의 날씨 정보를 연동해 참가자가 당일 일정과 날씨를 한 화면에서 확인할 수 있도록 구현했습니다.",
+          },
+        ],
+        liveServices: [
+          { label: "Landing Page", url: "https://moggoji.kr/" },
+          { label: "App Store", url: "https://apps.apple.com/us/app/%EB%AA%A8%EA%BC%AC%EC%A7%80-%ED%96%89%EC%82%AC%EC%9D%98-%EC%8B%9C%EC%9E%91/id6768188369" },
+          { label: "Google Play", url: "https://play.google.com/store/apps/details?id=kr.co.moggoji.app" },
+        ],
+      },
     },
   },
   /* ISP */
@@ -106,14 +136,15 @@ export const projects: Project[] = [
     category: ["Web"],
     title: "보험 상담지원 솔루션, ISP",
     description:"보험 설계사의 고객 관리·보장 분석·상품 비교·맞춤 리포트 제작을 하나로 연결한 상담 업무 통합 플랫폼",
-    period: "2025.08 ~ 2025.10~",
+    period: "2025.08 – 2025.10",
+    role: "UI Publishing",
     skills: [
       "Vue 3",
       "TypeScript",
       "SCSS",
       "Figma",
     ],
-    contribution: "퍼블리싱 50%",
+    contribution: "Web Platform · Mobile Webview",
     image: ImgIsp,
     detail: {
       heroImage: Isp01,
@@ -135,6 +166,7 @@ export const projects: Project[] = [
             "설계사의 편리함을 위한 일정관리 캘린더 구현",
             "테이블, 검색·필터, 입력 폼, 상세 화면 등 반복 UI 컴포넌트 적용"
           ],
+          technologies: ["Vue 3", "TypeScript", "SCSS"],
           image: Isp02,
         },
         {
@@ -148,6 +180,7 @@ export const projects: Project[] = [
             "폼 항목별 상태와 입력 흐름을 고려한 인터랙션 구현",
             "웹 플랫폼의 상담 프로세스와 연결되는 모바일 입력 경험 제공",
           ],
+          technologies: ["Vue 3", "TypeScript", "SCSS"],
           image: Isp03,
         },
       ],
@@ -161,13 +194,14 @@ export const projects: Project[] = [
     category: ["Web", "App"],
     title: "한화 그룹웨어 Clevers",
     description:"한화 그룹 내부 임직원의 권한별 화면 분기와 복잡한 업무 플로우를 반영한 차세대 그룹웨어",
-    period: "2024.8 ~ 2025.06",
+    period: "2024.08 – 2025.06",
+    role: "UI Publishing",
     skills: [
-      "React",
+      "Vue 3",
       "TypeScript",
-      "Zepline",
+      "Zeplin",
     ],
-    contribution: "퍼블리싱 40%",
+    contribution: "Groupware Web · Mobile App",
     image: ImgCleverse,
     detail: {
       heroImage: Cleverse01,
@@ -187,6 +221,7 @@ export const projects: Project[] = [
             "업무 정보를 전달하는 게시판 목록·상세·댓글 UI 구현",
             "조직 구성원을 검색하고 필요한 사람을 빠르게 찾는 사람 조회 기능 구현"
           ],
+          technologies: ["Vue 3", "TypeScript", "Zeplin"],
           image: Cleverse02,
         },
         {
@@ -202,6 +237,7 @@ export const projects: Project[] = [
             "나만 볼 수 있는 비공개 데이터와 협업 보드 데이터의 화면 분리",
             "개인 전용 노트 작성·수정·삭제 기능 구현",
           ],
+          technologies: ["Vue 3", "TypeScript", "Zeplin"],
           image: Cleverse03,
         },
         {
@@ -215,6 +251,7 @@ export const projects: Project[] = [
             "게시글, 댓글, 멘션 등 주요 협업 정보 확인 기능 구현",
             "전자결재·게시판·파일 등 핵심 업무 정보의 모바일 조회 화면 적용",
           ],
+          technologies: ["Vue 3", "TypeScript", "Zeplin"],
           image: Cleverse04,
         },
       ],

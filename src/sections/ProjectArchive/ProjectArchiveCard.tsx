@@ -35,7 +35,7 @@ const ProjectArchiveCard = ({ project }: ProjectArchiveCardProps) => {
         <span>{project.skills.join(" · ")}</span>
       </div>
       <div className="mt-12 flex max-w-340 items-center gap-12 sm:gap-18">
-        <span className="shrink-0 text-sm text-white">기여도</span>
+          <span className="shrink-0 text-sm text-white">담당 범위</span>
         <ContributionSlider contribution={project.contribution} className="min-w-0 flex-1 gap-10 sm:min-w-210 sm:gap-14 [&_span]:text-sm" />
       </div>
     </div>

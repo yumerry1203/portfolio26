@@ -1,9 +1,6 @@
-import linkIcon from "@/assets/images/ico-link-black.svg";
-import linkPurpleIcon from "@/assets/images/ico-link-purple.svg";
-import unlinkIcon from "@/assets/images/ico-unlink-gray.svg";
 import Badge from "@/components/common/Badge";
 import type { Project } from "@/type/project";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DotLabel from "@/components/common/DotLabel";
@@ -19,11 +16,7 @@ interface ProjectsCardProps {
 }
 
 const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardProps) => {
-  const [activeAction, setActiveAction] = useState<"detail" | "link" | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const projectLink = project.detail.links?.trim();
-  const isLink = Boolean(projectLink);
-  const isLinkActive = activeAction === "link";
 
   useLayoutEffect(() => {
     const card = cardRef.current;
@@ -58,25 +51,25 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
 
   return (
     <div ref={cardRef} className="flex flex-col">
-      <div className={`flex flex-col gap-30 justify-between xl:flex-row xl:gap-60 ${index % 2 === 1 ? "xl:flex-row-reverse" : ""}`}>
+      <div className={`flex flex-col gap-30 justify-between xl:flex-row xl:items-center xl:gap-60 ${index % 2 === 1 ? "xl:flex-row-reverse" : ""}`}>
           <img
             src={project.image}
             alt={`${project.title} 화면`}
-            className="h-auto w-full self-start rounded-md object-contain shadow-[var(--shadow-base)] xl:max-w-470"
+            className="h-auto w-full self-start rounded-md object-contain shadow-[var(--shadow-base)] xl:max-w-470 xl:self-center"
           />
 
         <div className="flex min-w-0 flex-1 flex-col xl:min-w-500">
           <div className="flex flex-wrap items-center gap-10">
-            <Badge variant="gradient" className="min-w-70 font-heading text-base font-bold text-white">
+            <Badge variant="gradient" className="min-w-60 !px-12 !py-5 font-heading !text-sm font-bold text-white">
               {project.year}
             </Badge>
-            <Badge variant="black" className="min-w-70 font-heading text-base font-bold">
+            <Badge variant="black" className="min-w-60 !px-12 !py-5 font-heading !text-sm font-bold">
               {project.type}
             </Badge>
-            <div className="flex flex-wrap gap-x-12 gap-y-4 text-sm font-heading font-bold text-accent sm:text-base">
+            <div className="flex flex-wrap gap-x-10 gap-y-4 font-heading text-xs font-bold text-accent sm:text-sm">
               {project.category.map((category) => (
                 <div key={category} className="flex items-center gap-4">
-                  <DotLabel variant="red" className="w-9 h-9 rounded-none"/>
+                  <DotLabel variant="red" className="!h-7 !w-7 rounded-none"/>
                   <span>{category}</span>
                 </div>
               ))}
@@ -86,73 +79,33 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
           <h3 className="mt-18 font-heading text-2xl font-bold leading-tight text-black sm:text-4xl">
             {project.title}
           </h3>
-          <p className="mt-16 text-base text-gray-dark sm:mt-20 sm:text-xl">
+          <p className="mt-16 text-lg text-gray-dark sm:mt-20">
             {project.description}
           </p>
 
           <dl className="mt-16 flex flex-col gap-8 text-sm sm:text-lg">
             <div className="flex gap-16 sm:gap-35">
-              <dt className="min-w-50 shrink-0 font-bold text-black">기간</dt>
-              <dd className="text-gray-dark">{project.period}</dd>
+              <dt className="min-w-70 shrink-0 font-bold text-black">기간</dt>
+              <dd className="text-base text-gray-dark">{project.period}</dd>
             </div>
             <div className="flex gap-16 sm:gap-35">
-              <dt className="min-w-50 shrink-0 font-bold text-black">기술</dt>
-              <dd className="text-gray-dark">{project.skills.join(" · ")}</dd>
+              <dt className="min-w-70 shrink-0 font-bold text-black">역할</dt>
+              <dd className="text-base text-gray-dark">{project.role}</dd>
             </div>
             <div className="flex gap-16 sm:gap-35">
-              <dt className="min-w-50 shrink-0 font-bold text-black">기여도</dt>
-              <dd className="text-gray-dark">{project.contribution}</dd>
+              <dt className="min-w-70 shrink-0 font-bold text-black">주요 기술</dt>
+              <dd className="text-base text-gray-dark">{project.skills.join(" · ")}</dd>
             </div>
           </dl>
 
-          <div
-            className="mt-26 flex w-full max-w-274"
-            onMouseLeave={() => setActiveAction(null)}
-          >
+          <div className="mt-26 w-full max-w-220">
             <Button
               variant="purple"
-              className={`h-54 shrink-0 overflow-hidden !px-0 text-xl whitespace-nowrap transition-[width,background-color,color] duration-500 ease-out
-                hover:bg-black hover:text-primary
-                ${ isLinkActive ? "w-120" : "w-220"
-              }`}
+              className="h-54 w-full !px-0 text-xl whitespace-nowrap transition-[background-color,color] duration-500 ease-out hover:bg-black hover:text-primary"
               onClick={() => onDetailClick(project)}
-              onMouseEnter={() => setActiveAction("detail")}
-              onFocus={() => setActiveAction("detail")}
             >
               DETAIL
             </Button>
-            {isLink ? (
-              <Button
-                variant="purple"
-                className={`h-54 shrink-0 overflow-hidden !px-0 whitespace-nowrap transition-[width,background-color,color] duration-500 ease-out ${
-                  isLinkActive ? "w-154 !bg-black text-primary" : "w-54"
-                }`}
-                onClick={() => window.open(projectLink, "_blank", "noopener,noreferrer")}
-                onMouseEnter={() => setActiveAction("link")}
-                onFocus={() => setActiveAction("link")}
-              >
-                <img
-                  src={isLinkActive ? linkPurpleIcon : linkIcon}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-24 h-12 shrink-0 object-contain"
-                />
-                <span
-                  className={`overflow-hidden text-xl transition-[width,margin,opacity] duration-500 ease-out ${
-                    isLinkActive ? "ml-14 w-72 opacity-100" : "ml-0 w-0 opacity-0"
-                  }`}
-                >
-                  바로가기
-                </span>
-              </Button>
-            ) : (
-              <Button
-                variant="purple"
-                className="h-54 w-54 shrink-0 !px-0 !bg-muted cursor-not-allowed"
-              >
-                <img src={unlinkIcon} alt="연결된 프로젝트 링크 없음" className="h-16 w-32 object-contain" />
-              </Button>
-            )}
           </div>
         </div>
       </div>

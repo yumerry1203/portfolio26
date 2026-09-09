@@ -23,7 +23,7 @@ const ContributionSlider = ({
       <div
         className="h-8 flex-1 overflow-hidden rounded-full bg-white/35"
         role="progressbar"
-        aria-label="기여도"
+        aria-label="담당 범위"
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={percentage}

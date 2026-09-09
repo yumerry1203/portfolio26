@@ -5,7 +5,19 @@ export interface ProjectDetailSection {
   number: string;
   title: ReactNode;
   description?: ReactNode[];
+  technologies: string[];
   image?: string;
+}
+
+export interface ProjectDevelopmentItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectServiceLink {
+  label: string;
+  url: string;
 }
 
 export interface Project {
@@ -16,6 +28,7 @@ export interface Project {
   title: string;
   description: string;
   period: string;
+  role: string;
   skills: string[];
   contribution: string;
   image: string;
@@ -28,5 +41,9 @@ export interface Project {
     overview: ReactNode;
     responsibility?: ReactNode;
     sections: ProjectDetailSection[];
+    development?: {
+      items: ProjectDevelopmentItem[];
+      liveServices?: ProjectServiceLink[];
+    };
   };
 }
