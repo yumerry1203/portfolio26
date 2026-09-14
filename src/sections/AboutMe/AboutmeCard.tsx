@@ -85,6 +85,11 @@ const AboutmeCard = ({
           {title}
         </div>   
       )}
+      {variant === "experience" && (
+        <div className="mt-16 text-base font-bold leading-none sm:mt-22">
+          {title}
+        </div>
+      )}
       {variant === "certifications" && (
         <div className="mt-14 text-sm font-bold leading-none sm:hidden">{title}</div>
       )}
