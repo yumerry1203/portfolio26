@@ -36,7 +36,7 @@ export const educations = [
     id:'1',
     date: "2024.03 ~ 2024.07",
     description: "이젠아카데미",
-    title: "UI/UX 웹앱디자인 & 프론트엔드(react.js) 760H 수료",
+    title: "UI/UX 웹 퍼블리싱 & 프론트엔드(React.js) 과정 760H",
   },
   {
     id:'2',

@@ -12,6 +12,8 @@ import ImgDalock from "@/assets/images/img-dalock.svg"
 import ImgAir from "@/assets/images/img-air.svg"
 import ImgMg from "@/assets/images/img-mg.svg"
 import ViewMg from "@/assets/images/view-mg.svg"
+import ViewAir from "@/assets/images/view-air.svg"
+import ViewDalock from "@/assets/images/view-dalock.svg"
 import ImgNote from "@/assets/images/Img-note.svg"
 
 export const sideproject: Sideproject[] = [
@@ -33,6 +35,7 @@ export const sideproject: Sideproject[] = [
     description: "쉐이크쉑 App 리뉴얼",
     image: ImgShake,
     viewImg:ViewShake,
+    hidden: true,
   },
   {
     id: "air-seoul",
@@ -42,6 +45,7 @@ export const sideproject: Sideproject[] = [
     description: "Web 전체 페이지 리뉴얼",
     image: ImgAir,
     link: "https://yumerry1203.github.io/portfolio/airseoul/index.html",
+    viewImg:ViewAir,
   },
   {
     id: "baskin-robbins",
@@ -70,6 +74,7 @@ export const sideproject: Sideproject[] = [
     description: "Web 메인·서브 리뉴얼",
     image: ImgBook,
     viewImg:ViewBook,
+    hidden: true,
   },
   {
     id: "dyson",
@@ -79,6 +84,7 @@ export const sideproject: Sideproject[] = [
     description: "Web 반응형 리뉴얼",
     image: ImgDyson,
     viewImg:ViewDyson,
+    hidden: true,
   },
   {
     id: "dalock",
@@ -88,6 +94,7 @@ export const sideproject: Sideproject[] = [
     description: "Web 메인 + 서브1p 리뉴얼",
     image: ImgDalock,
     link: "https://yumerry1203.github.io/darak/",
+    viewImg:ViewDalock,
   },
   {
     id: "Mg",
@@ -97,5 +104,6 @@ export const sideproject: Sideproject[] = [
     description: "Web 반응형 리뉴얼",
     image: ImgMg,
     viewImg:ViewMg,
+    hidden: true,
   },
 ];

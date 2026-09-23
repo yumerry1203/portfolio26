@@ -67,13 +67,13 @@ const AboutMe = () => {
 
   return (
     <div className="w-full">
-      <section ref={sectionRef} className="content-container h-auto py-70 sm:py-32" id="about">
+      <section ref={sectionRef} className="content-container h-auto py-70 sm:py-32 lg:pt-100" id="about">
         <div className="flex flex-col gap-28 lg:flex-row lg:justify-between">
           <div className="about-intro-reveal">
             <SectionTitle number="01" title="About Me!" />
           </div>
           <div className="about-intro-reveal">
-            <h3 className="font-heading text-xl font-bold sm:text-2xl">Fronted Developer & Web Publisher</h3>
+            <h3 className="font-heading text-xl font-bold sm:text-2xl">Fronted Developer</h3>
             <p className="mt-12 text-sm sm:text-base">
               4년간 다양한 웹 서비스를 구축하며, 사용자 경험과 유지보수를 고려한 인터페이스를 만드는 데 집중했습니다.<br className="hidden sm:block" />
               React&Vue3와 TypeScript를 활용한 컴포넌트 기반 개발 경험도 보유하고 있습니다.

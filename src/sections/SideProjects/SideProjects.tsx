@@ -85,7 +85,7 @@ const SideProjects = () => {
           />
         </div>
         <div ref={gridRef} className="mt-20 grid grid-cols-1 gap-28 sm:grid-cols-2 lg:grid-cols-3">
-          {sideproject.map((project) => (
+          {sideproject.filter((project) => !project.hidden).map((project) => (
             <SideProjectCard key={project.id} project={project} onViewProcess={setSelectedProject} />
           ))}
         </div>

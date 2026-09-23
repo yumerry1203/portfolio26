@@ -49,14 +49,7 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
       </Badge>
 
       <div className="p-20 pt-30">
-        {project.category.length > 0 && (
-          <div className="flex flex-wrap gap-x-10 gap-y-4 text-xs font-bold text-accent">
-            {project.category.map((category) => (
-              <span key={category} className="before:mr-5 before:content-['▪']">{category}</span>
-            ))}
-          </div>
-        )}
-        <h3 className={`${project.category.length > 0 ? "mt-8" : ""} font-heading text-xl font-bold`}>{project.title}</h3>
+        <h3 className="font-heading text-xl font-bold">{project.title}</h3>
         <p className="mt-5 text-sm text-white/80">{project.description}</p>
       </div>
     </article>
