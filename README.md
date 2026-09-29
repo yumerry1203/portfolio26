@@ -18,7 +18,6 @@
 - 프로젝트별 주요 작업 내용과 개발·문제 해결 사례 관리
 - 프로젝트 아카이브 배경 전환 및 콘텐츠 등장 효과
 - 개인 프로젝트 상태 배지와 상세 모달
-- Chart.js를 활용한 Core Stack 도넛 차트
 - `prefers-reduced-motion` 환경을 고려한 모션 처리
 
 ## 기술 스택
@@ -29,7 +28,6 @@
 | Build | Vite 8 |
 | Styling | Tailwind CSS 4, CSS |
 | Animation | GSAP, ScrollTrigger |
-| Chart | Chart.js |
 | Quality | ESLint |
 | Deployment | GitHub Actions, GitHub Pages |
 
