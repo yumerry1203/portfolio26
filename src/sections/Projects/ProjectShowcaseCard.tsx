@@ -48,7 +48,7 @@ const ProjectShowcaseCard = ({
         </p>
 
         <div className="mt-14 flex items-center gap-20">
-          <span className="shrink-0 text-sm">담당 범위</span>
+          <span className="shrink-0 text-sm">기여도</span>
           <ContributionSlider contribution={project.contribution} className="flex-1" />
         </div>
 

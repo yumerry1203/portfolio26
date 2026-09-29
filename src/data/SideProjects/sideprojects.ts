@@ -21,8 +21,9 @@ export const sideproject: Sideproject[] = [
     id: "react-practice-note",
     year: "2026",
     category: [],
-    title: "React 개인 연습 노트",
-    description: "React 구현 방식과 트러블슈팅 과정을 기록하는 개인 학습 노트",
+    title: "Frontend Dev Note",
+    description:
+      "프론트엔드 기술과 구현·트러블슈팅 과정을 기록하는 개인 개발 노트",
     image: ImgNote,
     status: "inProgress",
     link: "https://yumerry1203.github.io/react-practice-note/",
