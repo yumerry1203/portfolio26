@@ -127,10 +127,6 @@ const Hero = () => {
               <path d="m12 0 1.2 10.8L24 12l-10.8 1.2L12 24l-1.2-10.8L0 12l10.8-1.2L12 0Z" />
             </svg>
           </div>
-          {/* <span className="absolute top-34 right-34 font-heading text-secondary text-lg text-right">
-            Front-end Developer · Web<br /> 
-            Publisher
-          </span> */}
         </div>
       </div>
       <div ref={buttonsRef} className="hero-actions mt-20 flex flex-wrap gap-10 sm:gap-12">

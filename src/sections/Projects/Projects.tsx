@@ -28,30 +28,6 @@ const Projects = () => {
               onDetailClick={setSelectedProject}
             />
           ))}
-
-          {/* {isOpen && (
-            <div className="grid grid-cols-1 gap-30 md:grid-cols-2 xl:grid-cols-3">
-              {showcase.map((item) => (
-                <ProjectShowcaseCard key={item.id} project={item} />
-              ))}
-            </div>
-          )} */}
-          
-          {/* <div className="flex justify-center">
-            <Button
-              variant="purpleLine"
-              className="w-120 h-40 text-lg px-0"
-              onClick={() => setIsOpen((current) => !current)}
-            >
-              {isOpen ? "접기" : "열기"}
-              <img
-                src={IcoArrowPurple}
-                alt=""
-                aria-hidden="true"
-                className={`transition-transform duration-200 ml-12 ${isOpen ? "" : "rotate-180"}`}
-              />
-            </Button>
-          </div> */}
         </div>
       </section>
       {selectedProject && (

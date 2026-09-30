@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logoBlack from "@/assets/images/logo-black.svg";
 
 const navigationItems = [
@@ -13,14 +13,68 @@ const linkClassName = "relative block py-4 transition-colors duration-200 hover:
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
+    if (!isMenuOpen) return;
+
+    const navigation = mobileNavigationRef.current;
+    const menuButton = menuButtonRef.current;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !navigation) return;
+
+      const focusableElements = Array.from(
+        navigation.querySelectorAll<HTMLElement>(focusableSelector),
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstElement || !lastElement) return;
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     };
 
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+
+    const focusFrame = requestAnimationFrame(() => {
+      navigation?.querySelector<HTMLElement>(focusableSelector)?.focus();
+    });
+
+    return () => {
+      cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      menuButton?.focus({ preventScroll: true });
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const desktopMedia = window.matchMedia("(min-width: 640px)");
+    const closeMenuOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setIsMenuOpen(false);
+    };
+
+    desktopMedia.addEventListener("change", closeMenuOnDesktop);
+    return () => desktopMedia.removeEventListener("change", closeMenuOnDesktop);
   }, []);
 
   return (
@@ -40,6 +94,7 @@ const Header = () => {
         </nav>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="ml-auto flex h-36 w-36 flex-col items-center justify-center gap-6 sm:hidden"
           aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
@@ -55,6 +110,7 @@ const Header = () => {
 
       <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 sm:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
       <nav
+        ref={mobileNavigationRef}
         id="mobile-navigation"
         aria-label="모바일 메뉴"
         aria-hidden={!isMenuOpen}

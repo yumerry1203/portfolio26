@@ -32,11 +32,9 @@ export interface Project {
   image: string;
   // 상세 팝업
   detail: {
-    links?:string;
     heroImage: string;
     workPeriod: string;
     overview: ReactNode;
-    responsibility?: ReactNode;
     sections: ProjectDetailSection[];
     development?: {
       items: ProjectDevelopmentItem[];

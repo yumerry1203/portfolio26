@@ -15,6 +15,7 @@ import ViewMg from "@/assets/images/view-mg.svg"
 import ViewAir from "@/assets/images/view-air.svg"
 import ViewDalock from "@/assets/images/view-dalock.svg"
 import ImgNote from "@/assets/images/Img-note.svg"
+import ImgPortfolio from "@/assets/images/img-portfolio.svg"
 
 export const sideproject: Sideproject[] = [
   {
@@ -22,21 +23,32 @@ export const sideproject: Sideproject[] = [
     year: "2026",
     category: [],
     title: "Frontend Dev Note",
-    description:
-      "프론트엔드 기술과 구현·트러블슈팅 과정을 기록하는 개인 개발 노트",
+    description:"프론트엔드 기술과 구현·트러블슈팅 과정을 기록하는 개인 개발 노트",
     image: ImgNote,
     status: "inProgress",
     link: "https://yumerry1203.github.io/react-practice-note/",
   },
-  // {
-  //   id: "money-log",
-  //   year: "2026",
-  //   category: [],
-  //   title: "Money Log — 개인 지출 관리 대시보드",
-  //   description: "사용자가 수입/지출을 등록하고 월별 소비 현황을 보는 서비스",
-  //   status: "inProgress",
-  //   link: "",
-  // },
+  {
+    id: "money-log",
+    year: "2026",
+    category: [],
+    title: "Money Log — 개인 지출 관리 시스템",
+    description: "사용자가 수입/지출을 등록하고 월별 소비 현황을 보는 서비스",
+    status: "inProgress",
+    link: "",
+    hidden: true,
+  },
+  {
+    id: "portfolio",
+    year: "2026",
+    category: [],
+    title: "Nayuhyeong - Portfolio",
+    description: "2026년 나유형 포트폴리오",
+    image: ImgPortfolio,
+    status: "inProgress",
+    link: "",
+    hidden: false,
+  },
   {
     id: "shake-shack",
     year: "2024",
@@ -62,7 +74,7 @@ export const sideproject: Sideproject[] = [
     year: "2024",
     category: ["기획 100%", "디자인 100%"],
     title: "배스킨라빈스",
-    description: "Web 리뉴얼·기능 확장",
+    description: "Web 원페이지 리뉴얼",
     image: ImgBr,
     link: "https://yumerry1203.github.io/portfolio/onepage/index.html",
     viewImg:ViewBr,
@@ -101,7 +113,7 @@ export const sideproject: Sideproject[] = [
     year: "2024",
     category: ["기획 100%", "디자인 100%", "퍼블 30%"],
     title: "미니창고 다락",
-    description: "Web 메인 + 서브1p 리뉴얼",
+    description: "mobile 리뉴얼",
     image: ImgDalock,
     link: "https://yumerry1203.github.io/darak/",
     viewImg:ViewDalock,
@@ -111,7 +123,7 @@ export const sideproject: Sideproject[] = [
     year: "2024",
     category: ["기획 100%", "디자인 100%"],
     title: "새마을금고",
-    description: "Web 반응형 리뉴얼",
+    description: "mobile 리뉴얼",
     image: ImgMg,
     viewImg:ViewMg,
     hidden: true,

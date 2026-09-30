@@ -30,8 +30,11 @@ const WorkedWith = () => {
     if (!trackRef.current) return;
 
     const track = trackRef.current;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
+      if (reduceMotion) return;
+
       gsap.to(track, {
         xPercent: -50,
         duration: 50,
@@ -53,22 +56,27 @@ const WorkedWith = () => {
           ref={trackRef}
           className="flex w-max"
         >
-          {[...logos, ...logos].map((logo, index) => (
-            <li
-              key={`${logo.name}-${index}`}
-              className="
-                flex h-90 w-190 shrink-0 sm:h-145 sm:w-356
-                items-center justify-center
-                border-r border-gray-dark
-              "
-            >
-              <img
-                src={logo.src}
-                alt={logo.name}
-                className="h-40 w-120 object-contain grayscale contrast-125 sm:h-64 sm:w-220"
-              />
-            </li>
-          ))}
+          {[...logos, ...logos].map((logo, index) => {
+            const isDuplicate = index >= logos.length;
+
+            return (
+              <li
+                key={`${logo.name}-${index}`}
+                aria-hidden={isDuplicate || undefined}
+                className="
+                  flex h-90 w-190 shrink-0 sm:h-145 sm:w-356
+                  items-center justify-center
+                  border-r border-gray-dark
+                "
+              >
+                <img
+                  src={logo.src}
+                  alt={isDuplicate ? "" : logo.name}
+                  className="h-40 w-120 object-contain grayscale contrast-125 sm:h-64 sm:w-220"
+                />
+              </li>
+            );
+          })}
         </ul>
         <div
           aria-hidden="true"

@@ -1,15 +1,15 @@
 import AboutTitle from "./AboutTitle";
 import AboutmeCard from "./AboutmeCard";
-import IconCerrification from "@/assets/images/icon-certifications.svg";
+import IconCertification from "@/assets/images/icon-certifications.svg";
 import { certifications } from "@/data/AboutMe/aboutme";
 
-const Experience = () => {
+const Certifications = () => {
   return (
     <div className="w-full lg:w-486">
       <div className="about-certification-title">
         <AboutTitle
           title="자격증"
-          icon={IconCerrification}
+          icon={IconCertification}
         />
       </div>
       <ol className="mt-16 flex flex-col gap-14 sm:mt-24 sm:gap-20">
@@ -31,4 +31,4 @@ const Experience = () => {
   )
 };
 
-export default Experience;
+export default Certifications;

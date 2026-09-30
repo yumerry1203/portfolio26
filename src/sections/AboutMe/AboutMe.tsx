@@ -73,7 +73,7 @@ const AboutMe = () => {
             <SectionTitle number="01" title="About Me!" />
           </div>
           <div className="about-intro-reveal">
-            <h3 className="font-heading text-xl font-bold sm:text-2xl">Fronted Developer</h3>
+            <h3 className="font-heading text-xl font-bold sm:text-2xl">Frontend Developer</h3>
             <p className="mt-12 text-sm sm:text-base">
               4년간 다양한 웹 서비스를 구축하며, 사용자 경험과 유지보수를 고려한 인터페이스를 만드는 데 집중했습니다.<br className="hidden sm:block" />
               React&Vue3와 TypeScript를 활용한 컴포넌트 기반 개발 경험도 보유하고 있습니다.

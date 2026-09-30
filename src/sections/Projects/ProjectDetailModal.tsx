@@ -116,10 +116,6 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             <h3 className="inline-flex h-32 w-100 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:w-120 sm:text-base">개요</h3>
             <p className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.overview}</p>
           </section>
-          {/* <section className="mt-44">
-            <h3 className="inline-flex h-32 w-100 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:w-120 sm:text-base">담당 역할</h3>
-            <div className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.responsibility}</div>
-          </section> */}
 
           <section className="mt-60">
             <h3 className="inline-flex h-32 w-120 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:text-base">주요 작업 내용</h3>

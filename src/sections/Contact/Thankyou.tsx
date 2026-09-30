@@ -13,7 +13,13 @@ const Thankyou = () => {
     const line = lineRef.current;
     if (!title || !line) return;
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const context = gsap.context(() => {
+      if (reduceMotion) {
+        gsap.set(line, { scaleX: 1 });
+        return;
+      }
+
       gsap.fromTo(line, { scaleX: 0 }, {
         scaleX: 1,
         duration: 0.8,

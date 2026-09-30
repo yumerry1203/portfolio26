@@ -38,7 +38,6 @@ export const projects: Project[] = [
     ],
     image: ImgMoggoji,
     detail: {
-      links: "https://moggoji.kr/",
       heroImage: Moggoji01,
       workPeriod: "6개월",
       overview: <>
@@ -137,7 +136,6 @@ export const projects: Project[] = [
       heroImage: Isp01,
       workPeriod: "3개월",
       overview: "보험 설계사가 고객 정보를 가족단위로 관리하고, 보험 보장을 분석·비교하여 맞춤형 상담과 설계를 진행할 수 있도록 지원하는 통합 보험 상담 플랫폼입니다.",
-      responsibility: "Vue 3와 TypeScript 기반으로 보험 상담지원 웹 플랫폼의 UI를 구현했습니다. 고객 정보 관리, 보장 분석, 상품 비교, 상담 리포트 등 설계사의 상담 흐름에 맞춘 화면을 개발했으며, 모바일 환경에서는 고객 정보 입력을 위한 반응형 웹뷰를 구현했습니다. SCSS를 활용해 서비스 전반의 UI 스타일과 컴포넌트를 일관되게 적용했습니다.",
       sections: [
         {
           number: "01",
@@ -190,7 +188,6 @@ export const projects: Project[] = [
       heroImage: Cleverse01,
       workPeriod: "10개월",
       overview: "한화 그룹 내부 임직원의 결재·일정·공지·문서 업무를 통합하고, 더 빠르고 일관된 협업 경험을 업무 효율성과 사용성을 개선",
-      responsibility: "Vue 3와 TypeScript 기반 환경에서 그룹웨어 주요 화면의 UI를 구현했습니다. 업무 흐름과 사용자 권한에 따른 화면 구성을 반영하고, 테이블·검색·필터·입력 폼·모달 등 반복적으로 사용되는 인터페이스를 일관된 형태로 적용했습니다. SCSS를 활용해 공통 스타일과 화면별 스타일을 관리하며 유지보수하기 쉬운 구조를 구성했습니다.",
       sections: [
         {
           number: "01",
