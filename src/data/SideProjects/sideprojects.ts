@@ -28,6 +28,15 @@ export const sideproject: Sideproject[] = [
     status: "inProgress",
     link: "https://yumerry1203.github.io/react-practice-note/",
   },
+  // {
+  //   id: "money-log",
+  //   year: "2026",
+  //   category: [],
+  //   title: "Money Log — 개인 지출 관리 대시보드",
+  //   description: "사용자가 수입/지출을 등록하고 월별 소비 현황을 보는 서비스",
+  //   status: "inProgress",
+  //   link: "",
+  // },
   {
     id: "shake-shack",
     year: "2024",

@@ -1,26 +1,60 @@
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import reactIcon from "@/assets/images/ico-react.svg";
-import vueIcon from "@/assets/images/img-vue.svg";
-import htmlIcon from "@/assets/images/img-html.svg";
-import typescriptIcon from "@/assets/images/img-ts.svg";
-import gitIcon from "@/assets/images/img-git.svg";
-import sassIcon from "@/assets/images/img-sass.svg";
 import SkillCard from "./SkillCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface SkillItem { id: string; name: string; icon: string; description: ReactNode; }
+interface SkillItem {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+}
 
-const highlight = "text-primary";
 const skillItems: SkillItem[] = [
-  { id: "react", name: "React", icon: reactIcon, description: <><span className={highlight}>useState, useRef, useEffect</span>를 활용한 상태·DOM·이벤트 관리<br />조건부/반복 렌더링, Props 기반의 재사용 가능한 컴포넌트 구현</> },
-  { id: "vue", name: "Vue 3", icon: vueIcon, description: <>ref, reactive, v-if, v-show를 활용한 반응형 UI 구현<br /><span className={highlight}>props, emit, Composition API</span> 기반의 컴포넌트 설계</> },
-  { id: "html", name: "HTML 5", icon: htmlIcon, description: <><span className={highlight}>header, nav, main, section, article</span> 등 시맨틱 태그 활용<br />웹 표준과 접근성을 고려한 화면 구조 설계</> },
-  { id: "typescript", name: "TypeScript", icon: typescriptIcon, description: <><span className={highlight}>type, interface</span>로 데이터와 Props 타입 정의<br />오류를 줄이고 안정적인 컴포넌트 구조 구현</> },
-  { id: "git", name: "Git", icon: gitIcon, description: <>브랜치와 커밋으로 기능별 작업 이력을 체계적으로 관리<br />협업 시 병합과 충돌 해결을 통해 팀원의 변경 사항을 안전하게 반영</> },
-  { id: "scss", name: "SCSS", icon: sassIcon, description: <><span className={highlight}>Nesting</span>과 &amp;를 활용해 상태별 스타일을 효율적으로 작성<br />변수와 <span className={highlight}>mixin</span>으로 반복 스타일을 모듈화하고 유지보수성 향상</> },
+  {
+    id: "user-experience",
+    number: "01",
+    title: "사용자 경험을 고려한 UI 구현",
+    description:
+      "다양한 디바이스 환경과 사용자를 고려해 반응형 UI와 인터랙션을 구현하고, 실제 사용 과정에서 발견되는 불편과 문제를 개선합니다.",
+  },
+  {
+    id: "data-flow",
+    number: "02",
+    title: "데이터 흐름을 이해한 화면 개발",
+    description:
+      "API와 상태 관리 구조를 이해하고, 데이터 변화에 따른 로딩·에러·빈 상태 등 실제 서비스에 필요한 UI 상태를 구현합니다.",
+  },
+  {
+    id: "stability",
+    number: "03",
+    title: "안정성과 유지보수를 고려한 개발",
+    description:
+      "재사용 가능한 구조와 일관된 코드 작성을 지향하며, TypeScript를 활용해 예외 상황과 오류 가능성을 고려한 안정적인 UI를 구현합니다.",
+  },
+  {
+    id: "communication",
+    number: "04",
+    title: "원활한 협업을 위한 커뮤니케이션",
+    description:
+      "디자인 요구사항을 구현 가능한 형태로 구체화하고, 디자이너·개발자와 변경사항 및 데이터 구조, 예외 상황 등을 공유하며 요구사항을 조율합니다.",
+  },
+  {
+    id: "problem-solving",
+    number: "05",
+    title: "문제를 발견하고 함께 해결하는 과정",
+    description:
+      "구현 과정에서 발견한 문제를 적극적으로 공유하고, 원인과 영향을 파악해 관련 구성원과 해결 방향을 조율하며 개선해 나갑니다.",
+  },
+  {
+    id: "learning",
+    number: "06",
+    title: "새로운 기술을 배우고 적용하는 과정",
+    description:
+      "새로운 기술과 개발 방식을 꾸준히 학습하고 적용합니다. AI 도구도 개발 과정에 활용하며, 결과를 이해하고 검토해 생산성과 완성도를 높입니다.",
+  },
 ];
 
 const SkillList = () => {
@@ -61,10 +95,17 @@ const SkillList = () => {
   }, []);
 
   return (
-    <div className="mt-20 min-w-0 flex-1 pb-20 sm:mt-60 sm:px-24 sm:pb-40 xl:pr-40" aria-label="기술 목록">
-    <div ref={listRef} className="space-y-32 sm:space-y-40">
-      {skillItems.map((skill) => <SkillCard key={skill.id} {...skill} />)}
-    </div>
+    <div className="mt-20 min-w-0 flex-1 pb-20 sm:mt-60 sm:px-24 sm:pb-40 xl:mt-98 xl:pr-40" aria-label="개발 역량 목록">
+      <div className="flex items-end gap-16">
+        <h3 className="font-heading text-2xl font-bold text-white sm:text-3xl">
+          HOW I WORK
+        </h3>
+        <span aria-hidden="true" className="mb-5 h-5 min-w-40 flex-1 bg-gradient" />
+      </div>
+
+      <div ref={listRef} className="mt-24 grid grid-cols-1 gap-16 md:grid-cols-2 xl:grid-cols-1 xl:gap-20">
+        {skillItems.map((skill) => <SkillCard key={skill.id} {...skill} />)}
+      </div>
     </div>
   );
 };
