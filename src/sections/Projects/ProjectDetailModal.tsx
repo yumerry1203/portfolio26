@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { Project } from "@/type/project";
 import Close from "@/assets/images/ico-close.svg";
 import DotLabel from "@/components/common/DotLabel";
@@ -10,8 +10,11 @@ interface ProjectDetailModalProps {
 
 const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
   const { detail } = project;
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    const previouslyFocusedElement = document.activeElement as HTMLElement | null;
+
     //ESC key 닫기
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -24,11 +27,13 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
     const previousOverflow = document.body.style.overflow;
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus({ preventScroll: true });
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.documentElement.style.overflow = previousHtmlOverflow;
       document.body.style.overflow = previousOverflow;
+      previouslyFocusedElement?.focus({ preventScroll: true });
     };
   }, [onClose]);
 
@@ -38,6 +43,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-detail-title"
+      aria-describedby="project-detail-overview"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -46,6 +52,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
         <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-[#ffffff] px-20 py-16 sm:px-32 sm:py-20 md:px-60">
           <p className="font-heading text-xl font-bold text-gray sm:text-2xl">Project Detail</p>
           <button
+            ref={closeButtonRef}
             type="button"
             aria-label="상세 팝업 닫기"
             onClick={onClose}
@@ -89,6 +96,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             <img
               src={detail.heroImage}
               alt={`${project.title} 대표 화면`}
+              decoding="async"
               className="block h-auto w-full"
             />
           </div>
@@ -114,7 +122,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
 
           <section className="mt-44">
             <h3 className="inline-flex h-32 w-100 items-center justify-center rounded-sm bg-primary text-sm font-bold text-white sm:w-120 sm:text-base">개요</h3>
-            <p className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.overview}</p>
+            <p id="project-detail-overview" className="mt-14 whitespace-pre-line text-sm leading-relaxed">{detail.overview}</p>
           </section>
 
           <section className="mt-60">
@@ -143,6 +151,8 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                       <img
                         src={section.image}
                         alt={`${project.title} 주요 작업 ${section.number}`}
+                        loading="lazy"
+                        decoding="async"
                         className="block h-auto w-full"
                       />
                     )}
@@ -157,14 +167,27 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
               <h3 className="inline-flex h-32 items-center justify-center rounded-sm bg-primary px-16 text-sm font-bold text-white sm:text-base">
                 개발 및 문제 해결
               </h3>
-              <div className="mt-28 space-y-28">
+              <div className="mt-28 space-y-32">
                 {detail.development.items.map((item) => (
-                  <article key={`${project.id}-development-${item.number}`}>
-                    <h4 className="text-lg font-bold leading-snug sm:text-xl">
+                  <article
+                    key={`${project.id}-development-${item.number}`}
+                    className="border-b border-black/15 pb-32 last:border-b-0 last:pb-0"
+                  >
+                    <h4 className="text-lg font-bold leading-snug text-black sm:text-xl">
                       <span className="text-primary">{item.number}. </span>
                       {item.title}
                     </h4>
-                    <p className="mt-10 text-sm leading-relaxed text-gray-dark">
+                    <div className="mt-12 flex flex-wrap gap-8">
+                      {item.summary.map((summary) => (
+                        <span
+                          key={summary}
+                          className="rounded-full bg-secondary px-10 py-5 text-xs font-bold text-gray-dark sm:text-sm"
+                        >
+                          {summary}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-16 border-l-2 border-primary pl-14 text-sm leading-[1.75] text-gray-dark sm:text-base">
                       {item.description}
                     </p>
                   </article>

@@ -88,23 +88,27 @@ export const projects: Project[] = [
         items: [
           {
             number: "01",
-            title: "Kendo UI → TanStack Table 전환",
-            description: "컬럼 고정 기능에 사용하던 Kendo UI의 외부 라이선스 의존성을 줄이기 위해 TanStack Table v8 기반 DataGrid로 전환했습니다. 필요한 테이블 기능을 직접 구성해 커스터마이징이 용이한 구조로 개선했습니다.",
+            title: "WebView → React Native + Expo 전환",
+            summary: ["네이티브 기능 대응", "iOS·Android 출시"],
+            description: "빠른 출시를 위해 WebView로 구현한 앱을 React Native + Expo로 전환했습니다. 웹 UI를 네이티브 구조로 재구현하고 실기기에서 검증해 양쪽 플랫폼을 출시했습니다.",
           },
           {
             number: "02",
-            title: "FSD 기반 프로젝트 구조 적용",
-            description: "features · entities · shared 등 역할별 레이어를 구분해 비즈니스 로직과 공통 UI의 책임을 분리하고 유지보수가 용이하도록 구성했습니다.",
+            title: "Web · App 모노레포 전환",
+            summary: ["공통 패키지 구축", "중복 관리 개선"],
+            description: "별도로 관리되던 Web·App의 공통 리소스를 pnpm Workspace 기반 모노레포로 통합했습니다. API·디자인 토큰·아이콘을 공통 패키지로 분리해 한 번의 수정으로 양쪽에 적용되도록 개선했습니다.",
           },
           {
             number: "03",
-            title: "WeatherAPI 연동",
-            description: "모바일 TODAY 화면에 행사 지역의 날씨 정보를 연동해 참가자가 당일 일정과 날씨를 한 화면에서 확인할 수 있도록 구현했습니다.",
+            title: "Google API 기반 장소 데이터 개선",
+            summary: ["주소·좌표 데이터화", "날씨 기능 연동"],
+            description: "텍스트로 입력하던 행사 장소를 Google API 기반 주소·좌표 데이터로 개선했습니다. 위치 데이터를 모바일 App의 행사 지역 기준 날씨와 연동하고, 일정 동선 기능으로 확장할 기반을 마련했습니다.",
           },
           {
             number: "04",
-            title: "WebView → React Native 전환",
-            description: "초기 React 기반 WebView 앱을 React Native + Expo 환경으로 전환하면서 기존 웹 UI를 네이티브 컴포넌트 구조에 맞게 재구현했습니다. Expo를 통해 실기기에서 반복적으로 화면을 확인하며 레이아웃과 인터랙션을 조정하고, React Native 환경에 맞는 UI 구현 방식을 익혔습니다.",
+            title: "Kendo UI → TanStack Table 전환",
+            summary: ["라이선스 제거", "비용 절감"],
+            description: "Kendo UI의 상용 라이선스 의존성을 해결하기 위해 TanStack Table v8로 전환했습니다. 필요한 DataGrid 기능을 직접 구성해 라이선스 비용을 절감하고 커스터마이징 범위를 넓혔습니다.",
           },
         ],
         liveServices: [

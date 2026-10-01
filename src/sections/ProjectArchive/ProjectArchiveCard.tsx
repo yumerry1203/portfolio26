@@ -14,6 +14,8 @@ const ProjectArchiveCard = ({ project }: ProjectArchiveCardProps) => {
       <img
         src={project.image}
         alt={`${project.title} 프로젝트 화면`}
+        loading="lazy"
+        decoding="async"
         className="block aspect-[1.54] w-full object-cover"
       />
     </div>

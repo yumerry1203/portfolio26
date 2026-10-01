@@ -11,6 +11,7 @@ export interface ProjectDetailSection {
 export interface ProjectDevelopmentItem {
   number: string;
   title: string;
+  summary: string[];
   description: string;
 }
 

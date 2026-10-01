@@ -81,7 +81,7 @@ const SideProjects = () => {
         <div className="mt-15">
           <ExpandingToast
             title="개인 프로젝트"
-            description="새로운 기술을 학습하고 적용하며 구현한 개인 프론트엔으 작업물입니다."
+            description="새로운 기술을 학습하고 적용하며 구현한 개인 프론트엔드 작업물입니다."
           />
         </div>
         <div ref={gridRef} className="mt-20 grid grid-cols-1 gap-28 sm:grid-cols-2 lg:grid-cols-3">

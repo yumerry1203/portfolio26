@@ -54,7 +54,12 @@ const SideProjectModal = ({ project, onClose }: SideProjectModalProps) => {
 
         <div className="min-h-0 overflow-y-auto">
           {project.viewImg && (
-            <img src={project.viewImg} alt={`${project.title} 작업 과정`} className="mx-auto block w-full" />
+            <img
+              src={project.viewImg}
+              alt={`${project.title} 작업 과정`}
+              decoding="async"
+              className="mx-auto block w-full"
+            />
           )}
         </div>
       </div>

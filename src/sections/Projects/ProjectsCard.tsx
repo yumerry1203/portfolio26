@@ -16,7 +16,9 @@ interface ProjectsCardProps {
 }
 
 const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
+  const titleId = `project-${project.id}-title`;
+  const descriptionId = `project-${project.id}-description`;
 
   useLayoutEffect(() => {
     const card = cardRef.current;
@@ -50,11 +52,18 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
   }, []);
 
   return (
-    <div ref={cardRef} className="flex flex-col">
+    <article
+      ref={cardRef}
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
+      className="flex flex-col"
+    >
       <div className={`flex flex-col gap-30 justify-between xl:flex-row xl:items-center xl:gap-60 ${index % 2 === 1 ? "xl:flex-row-reverse" : ""}`}>
           <img
             src={project.image}
             alt={`${project.title} 화면`}
+            loading="lazy"
+            decoding="async"
             className="h-auto w-full self-start rounded-md object-contain shadow-[var(--shadow-base)] xl:max-w-470 xl:self-center"
           />
 
@@ -76,10 +85,10 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
             </div>
           </div>
 
-          <h3 className="mt-18 font-heading text-2xl font-bold leading-tight text-black sm:text-4xl">
+          <h3 id={titleId} className="mt-18 font-heading text-2xl font-bold leading-tight text-black sm:text-4xl">
             {project.title}
           </h3>
-          <p className="mt-16 text-lg text-gray-dark sm:mt-20">
+          <p id={descriptionId} className="mt-16 text-lg text-gray-dark sm:mt-20">
             {project.description}
           </p>
 
@@ -101,6 +110,8 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
           <div className="mt-26 w-full max-w-220">
             <Button
               variant="purple"
+              aria-label={`${project.title} 프로젝트 상세 보기`}
+              aria-haspopup="dialog"
               className="h-54 w-full !px-0 text-xl whitespace-nowrap transition-[background-color,color] duration-500 ease-out hover:bg-black hover:text-primary"
               onClick={() => onDetailClick(project)}
             >
@@ -116,7 +127,7 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
           className="mt-50 h-2 w-full bg-gradient sm:mt-70 [mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)] [-webkit-mask-image:repeating-linear-gradient(to_right,#000_0_1.4rem,transparent_1.4rem_2.6rem)]"
         />
       )}
-    </div>
+    </article>
   );
 };
 

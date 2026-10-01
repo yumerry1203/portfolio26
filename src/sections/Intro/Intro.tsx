@@ -38,9 +38,9 @@ const Intro = ({ onComplete }: IntroProps) => {
 
       if (reduceMotion) {
         timeline
-          .fromTo(logo, { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power2.out" })
-          .to(charactersRef.current, { autoAlpha: 1, duration: 0.2, stagger: 0.015 })
-          .to(intro, { autoAlpha: 0, duration: 0.3, delay: 0.5, ease: "power2.inOut" });
+          .fromTo(logo, { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.15, ease: "power2.out" })
+          .to(charactersRef.current, { autoAlpha: 1, duration: 0.1, stagger: 0.008 })
+          .to(intro, { autoAlpha: 0, duration: 0.2, delay: 0.15, ease: "power2.inOut" });
         return;
       }
 
@@ -48,11 +48,11 @@ const Intro = ({ onComplete }: IntroProps) => {
         .fromTo(
           logo,
           { autoAlpha: 0, scale: 0.52, rotationY: -18, transformPerspective: 800 },
-          { autoAlpha: 1, scale: 1.1, rotationY: 0, duration: 0.4, ease: "power4.out" },
+          { autoAlpha: 1, scale: 1.1, rotationY: 0, duration: 0.28, ease: "power4.out" },
         )
-        .to(logo, { scale: 1, duration: 0.15, ease: "power2.out" })
-        .to(charactersRef.current, { autoAlpha: 1, duration: 0.04, stagger: 0.018, ease: "power1.out" })
-        .to(intro, { autoAlpha: 0, duration: 0.35, delay: 0.35, ease: "power2.inOut" });
+        .to(logo, { scale: 1, duration: 0.1, ease: "power2.out" })
+        .to(charactersRef.current, { autoAlpha: 1, duration: 0.03, stagger: 0.01, ease: "power1.out" })
+        .to(intro, { autoAlpha: 0, duration: 0.25, delay: 0.15, ease: "power2.inOut" });
     }, intro);
 
     return () => context.revert();
