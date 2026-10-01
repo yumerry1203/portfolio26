@@ -170,6 +170,34 @@ export const projects: Project[] = [
           image: Isp03,
         },
       ],
+      development: {
+        items: [
+          {
+            number: "01",
+            title: "고정 뷰포트 환경의 UI 개선",
+            summary: ["해상도 대응", "캘린더 UI 개선"],
+            description: "고정 뷰포트 환경에서 브라우저 높이와 월별 주차에 따라 콘텐츠가 화면을 벗어나는 문제를 개선했습니다. 캘린더를 6주 구조로 통일하고 내부 스크롤·모달을 활용하도록 화면 구조를 조율했습니다.",
+          },
+          {
+            number: "02",
+            title: "중복 UI의 공통 컴포넌트화",
+            summary: ["컴포넌트 재사용", "중복 코드 개선"],
+            description: "각각 분리되어 있던 Alert Modal과 스타일별 Button을 공통 컴포넌트로 통합했습니다. Props에 따라 내용과 스타일을 변경하도록 구성해 여러 화면에서 재사용할 수 있도록 개선했습니다.",
+          },
+          {
+            number: "03",
+            title: "사용자층을 고려한 UI/UX 개선",
+            summary: ["정보 가독성 향상", "사용 가이드 구현"],
+            description: "정보량이 많은 보험설계사 플랫폼의 특성을 고려해 글자 크기와 버튼 인터랙션, 정보 배치를 개선했습니다. 사용 방법을 쉽게 이해할 수 있도록 가이드 화면을 제안하고 구현했습니다.",
+          },
+          {
+            number: "04",
+            title: "SCSS Utility → Tailwind CSS 전환",
+            summary: ["스타일 구조 개선", "반복 클래스 정리"],
+            description: "SCSS 반복문으로 생성되던 다수의 Utility Class를 정리하고 Tailwind CSS 기반 스타일링으로 전환했습니다. 반복 스타일을 일관된 방식으로 적용하고 재사용하기 쉬운 구조로 개선했습니다.",
+          },
+        ],
+      },
     },
   },
   /* Clevers */
