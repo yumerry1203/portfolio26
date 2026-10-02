@@ -13,7 +13,7 @@ const Projects = () => {
   return (
     <div className="w-full">
       <section className="content-container h-auto py-70 sm:py-48" id="projects">
-        <SectionTitle number="02" title="PROJECTS" subTit="Client Work" />
+        <SectionTitle number="01" title="PROJECTS" subTit="Client Work" />
         <ExpandingToast
           title="주요 프로젝트"
           description="최근 작업한 프로젝트의 내용을 자세히 확인할 수 있습니다."

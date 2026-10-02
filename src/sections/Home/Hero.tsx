@@ -16,7 +16,6 @@ const Hero = () => {
   const nameTitleRef = useRef<HTMLHeadingElement>(null);
   const mobileProfileRef = useRef<HTMLImageElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const sparklesRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
@@ -27,9 +26,8 @@ const Hero = () => {
     const nameTitle = nameTitleRef.current;
     const mobileProfile = mobileProfileRef.current;
     const buttons = buttonsRef.current;
-    const sparkles = sparklesRef.current?.children;
 
-    if (!hero || !mainPanel || !profilePanel || !portfolioTitle || !frontEndTitle || !nameTitle || !mobileProfile || !buttons || !sparkles) return;
+    if (!hero || !mainPanel || !profilePanel || !portfolioTitle || !frontEndTitle || !nameTitle || !mobileProfile || !buttons) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isCompactHero = window.matchMedia("(max-width: 1023px)").matches;
@@ -40,7 +38,6 @@ const Hero = () => {
         timeline
           .set([mainPanel, profilePanel], { x: 0, opacity: 1, visibility: "visible" })
           .set([portfolioTitle, frontEndTitle, nameTitle, mobileProfile], { x: 0, y: 0, autoAlpha: 1 })
-          .set(sparkles, { autoAlpha: 1, scale: 1 })
           .fromTo(buttons, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
         return;
       }
@@ -59,9 +56,7 @@ const Hero = () => {
         .set([mainPanel, profilePanel], { visibility: "visible" })
         .to(mainPanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" })
         .to(profilePanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, "<0.1")
-        .fromTo(buttons, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.05")
-        .fromTo(sparkles, { autoAlpha: 0, scale: 0.35, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.2, stagger: 0.08, ease: "back.out(2.5)" }, "-=0.05")
-        .to(sparkles, { autoAlpha: 0, scale: 1.45, duration: 0.24, stagger: 0.06, ease: "power2.in" });
+        .fromTo(buttons, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.05");
     }, hero);
 
     return () => context.revert();
@@ -99,7 +94,6 @@ const Hero = () => {
           <h2 ref={frontEndTitleRef} className="absolute left-1/2 top-[9%] -translate-x-1/2 whitespace-nowrap font-point text-[clamp(3.2rem,9vw,6rem)] text-primary lg:left-auto lg:right-170 lg:top-120 lg:translate-x-0 lg:text-[76px]">Front-End</h2>
           <img ref={mobileProfileRef} src={Profile} alt="나유형 프로필 사진" className="absolute bottom-[-9%] left-[8%] w-[34%] lg:hidden" />
           <h3 ref={nameTitleRef} className="absolute bottom-[15%] right-[10%] text-right font-heading text-[clamp(2rem,5vw,4rem)] font-bold text-white/60 lg:bottom-130 lg:left-270 lg:right-auto lg:text-left lg:text-6xl">NA YU HYEONG
-            <span className="block pt-6 text-[clamp(1.5rem,3.5vw,2.4rem)] font-normal text-white lg:inline lg:pt-0"> (2026ver)</span>
           </h3>
         </div>
         <div 
@@ -112,21 +106,13 @@ const Hero = () => {
             className="absolute bottom-[102%] right-4 gap-4 font-heading text-xs sm:right-8 sm:gap-8 sm:text-base"
           >
             <DotLabel variant="green" />
-            September 2026
+            October 2026
           </Badge>
           <img 
             src={Profile} 
             className="absolute bottom-2 left-98 w-145 sm:left-145 sm:w-215 lg:bottom-3 lg:left-190 lg:w-270"
             alt="나유형 프로필 사진"               
           /> 
-          <div ref={sparklesRef} className="pointer-events-none absolute left-210 top-50 z-20 h-28 w-28 sm:left-325 sm:top-76 sm:h-36 sm:w-36 lg:left-406 lg:top-98 lg:h-42 lg:w-42" aria-hidden="true">
-            <svg className="absolute left-0 top-13 h-22 w-22 text-primary opacity-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="m12 0 1.2 10.8L24 12l-10.8 1.2L12 24l-1.2-10.8L0 12l10.8-1.2L12 0Z" />
-            </svg>
-            <svg className="absolute right-0 top-0 h-16 w-16 text-secondary opacity-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="m12 0 1.2 10.8L24 12l-10.8 1.2L12 24l-1.2-10.8L0 12l10.8-1.2L12 0Z" />
-            </svg>
-          </div>
         </div>
       </div>
       <div ref={buttonsRef} className="hero-actions mt-20 flex flex-wrap gap-10 sm:gap-12">

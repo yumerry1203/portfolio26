@@ -3,9 +3,9 @@ import logoBlack from "@/assets/images/logo-black.svg";
 
 const navigationItems = [
   { label: "Home", href: "#home" },
-  { label: "About Me", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "About Me", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -13,8 +13,43 @@ const linkClassName = "relative block py-4 transition-colors duration-200 hover:
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFloatingVisible, setIsFloatingVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("#home");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileNavigationRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const home = document.querySelector<HTMLElement>("#home");
+    if (!home) return;
+
+    const homeObserver = new IntersectionObserver(
+      ([entry]) => setIsFloatingVisible(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+
+    homeObserver.observe(home);
+    return () => homeObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const sections = navigationItems
+      .map((item) => document.querySelector<HTMLElement>(item.href))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) setActiveSection(`#${visibleSection.target.id}`);
+      },
+      { rootMargin: "-20% 0px -60%", threshold: [0, 0.1, 0.5] },
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+    return () => sectionObserver.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -107,6 +142,56 @@ const Header = () => {
           <span className={`h-2 w-24 bg-black transition-transform duration-300 ${isMenuOpen ? "-translate-y-4 -rotate-45" : ""}`} />
         </button>
       </header>
+
+      <nav
+        aria-label="플로팅 메뉴"
+        aria-hidden={!isFloatingVisible}
+        className={`fixed bottom-16 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/95 px-24 py-12 text-white shadow-[var(--shadow-base)] backdrop-blur-sm transition-[opacity,transform] duration-300 motion-reduce:transition-none sm:block ${
+          isFloatingVisible
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-16 opacity-0"
+        }`}
+      >
+        <ul className="flex items-center gap-24 font-heading text-sm lg:gap-32 lg:text-base">
+          {navigationItems.map((item) => {
+            const isActive = activeSection === item.href;
+
+            return (
+              <li key={`floating-${item.href}`}>
+                <a
+                  href={item.href}
+                  tabIndex={isFloatingVisible ? 0 : -1}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative block py-2 transition-colors duration-200 hover:text-secondary focus-visible:text-primary focus-visible:outline-none after:absolute after:-bottom-4 after:left-0 after:h-2 after:w-full after:origin-left after:bg-primary after:transition-[transform,background-color] after:duration-300 hover:after:bg-secondary ${
+                    isActive
+                      ? "text-primary after:scale-x-100"
+                      : "after:scale-x-0 hover:after:scale-x-100 focus-visible:after:scale-x-100"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        aria-label="플로팅 메뉴 열기"
+        aria-hidden={!isFloatingVisible || isMenuOpen}
+        aria-expanded={isMenuOpen}
+        aria-controls="mobile-navigation"
+        tabIndex={isFloatingVisible ? 0 : -1}
+        onClick={() => setIsMenuOpen(true)}
+        className={`fixed bottom-16 right-16 z-30 rounded-full border border-primary/60 bg-black px-16 py-10 font-heading text-sm text-primary shadow-[var(--shadow-base)] transition-[opacity,transform] duration-300 motion-reduce:transition-none sm:hidden ${
+          isFloatingVisible && !isMenuOpen
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-16 opacity-0"
+        }`}
+      >
+        MENU
+      </button>
 
       <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 sm:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
       <nav

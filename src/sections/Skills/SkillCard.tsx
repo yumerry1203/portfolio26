@@ -17,7 +17,7 @@ const SkillCard = ({ number, title, description }: SkillCardProps) => (
       </span>
 
       <div className="min-w-0 pt-3">
-        <h3 className="font-heading text-lg font-bold leading-snug text-white sm:text-xl">
+        <h3 className="font-body text-lg font-bold leading-snug text-primary sm:text-xl">
           {title}
         </h3>
         <p className="mt-10 text-sm leading-relaxed text-white sm:mt-12 sm:text-base">

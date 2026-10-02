@@ -17,11 +17,11 @@ const App = () => {
       {isIntroComplete && (
         <>
           <Home />
-          <AboutMe />
           <Projects />
           <ProjectArchive />
-          <SideProjects />
           <Skills />
+          <SideProjects />
+          <AboutMe />
           <Contact />
         </>
       )}

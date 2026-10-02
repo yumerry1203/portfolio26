@@ -173,21 +173,23 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                     key={`${project.id}-development-${item.number}`}
                     className="border-b border-black/15 pb-32 last:border-b-0 last:pb-0"
                   >
-                    <h4 className="text-lg font-bold leading-snug text-black sm:text-xl">
+                    <h4 className="flex items-center text-lg font-bold leading-snug text-black sm:text-xl">
                       <span className="text-primary">{item.number}. </span>
                       {item.title}
+                      <div className="flex flex-wrap gap-10 ml-12">
+                        {item.summary.map((summary) => (<>
+                          <span className="inline-block rounded-full bg-accent mt-8 h-4 w-4 shrink-0 rounded-none"></span>
+                          <span
+                            key={summary}
+                            className="rounded-sm text-sm text-accent"
+                          >
+                            {summary}
+                          </span>
+                          </>
+                        ))}
+                      </div>
                     </h4>
-                    <div className="mt-12 flex flex-wrap gap-8">
-                      {item.summary.map((summary) => (
-                        <span
-                          key={summary}
-                          className="rounded-full bg-secondary px-10 py-5 text-xs font-bold text-gray-dark sm:text-sm"
-                        >
-                          {summary}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="mt-16 border-l-2 border-primary pl-14 text-sm leading-[1.75] text-gray-dark sm:text-base">
+                    <p className="mt-16 border-l-3 border-primary pl-14 text-sm leading-[1.75] text-gray-dark sm:text-base">
                       {item.description}
                     </p>
                   </article>

@@ -70,7 +70,7 @@ const AboutMe = () => {
       <section ref={sectionRef} className="content-container h-auto py-70 sm:py-32 lg:pt-100" id="about">
         <div className="flex flex-col gap-28 lg:flex-row lg:justify-between">
           <div className="about-intro-reveal">
-            <SectionTitle number="01" title="About Me!" />
+            <SectionTitle number="04" title="About Me!" />
           </div>
           <div className="about-intro-reveal">
             <h3 className="font-heading text-xl font-bold sm:text-2xl">Frontend Developer</h3>
