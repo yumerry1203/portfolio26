@@ -9,7 +9,7 @@ interface SideProjectCardProps {
 
 const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
   return (
-    <article className="group relative overflow-hidden rounded-md bg-gray-dark text-white shadow-gray">
+    <article className="group relative overflow-hidden rounded-md bg-white text-black shadow-gray">
       <div className={`relative h-170 overflow-hidden ${project.image ? "bg-black" : "bg-[#ffffff]"}`}>
         {project.image && (
           <img
@@ -56,7 +56,7 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
 
       <div className="p-20 pt-30">
         <h3 className="font-heading text-xl font-bold">{project.title}</h3>
-        <p className="mt-5 text-sm text-white/80">{project.description}</p>
+        <p className="mt-5 text-sm text-black">{project.description}</p>
       </div>
     </article>
   );

@@ -139,14 +139,13 @@ export const projects: Project[] = [
     detail: {
       heroImage: Isp01,
       workPeriod: "3개월",
-      overview: "보험 설계사가 고객 정보를 가족단위로 관리하고, 보험 보장을 분석·비교하여 맞춤형 상담과 설계를 진행할 수 있도록 지원하는 통합 보험 상담 플랫폼입니다.",
+      overview: "보보험 설계사의 고객 관리부터 보장 분석, 상품 비교, 맞춤 제안 및 리포트 작성까지 상담 전 과정을 지원하는 통합 보험 상담 솔루션입니다.",
       sections: [
         {
           number: "01",
           title: <>
              고객 관리부터 <span className="text-primary">보장 분석, 상품 비교, <br/>맞춤 설계와 리포트 작성</span>까지 이어지는  <br />
-             행사 목록·상세 조회, 알림, 내 정보 관리까지<br/>
-             웹 플랫폼 UI를 구현했습니다.
+2024.08 – 2025.05             웹 플랫폼 UI를 구현했습니다.
           </>,
           description: [
             "고객의 보험·건강·가족·재무 정보 조회 및 관리 화면 구현",
@@ -200,15 +199,15 @@ export const projects: Project[] = [
       },
     },
   },
-  /* Clevers */
+  /* Cleverse */
   {
-    id: "clevers",
+    id: "cleverse",
     year: "2025",
     type: "구축",
     category: ["Web", "App"],
-    title: "한화 그룹웨어 Clevers",
+    title: "한화 그룹웨어 Cleverse",
     description:"한화 그룹 내부 임직원의 권한별 화면 분기와 복잡한 업무 플로우를 반영한 차세대 그룹웨어",
-    period: "2024.08 – 2025.06",
+    period: "2024.08 – 2025.05",
     role: "UI Publishing",
     skills: [
       "Vue 3",
