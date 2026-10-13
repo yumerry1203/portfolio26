@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { Sideproject } from "@/type/sideproject";
 import Close from "@/assets/images/ico-close.svg";
+import { isProcessImageLoaded } from "./processImagePreloader";
 
 interface SideProjectModalProps {
   project: Sideproject;
@@ -8,6 +9,10 @@ interface SideProjectModalProps {
 }
 
 const SideProjectModal = ({ project, onClose }: SideProjectModalProps) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(
+    () => !project.viewImg || isProcessImageLoaded(project.viewImg),
+  );
+  const [hasImageError, setHasImageError] = useState(false);
 
   useEffect(() => {
     //ESC key 닫기
@@ -52,13 +57,33 @@ const SideProjectModal = ({ project, onClose }: SideProjectModalProps) => {
           </button>
         </header>
 
-        <div className="min-h-0 overflow-y-auto">
+        <div
+          className="min-h-0 overflow-y-auto"
+          aria-busy={project.viewImg ? !isImageLoaded && !hasImageError : undefined}
+        >
+          {project.viewImg && !isImageLoaded && !hasImageError && (
+            <div className="flex min-h-260 flex-col items-center justify-center gap-12 bg-[#ffffff] px-20 text-center" role="status">
+              <span className="h-28 w-28 animate-spin rounded-full border-3 border-gray border-t-primary" aria-hidden="true" />
+              <p className="text-sm text-gray-dark">작업 과정 이미지를 불러오고 있습니다.</p>
+            </div>
+          )}
+
+          {hasImageError && (
+            <div className="flex min-h-260 items-center justify-center bg-[#ffffff] px-20 text-center" role="status">
+              <p className="text-sm text-gray-dark">이미지를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</p>
+            </div>
+          )}
+
           {project.viewImg && (
             <img
               src={project.viewImg}
               alt={`${project.title} 작업 과정`}
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
-              className="mx-auto block w-full"
+              onLoad={() => setIsImageLoaded(true)}
+              onError={() => setHasImageError(true)}
+              className={`mx-auto w-full transition-opacity duration-300 ${isImageLoaded ? "block opacity-100" : "h-0 opacity-0"}`}
             />
           )}
         </div>

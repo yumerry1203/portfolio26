@@ -7,6 +7,7 @@ import ExpandingToast from "@/components/common/ExpandingToast";
 import { sideproject } from "@/data/SideProjects/sideprojects";
 import SideProjectCard from "./SideProjectCard";
 import SideProjectModal from "./SideProjectModal";
+import PortfolioProjectModal from "./PortfolioProjectModal";
 import type { Sideproject } from "@/type/sideproject";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,7 +91,10 @@ const SideProjects = () => {
           ))}
         </div>
       </div>
-      {selectedProject && (
+      {selectedProject?.id === "portfolio" && (
+        <PortfolioProjectModal onClose={() => setSelectedProject(null)} />
+      )}
+      {selectedProject && selectedProject.id !== "portfolio" && (
         <SideProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
     </section>

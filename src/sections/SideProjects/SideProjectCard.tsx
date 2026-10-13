@@ -1,6 +1,8 @@
+import { useEffect, useRef } from "react";
 import Badge from "@/components/common/Badge";
 import ProjectStatusBadge from "@/components/common/ProjectStatusBadge";
 import type { Sideproject } from "@/type/sideproject";
+import { preloadProcessImage } from "./processImagePreloader";
 
 interface SideProjectCardProps {
   project: Sideproject;
@@ -8,8 +10,39 @@ interface SideProjectCardProps {
 }
 
 const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
+  const cardRef = useRef<HTMLElement>(null);
+  const hasProcessModal = Boolean(project.viewImg || project.id === "portfolio");
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card || !project.viewImg || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || !project.viewImg) return;
+
+        void preloadProcessImage(project.viewImg).catch(() => undefined);
+        observer.disconnect();
+      },
+      { rootMargin: "300px 0px" },
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [project.viewImg]);
+
+  const preloadProcess = () => {
+    if (!project.viewImg) return;
+    void preloadProcessImage(project.viewImg).catch(() => undefined);
+  };
+
   return (
-    <article className="group relative overflow-hidden rounded-md bg-white text-black shadow-gray">
+    <article
+      ref={cardRef}
+      onPointerEnter={preloadProcess}
+      onFocus={preloadProcess}
+      className="group relative overflow-hidden rounded-md bg-white text-black shadow-gray"
+    >
       <div className={`relative h-170 overflow-hidden ${project.image ? "bg-black" : "bg-[#ffffff]"}`}>
         {project.image && (
           <img
@@ -23,11 +56,11 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
         {project.status && (
           <ProjectStatusBadge status={project.status} />
         )}
-        {(project.viewImg || project.link) && (
+        {(hasProcessModal || project.link) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 bg-black/70 px-24 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
             <button
               type="button"
-              disabled={!project.viewImg}
+              disabled={!hasProcessModal}
               onClick={() => onViewProcess(project)}
               className="h-36 w-full max-w-190 cursor-pointer rounded-sm bg-white text-sm font-bold text-black transition-transform hover:-translate-y-1 disabled:cursor-not-allowed disabled:bg-gray disabled:text-gray-dark disabled:hover:translate-y-0"
             >
