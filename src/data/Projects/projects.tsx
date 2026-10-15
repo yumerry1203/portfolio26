@@ -127,8 +127,8 @@ export const projects: Project[] = [
     category: ["Web"],
     title: "보험 상담지원 솔루션, ISP",
     description:"보험 설계사의 고객 관리·보장 분석·상품 비교·맞춤 리포트 제작을 하나로 연결한 상담 업무 통합 플랫폼",
-    period: "2025.08 – 2025.10",
-    role: "UI Publishing",
+    period: "2025.08 – 2025.11",
+    role: "Frontend UI Development",
     skills: [
       "Vue 3",
       "TypeScript",
@@ -138,14 +138,14 @@ export const projects: Project[] = [
     image: ImgIsp,
     detail: {
       heroImage: Isp01,
-      workPeriod: "3개월",
-      overview: "보보험 설계사의 고객 관리부터 보장 분석, 상품 비교, 맞춤 제안 및 리포트 작성까지 상담 전 과정을 지원하는 통합 보험 상담 솔루션입니다.",
+      workPeriod: "4개월",
+      overview: "보험 설계사의 고객 관리부터 보장 분석, 상품 비교, 맞춤 제안 및 리포트 작성까지 상담 전 과정을 지원하는 통합 보험 상담 솔루션입니다.",
       sections: [
         {
           number: "01",
           title: <>
-             고객 관리부터 <span className="text-primary">보장 분석, 상품 비교, <br/>맞춤 설계와 리포트 작성</span>까지 이어지는  <br />
-2024.08 – 2025.05             웹 플랫폼 UI를 구현했습니다.
+            고객 관리부터 <span className="text-primary">보장 분석, 상품 비교, <br/>맞춤 설계와 리포트 작성</span>까지 이어지는  <br />
+            웹 플랫폼 UI를 구현했습니다.
           </>,
           description: [
             "고객의 보험·건강·가족·재무 정보 조회 및 관리 화면 구현",
