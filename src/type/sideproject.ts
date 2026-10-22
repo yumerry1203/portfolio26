@@ -9,5 +9,7 @@ export interface Sideproject {
   hidden?: boolean;
   status?: "new" | "inProgress";
   link?: string;
-  viewImg?:string;
+  processLink?: string;
+  github?: string;
+  viewImg?: string;
 }

@@ -16,8 +16,21 @@ import ViewAir from "@/assets/images/view-air.svg"
 import ViewDalock from "@/assets/images/view-dalock.svg"
 import ImgNote from "@/assets/images/Img-note.svg"
 import ImgPortfolio from "@/assets/images/img-portfolio.svg"
+import ImgMoneyLog from "@/assets/images/img-moneylog.svg"
 
 export const sideproject: Sideproject[] = [
+  {
+    id: "money-log",
+    year: "2026",
+    category: [],
+    title: "Money Log — 개인 지출 관리 시스템",
+    description: "사용자가 수입/지출을 등록하고 월별 소비 현황을 보는 서비스",
+    image: ImgMoneyLog,
+    status: "inProgress",
+    processLink: "https://yumerry1203.github.io/react-practice-note/#/category/projects",
+    link: "https://yumerry1203.github.io/money-log/",
+    github: "https://github.com/yumerry1203/money-log",
+  },
   {
     id: "react-practice-note",
     year: "2026",
@@ -27,16 +40,7 @@ export const sideproject: Sideproject[] = [
     image: ImgNote,
     status: "inProgress",
     link: "https://yumerry1203.github.io/react-practice-note/",
-  },
-  {
-    id: "money-log",
-    year: "2026",
-    category: [],
-    title: "Money Log — 개인 지출 관리 시스템",
-    description: "사용자가 수입/지출을 등록하고 월별 소비 현황을 보는 서비스",
-    status: "inProgress",
-    link: "",
-    hidden: true,
+    github: "https://github.com/yumerry1203/react-practice-note",
   },
   {
     id: "portfolio",
@@ -45,8 +49,8 @@ export const sideproject: Sideproject[] = [
     title: "Nayuhyeong - Portfolio",
     description: "2026년 나유형 포트폴리오",
     image: ImgPortfolio,
-    status: "inProgress",
     link: "",
+    github: "https://github.com/yumerry1203/portfolio26",
     hidden: false,
   },
   {

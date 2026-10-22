@@ -12,6 +12,7 @@ interface SideProjectCardProps {
 const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
   const cardRef = useRef<HTMLElement>(null);
   const hasProcessModal = Boolean(project.viewImg || project.id === "portfolio");
+  const hasProcessAction = Boolean(hasProcessModal || project.processLink);
 
   useEffect(() => {
     const card = cardRef.current;
@@ -56,26 +57,46 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
         {project.status && (
           <ProjectStatusBadge status={project.status} />
         )}
-        {(hasProcessModal || project.link) && (
+        {(hasProcessAction || project.link || project.github) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 bg-black/70 px-24 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
-            <button
-              type="button"
-              disabled={!hasProcessModal}
-              onClick={() => onViewProcess(project)}
-              className="h-36 w-full max-w-190 cursor-pointer rounded-sm bg-white text-sm font-bold text-black transition-transform hover:-translate-y-1 disabled:cursor-not-allowed disabled:bg-gray disabled:text-gray-dark disabled:hover:translate-y-0"
-            >
-              작업 과정 보기
-            </button>
-            <a
-              href={project.link}
-              target={project.link ? "_blank" : undefined}
-              rel={project.link ? "noreferrer" : undefined}
-              aria-disabled={!project.link}
-              tabIndex={project.link ? undefined : -1}
-              className={`flex h-36 w-full max-w-190 items-center justify-center rounded-sm text-sm font-bold transition-transform hover:-translate-y-1 ${project.link ? "bg-primary text-black" : "pointer-events-none cursor-not-allowed bg-gray text-gray-dark"}`}
-            >
-              사이트 바로가기 ↗
-            </a>
+            {project.processLink ? (
+              <a
+                href={project.processLink}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-36 w-full max-w-190 items-center justify-center rounded-sm bg-white text-sm font-bold text-black transition-transform hover:-translate-y-1"
+              >
+                작업 과정 보기
+              </a>
+            ) : hasProcessModal ? (
+              <button
+                type="button"
+                onClick={() => onViewProcess(project)}
+                className="h-36 w-full max-w-190 cursor-pointer rounded-sm bg-white text-sm font-bold text-black transition-transform hover:-translate-y-1"
+              >
+                작업 과정 보기
+              </button>
+            ) : null}
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-36 w-full max-w-190 items-center justify-center rounded-sm bg-primary text-sm font-bold text-black transition-transform hover:-translate-y-1"
+              >
+                사이트 바로가기 ↗
+              </a>
+            )}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-36 w-full max-w-190 items-center justify-center rounded-sm bg-gray-dark text-sm font-bold text-white transition-transform hover:-translate-y-1"
+              >
+                Github ↗
+              </a>
+            )}
           </div>
         )}
       </div>
