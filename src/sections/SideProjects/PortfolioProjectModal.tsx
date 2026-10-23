@@ -61,7 +61,7 @@ const projectStructure = `src/
 
 const designColors = [
   { name: "Background", hex: "#141414" },
-  { name: "Surface", hex: "#FFFCF5" },
+  { name: "Surface", hex: "#fff" },
   { name: "Primary", hex: "#CEA6E0" },
   { name: "Secondary", hex: "#F1DBFA" },
   { name: "Accent", hex: "#EC563B" },
@@ -98,8 +98,8 @@ const PortfolioProjectModal = ({ onClose }: PortfolioProjectModalProps) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex h-[94vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
-        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-[#ffffff] px-20 py-16 sm:px-32 sm:py-20 md:px-60">
+      <div className="flex h-[94vh] w-full max-w-900 flex-col overflow-hidden rounded-lg bg-white text-black">
+        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-white px-20 py-16 sm:px-32 sm:py-20 md:px-60">
           <p id="portfolio-modal-title" className="font-heading text-xl font-bold text-gray-dark sm:text-2xl">
             Nayuhyeong - Portfolio 작업 과정
           </p>

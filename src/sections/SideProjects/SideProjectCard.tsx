@@ -42,9 +42,9 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
       ref={cardRef}
       onPointerEnter={preloadProcess}
       onFocus={preloadProcess}
-      className="group relative overflow-hidden rounded-md bg-white text-black shadow-gray"
+      className="group relative overflow-hidden rounded-md bg-gray-dark text-white shadow-gray"
     >
-      <div className={`relative h-170 overflow-hidden ${project.image ? "bg-black" : "bg-[#ffffff]"}`}>
+      <div className={`relative h-170 overflow-hidden ${project.image ? "bg-black" : "bg-white"}`}>
         {project.image && (
           <img
             src={project.image}
@@ -109,8 +109,16 @@ const SideProjectCard = ({ project, onViewProcess }: SideProjectCardProps) => {
       </Badge>
 
       <div className="p-20 pt-30">
+        <ul className="mb-8 flex flex-wrap gap-x-14 gap-y-5" aria-label={`${project.title} 주요 기술`}>
+          {project.technologies.map((technology) => (
+            <li key={technology} className="flex items-center gap-6 text-xs font-bold text-accent sm:text-sm">
+              <span className="h-5 w-5 shrink-0 bg-accent" aria-hidden="true" />
+              {technology}
+            </li>
+          ))}
+        </ul>
         <h3 className="font-heading text-xl font-bold">{project.title}</h3>
-        <p className="mt-5 text-sm text-black">{project.description}</p>
+        <p className="mt-5 text-sm text-white/75">{project.description}</p>
       </div>
     </article>
   );

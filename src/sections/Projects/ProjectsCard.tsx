@@ -103,7 +103,7 @@ const ProjectsCard = ({ project, index, isLast, onDetailClick }: ProjectsCardPro
             </div>
             <div className="flex gap-16 sm:gap-35">
               <dt className="min-w-70 shrink-0 font-bold text-black">주요 기술</dt>
-              <dd className="text-base text-gray-dark">{project.skills.join(" · ")}</dd>
+              <dd className="text-base text-gray-dark">{project.skills.join(" ,  ")}</dd>
             </div>
           </dl>
 

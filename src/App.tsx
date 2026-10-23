@@ -17,9 +17,9 @@ const App = () => {
       {isIntroComplete && (
         <>
           <Home />
+          <Skills />
           <Projects />
           <ProjectArchive />
-          <Skills />
           <SideProjects />
           <AboutMe />
           <Contact />

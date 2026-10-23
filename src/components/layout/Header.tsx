@@ -3,8 +3,9 @@ import logoBlack from "@/assets/images/logo-black.svg";
 
 const navigationItems = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "SideProjects", href: "#side-projects" },
   { label: "About Me", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];

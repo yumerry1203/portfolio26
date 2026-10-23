@@ -7,8 +7,8 @@ interface ExpandingToastProps {
 }
 
 const ExpandingToast = ({
-  title = "프로젝트 아카이브",
-  description = "그 외 다양한 서비스 구축·운영·개선 작업을 진행했습니다.",
+  title = "실무 프로젝트 이력",
+  description = "그 외 다양한 기업의 서비스 구축 및 운영 작업을 진행했습니다.",
 }: ExpandingToastProps) => {
   const alertRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +31,7 @@ const ExpandingToast = ({
   return (
     <div ref={alertRef} className="flex justify-center py-24 sm:py-40" aria-live="polite">
       <div
-        className={`flex min-h-48 items-center justify-center overflow-hidden rounded-full bg-[#ffffff] px-14 py-10 shadow-[var(--shadow-base)] transition-[width,transform] duration-700 ease-out motion-reduce:transition-none sm:h-56 sm:px-28 sm:py-0 ${
+        className={`flex min-h-48 items-center justify-center overflow-hidden rounded-full bg-white px-14 py-10 shadow-[var(--shadow-base)] transition-[width,transform] duration-700 ease-out motion-reduce:transition-none sm:h-56 sm:px-28 sm:py-0 ${
           isVisible ? "w-full max-w-760 scale-100" : "w-74 scale-90"
         }`}
       >

@@ -52,10 +52,11 @@ const ContactFooter = () => (
       <nav className="absolute right-20 top-70 text-right sm:right-30 sm:top-90" aria-label="Footer navigation">
         <p className="font-heading text-lg text-primary">MENU</p>
         <ul className="mt-16 space-y-8 text-lg leading-none text-white/55">
-          <li><a className="transition-colors hover:text-white" href="#home">Intro</a></li>
-          <li><a className="transition-colors hover:text-white" href="#projects">Project</a></li>
+          <li><a className="transition-colors hover:text-white" href="#home">Home</a></li>
           <li><a className="transition-colors hover:text-white" href="#skills">Skills</a></li>
-          <li><a className="transition-colors hover:text-white" href="#about">Profile</a></li>
+          <li><a className="transition-colors hover:text-white" href="#projects">Projects</a></li>
+          <li><a className="transition-colors hover:text-white" href="#side-projects">SideProjects</a></li>
+          <li><a className="transition-colors hover:text-white" href="#about">About Me</a></li>
           <li><a className="transition-colors hover:text-white" href="#contact">Contact</a></li>
         </ul>
       </nav>

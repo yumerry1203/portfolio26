@@ -5,6 +5,7 @@ export interface Sideproject {
   category: string[];
   title: string;
   description: string;
+  technologies: string[];
   image?: string;
   hidden?: boolean;
   status?: "new" | "inProgress";

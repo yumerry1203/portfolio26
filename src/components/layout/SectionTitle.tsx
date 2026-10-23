@@ -2,14 +2,15 @@ interface SectionTitleProps {
   number: string;
   title: string;
   subTit?:string;
+  numberColor?: "white" | "black";
   
 }
 
-const SectionTitle = ({ number, title, subTit }: SectionTitleProps) => {
+const SectionTitle = ({ number, title, subTit, numberColor = "white" }: SectionTitleProps) => {
   return (
     <div className={`flex flex-col gap-12 sm:flex-row sm:items-end sm:gap-32 ${subTit && 'w-full'}`}>
       <div>
-        <span className="font-heading text-2xl font-bold text-white sm:text-3xl">
+        <span className={`font-heading text-2xl font-bold sm:text-3xl ${numberColor === "black" ? "text-black" : "text-white"}`}>
           {number}.
         </span>
         <h2 className="mt-4 font-heading text-5xl font-bold text-primary sm:mt-8 sm:text-7xl">

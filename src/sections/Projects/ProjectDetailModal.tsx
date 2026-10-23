@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { Project } from "@/type/project";
 import Close from "@/assets/images/ico-close.svg";
 import DotLabel from "@/components/common/DotLabel";
+import LoadingImage from "@/components/common/LoadingImage";
 
 interface ProjectDetailModalProps {
   project: Project; //클릭한 프로젝트 
@@ -48,8 +49,8 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-[94vh] w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-[#ffffff] text-black">
-        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-[#ffffff] px-20 py-16 sm:px-32 sm:py-20 md:px-60">
+      <div className="flex max-h-[94vh] w-full max-w-1100 flex-col overflow-hidden rounded-lg bg-white text-black">
+        <header className="flex shrink-0 items-center justify-between border-b border-black/10 bg-white px-20 py-16 sm:px-32 sm:py-20 md:px-60">
           <p className="font-heading text-xl font-bold text-gray sm:text-2xl">Project Detail</p>
           <button
             ref={closeButtonRef}
@@ -93,10 +94,13 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
           </div>
 
           <div className="mt-32 sm:mt-40">
-            <img
+            <LoadingImage
               src={detail.heroImage}
               alt={`${project.title} 대표 화면`}
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
+              containerClassName="min-h-220 w-full sm:min-h-360"
               className="block h-auto w-full"
             />
           </div>
@@ -108,11 +112,11 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             </div>
             <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
               <dt className="font-heading text-sm text-primary">카테고리</dt>
-              <dd className="mt-6 text-sm">{project.category.join(" · ")}</dd>
+              <dd className="mt-6 text-sm">{project.category.join(" ,  ")}</dd>
             </div>
             <div className="border-b border-primary pb-14 md:border-r md:border-b-0 md:pb-0 md:pl-24">
               <dt className="font-heading text-sm text-primary">기술</dt>
-              <dd className="mt-6 text-sm leading-relaxed">{project.skills.join(" · ")}</dd>
+              <dd className="mt-6 text-sm leading-relaxed">{project.skills.join(" ,  ")}</dd>
             </div>
             <div className="md:pl-24">
               <dt className="font-heading text-sm text-primary">작업기간</dt>
@@ -148,11 +152,12 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                       )}
                     </div>
                     {section.image && (
-                      <img
+                      <LoadingImage
                         src={section.image}
                         alt={`${project.title} 주요 작업 ${section.number}`}
                         loading="lazy"
                         decoding="async"
+                        containerClassName="min-h-180 w-full sm:min-h-240"
                         className="block h-auto w-full"
                       />
                     )}

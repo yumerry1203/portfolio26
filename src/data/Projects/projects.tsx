@@ -27,7 +27,7 @@ export const projects: Project[] = [
     title: "모꼬지, 행사관리 APP & Admin",
     description:"복잡한 행사 운영 업무를 하나의 서비스에서 관리하고 이용할 수 있도록 구축한 통합 행사 운영 플랫폼",
     period: "2025.12 - 2026.06",
-    role: "Frontend UI Development",
+    role: "Frontend Development",
     skills: [
       "React",
       "TypeScript",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       workPeriod: "6개월",
       overview: <>
         대규모 행사가 잦은 GA 조직의 복잡하고 반복적인 행사 운영 업무를 효율화하기 위해 구축한 통합 행사 운영 플랫폼입니다.<br/>
-        운영자는 웹 어드민에서 행사·참가자·숙박·교통 정보를 관리하고, 참가자는 모바일 앱에서 일정·배정 정보·공지사항을 실시간으로 확인할 수 있습니다.
+        운영자는 웹 어드민에서 행사, 참가자, 숙박, 교통 정보를 관리하고, 참가자는 모바일 앱에서 일정, 배정 정보, 공지사항을 실시간으로 확인할 수 있습니다.
       </>,
       sections: [
         {
@@ -53,7 +53,7 @@ export const projects: Project[] = [
           description: [
             "Google API를 연동해 일정별 장소 정보를 화면에 노출",
             "React Hook Form + Zod 스키마를 활용해 입력값 검증과 에러 메시지를 일관되게 관리",
-            "shadcn/ui를 서비스 디자인에 맞게 커스텀하고 폼·모달·드롭다운 등 공통 컴포넌트로 구현"
+            "shadcn/ui를 서비스 디자인에 맞게 커스텀하고 폼, 모달, 드롭다운 등 공통 컴포넌트로 구현"
           ],
           image: Moggoji03,
         },
@@ -64,8 +64,8 @@ export const projects: Project[] = [
           </>,
           description: [
             "WeatherAPI가 연동된 TODAY 화면의 날씨 정보 UI 구현",
-            "TanStack Query·Zustand 기반 데이터 흐름에 맞춰 행사·알림·내정보 화면 UI 구현",
-            "Expo Router 기반 화면 구조에서 로그인·초대·행사 조회 등 주요 사용자 플로우 UI 구현"
+            "TanStack Query, Zustand 기반 데이터 흐름에 맞춰 행사, 알림, 내정보 화면 UI 구현",
+            "Expo Router 기반 화면 구조에서 로그인, 초대, 행사 조회 등 주요 사용자 플로우 UI 구현"
           ],
           image: Moggoji02,
         },
@@ -76,8 +76,8 @@ export const projects: Project[] = [
           </>,
           description: [
             "SEO를 고려해 정적 HTML 기반으로 랜딩페이지 구현",
-            "PC·모바일 반응형 UI",
-            "GSAP · ScrollTrigger 스크롤 인터랙션",
+            "PC&바일 반응형 UI",
+            "GSAP과 ScrollTrigger 스크롤 인터랙션",
             "도입 문의 폼 및 모달 구현"
           ],
           image: Moggoji04,
@@ -89,20 +89,20 @@ export const projects: Project[] = [
           {
             number: "01",
             title: "WebView → React Native + Expo 전환",
-            summary: ["네이티브 기능 대응", "iOS·Android 출시"],
+            summary: ["네이티브 기능 대응", "iOS&Android 출시"],
             description: "빠른 출시를 위해 WebView로 구현한 앱을 React Native + Expo로 전환했습니다. 웹 UI를 네이티브 구조로 재구현하고 실기기에서 검증해 양쪽 플랫폼을 출시했습니다.",
           },
           {
             number: "02",
-            title: "Web · App 모노레포 전환",
+            title: "Web & App 모노레포 전환",
             summary: ["공통 패키지 구축", "중복 관리 개선"],
-            description: "별도로 관리되던 Web·App의 공통 리소스를 pnpm Workspace 기반 모노레포로 통합했습니다. API·디자인 토큰·아이콘을 공통 패키지로 분리해 한 번의 수정으로 양쪽에 적용되도록 개선했습니다.",
+            description: "별도로 관리되던 Web&App의 공통 리소스를 pnpm Workspace 기반 모노레포로 통합했습니다. API, 디자인 토큰, 아이콘을 공통 패키지로 분리해 한 번의 수정으로 양쪽에 적용되도록 개선했습니다.",
           },
           {
             number: "03",
             title: "Google API 기반 장소 데이터 개선",
-            summary: ["주소·좌표 데이터화", "날씨 기능 연동"],
-            description: "텍스트로 입력하던 행사 장소를 Google API 기반 주소·좌표 데이터로 개선했습니다. 위치 데이터를 모바일 App의 행사 지역 기준 날씨와 연동하고, 일정 동선 기능으로 확장할 기반을 마련했습니다.",
+            summary: ["주소,좌표 데이터화", "날씨 기능 연동"],
+            description: "텍스트로 입력하던 행사 장소를 Google API 기반 주소 좌표 데이터로 개선했습니다. 위치 데이터를 모바일 App의 행사 지역 기준 날씨와 연동하고, 일정 동선 기능으로 확장할 기반을 마련했습니다.",
           },
           {
             number: "04",
@@ -126,9 +126,9 @@ export const projects: Project[] = [
     type: "구축",
     category: ["Web"],
     title: "보험 상담지원 솔루션, ISP",
-    description:"보험 설계사의 고객 관리·보장 분석·상품 비교·맞춤 리포트 제작을 하나로 연결한 상담 업무 통합 플랫폼",
+    description:"보험 설계사의 고객 관리, 보장 분석, 상품 비교, 맞춤 리포트 제작을 하나로 연결한 상담 업무 통합 플랫폼",
     period: "2025.08 – 2025.11",
-    role: "Frontend UI Development",
+    role: "Frontend Development",
     skills: [
       "Vue 3",
       "TypeScript",
@@ -148,10 +148,10 @@ export const projects: Project[] = [
             웹 플랫폼 UI를 구현했습니다.
           </>,
           description: [
-            "고객의 보험·건강·가족·재무 정보 조회 및 관리 화면 구현",
+            "고객의 보험, 건강, 가족, 재무 정보 조회 및 관리 화면 구현",
             "보험 보장 분석과 상품 비교 결과를 확인하는 상담 화면 구성",
             "설계사의 편리함을 위한 일정관리 캘린더 구현",
-            "테이블, 검색·필터, 입력 폼, 상세 화면 등 반복 UI 컴포넌트 적용"
+            "테이블, 검색과 필터, 입력 폼, 상세 화면 등 반복 UI 컴포넌트 적용"
           ],
           image: Isp02,
         },
@@ -219,7 +219,7 @@ export const projects: Project[] = [
       heroImage: Cleverse01,
       workPeriod: "10개월",
       overview: <>
-        한화그룹 임직원의 <strong>메일·일정·전자결재·게시판 등 주요 업무를 하나의 환경으로 통합한 그룹웨어</strong>입니다.<br />
+        한화그룹 임직원의 <strong>메일, 일정, 전자결재, 게시판 등 주요 업무를 하나의 환경으로 통합한 그룹웨어</strong>입니다.<br />
         분산된 업무와 협업 기능을 연결해 <strong>일관된 업무 환경을 제공하는 플랫폼</strong>입니다.
       </>,
       sections: [
@@ -247,7 +247,7 @@ export const projects: Project[] = [
             "그룹별 접근 권한에 따른 보드 및 게시글 노출 처리",
             "댓글 작성 및 @멘션을 통한 구성원 호출 기능 적용",
             "나만 볼 수 있는 비공개 데이터와 협업 보드 데이터의 화면 분리",
-            "개인 전용 노트 작성·수정·삭제 기능 구현",
+            "개인 전용 노트 작성, 수정, 삭제 기능 구현",
           ],
           image: Cleverse03,
         },
@@ -258,9 +258,9 @@ export const projects: Project[] = [
              확인할 수 있도록 구현
           </>,
           description: [
-            "모바일 환경에 맞춘 협업 보드 목록·상세 화면 구성",
+            "모바일 환경에 맞춘 협업 보드 목록, 상세 화면 구성",
             "게시글, 댓글, 멘션 등 주요 협업 정보 확인 기능 구현",
-            "전자결재·게시판·파일 등 핵심 업무 정보의 모바일 조회 화면 적용",
+            "전자결재, 게시판, 파일 등 핵심 업무 정보의 모바일 조회 화면 적용",
           ],
           image: Cleverse04,
         },

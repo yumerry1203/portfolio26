@@ -51,7 +51,8 @@
 
   /* Primitive Colors */
 
-  --white: #FFFCF5;
+  --white: #fff;
+  --pure-black: #000;
   --black: #141414;
   --gray-dark: #2F2F2F;
   --gray: #999999;
@@ -118,6 +119,7 @@
   --text-7xl: 6rem;   
 
   --color-black: var(--black);
+  --color-pure-black: var(--pure-black);
   --color-white: var(--white);
   --color-gray-dark: var(--gray-dark);
 

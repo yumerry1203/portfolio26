@@ -9,7 +9,9 @@ interface AboutmeCardProps {
   variant: AboutmeCardVariant;
   date: string;
   title: string;
-  description: string;
+  description?: string;
+  employmentType?: string;
+  projects?: string[];
   isRight?: boolean;
   className?: string;
 }
@@ -37,6 +39,8 @@ const AboutmeCard = ({
   date,
   title,
   description,
+  employmentType,
+  projects = [],
   isRight = false,
   className = "",
 }: AboutmeCardProps) => {
@@ -86,14 +90,29 @@ const AboutmeCard = ({
         </div>   
       )}
       {variant === "experience" && (
-        <div className="mt-16 text-base font-bold leading-none sm:mt-22">
-          {title}
+        <div className={`mt-16 flex flex-wrap items-center gap-8 sm:mt-22 ${!isRight ? "justify-end max-sm:justify-start" : ""}`}>
+          <div className="text-base font-bold leading-none">{title}</div>
+          {employmentType && (
+            <span className="rounded-full bg-gray px-8 py-4 text-xs font-bold leading-none text-black">
+              {employmentType}
+            </span>
+          )}
         </div>
       )}
       {variant === "certifications" && (
         <div className="mt-14 text-sm font-bold leading-none sm:hidden">{title}</div>
       )}
-      {variant === "experience" &&  (
+      {variant === "experience" && projects.length > 0 && (
+        <ul className="mt-14 space-y-7 text-sm font-bold leading-snug text-gray">
+          {projects.map((project) => (
+            <li key={project} className={`flex items-start gap-7 max-sm:justify-start max-sm:text-left ${!isRight ? "justify-end text-right" : ""}`}>
+              <span className="mt-[0.55em] h-4 w-4 shrink-0 rounded-full bg-gray" aria-hidden="true" />
+              <span>{project}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {variant === "experience" && description && (
         <p className="mt-16 text-sm font-bold text-gray leading-none">
           {description}
         </p>

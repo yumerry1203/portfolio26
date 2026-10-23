@@ -76,9 +76,9 @@ const SideProjects = () => {
   }, []);
 
   return (
-    <section className="py-32 sm:py-100" id="side-projects">
+    <section className="bg-pure-black py-32 text-white sm:py-100" id="side-projects">
       <div className="content-container">
-        <SectionTitle number="03" title="SIDE PROJECTS" subTit="Personal Work" />
+        <SectionTitle number="03" title="SIDE PROJECTS" subTit="Personal Work" numberColor="white" />
         <div className="mt-15">
           <ExpandingToast
             title="개인 프로젝트"
