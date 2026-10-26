@@ -22,7 +22,7 @@ export const archiveProjects: ArchiveProject[] = [
   {
     id: "haru-share", period: "2024.", title: "하루쉐어", image: ImgHaruShare,
     siteUrl: "https://yumerry1203.github.io/harushare/",
-    skills: ["HTML5", "CSS", "JavaScript", "Figma", "GSAP"], role: "UI Design 및 반응형 Web Publishing 100% (단독 구축)", contribution: 100,
+    skills: ["HTML5", "CSS", "JavaScript", "Figma", "GSAP"], role: "Design 및 반응형 Web Publishing 100% (단독)", contribution: 30,
     workTitle: "OTT 구독서비스 웹 서비스 구축",
     responsibilities: ["Mobile Web 반응형으로 제작", "메인부터 전체 서브페이지까지 UI 디자인 및 퍼블리싱을 진행", "GSAP을 활용해 스크롤에 따라 콘텐츠가 자연스럽게 노출되는 인터랙션을 구현"],
   },
@@ -38,18 +38,18 @@ export const archiveProjects: ArchiveProject[] = [
     siteUrl: "https://www.hyundaicapital.com",
     skills: ["HTML5", "CSS", "JavaScript", "PhotoShop"], role: "자동차금융 메뉴 Web Publishing 구축", contribution: 30,
     workTitle: "현대캐피탈 자동차금융 페이지 구축",
-    responsibilities: ["현대·기아 자동차의 개인리스 메뉴 퍼블리싱 담당", "자동차 움직임 애니메이션 구현"],
+    responsibilities: ["현대, 기아 자동차의 개인리스 메뉴 퍼블리싱 담당", "자동차 움직임 애니메이션 구현"],
   },
   {
     id: "samsung-cancer-center", period: "2019.", title: "삼성서울병원", image: ImgSamsung,
     siteUrl: "http://www.samsunghospital.com/home/cancer/carecenter/gynecologic.do",
     skills: ["HTML5", "CSS", "JavaScript", "PhotoShop"], role: "부인암센터 Web Publishing 100% (단독)", contribution: 100,
-    workTitle: "삼성서울병원 암병원 센터 UI 개선",
+    workTitle: "삼성서울병원 암병원 센터 리뉴얼",
     responsibilities: ["부인암 페이지 디자인 반영 및 퍼블리싱", "그래프, 도형을 활용한 콘텐츠 배치"],
   },
   {
     id: "beauty-point", period: "2019.", title: "뷰티포인트", image: ImgBp,
-    skills: ["HTML5", "CSS", "JavaScript", "Zeplin"], role: "App 내 웹뷰 Publishing", contribution: 40,
+    skills: ["HTML5", "CSS", "JavaScript", "PhotoShop"], role: "WebView Publishing", contribution: 40,
     workTitle: "아모레퍼시픽 뷰티포인트 APP고도화",
     responsibilities: ["등급 및 혜택 안내 아코디언 JavaScript로 구현", "신규 이벤트 발생시 제작 및 배포", "제품 상세 및 댓글 기능 구현"],
   },
@@ -57,6 +57,6 @@ export const archiveProjects: ArchiveProject[] = [
     id: "koen", period: "2018.", title: "남동발전", image: ImgKoen,
     skills: ["HTML5", "CSS", "JavaScript", "PhotoShop"], role: "관리자 Web Publishing", contribution: 50,
     workTitle: "KOEN 권한관리 사이트 구축",
-    responsibilities: ["권한별 메뉴·화면 접근 제어 UI 퍼블리싱", "관리자 화면의 테이블 및 검색·필터 인터페이스 구현", "신규 기능 화면 제작 및 운영 개선 작업"],
+    responsibilities: ["권한별 메뉴, 화면 접근 제어 UI 퍼블리싱", "관리자 화면의 테이블 및 검색과 필터 인터페이스 구현", "신규 기능 화면 제작 및 운영 개선 작업"],
   },
 ];

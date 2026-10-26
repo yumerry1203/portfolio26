@@ -77,7 +77,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                 <div className="flex flex-wrap items-center gap-8 text-sm">
                   {detail.development.liveServices.map((service, index) => (
                     <span key={service.label} className="inline-flex items-center gap-8">
-                      {index > 0 && <span aria-hidden="true">·</span>}
+                      {index > 0 && <span aria-hidden="true">, </span>}
                       <a
                         href={service.url}
                         target="_blank"

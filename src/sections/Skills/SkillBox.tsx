@@ -1,6 +1,11 @@
+import dataIcon from "@/assets/images/ico-data.svg";
+import stylingIcon from "@/assets/images/ico-styling.svg";
+import toolIcon from "@/assets/images/ico-tool.svg";
+
 const skillGroups = [
   {
     title: "Frontend",
+    icon: null,
     skills: [
       "React",
       "TypeScript",
@@ -11,6 +16,7 @@ const skillGroups = [
   },
   {
     title: "State & Form",
+    icon: dataIcon,
     skills: [
       "Zustand",
       "React Hook Form",
@@ -20,6 +26,7 @@ const skillGroups = [
   },
   {
     title: "UI & Styling",
+    icon: stylingIcon,
     skills: [
       "Tailwind CSS",
       "GSAP",
@@ -32,6 +39,7 @@ const skillGroups = [
   },
   {
     title: "Tools & Environment",
+    icon: toolIcon,
     skills: ["Git", "Codex", "GitLab", "ESLint", "Figma"],
   },
 ] as const;
@@ -57,11 +65,18 @@ const highlightedSkills = new Set([
 
 const SkillBox = () => {
   return (
-    <div className="w-full rounded-lg bg-white p-[2.8rem] text-black shadow-[var(--shadow-base)] sm:p-[3.2rem] xl:p-[3.2rem]">
+    <div className="w-full rounded-lg bg-white p-[2.8rem] text-black shadow-[var(--shadow-base)] sm:p-[3.2rem] xl:p-[4rem]">
       <div className="grid grid-cols-1 gap-x-[3.2rem] gap-y-[4rem] sm:grid-cols-2 xl:grid-cols-1 xl:gap-y-[4.4rem]">
         {skillGroups.map((group, groupIndex) => (
           <section key={group.title}>
-            <h4 className="font-heading text-xl font-bold text-black sm:text-2xl xl:text-xl">
+            <h4 className="flex items-center gap-8 font-heading text-xl font-bold text-black sm:text-2xl xl:text-xl">
+              {group.icon ? (
+                <img src={group.icon} alt="" aria-hidden="true" className="h-20 w-20 shrink-0 object-contain sm:h-22 sm:w-22 xl:h-20 xl:w-20" />
+              ) : (
+                <span aria-hidden="true" className="font-heading text-lg font-bold leading-none sm:text-xl xl:text-lg">
+                  {"</>"}
+                </span>
+              )}
               {group.title}
             </h4>
             <ul className="mt-[1.4rem] flex flex-wrap gap-x-[0.8rem] gap-y-[0.8rem]">

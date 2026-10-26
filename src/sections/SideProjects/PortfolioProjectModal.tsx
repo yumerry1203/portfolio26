@@ -12,48 +12,48 @@ interface PortfolioProjectModalProps {
 }
 
 const technologyDetails = [
-  { category: "Frontend", technology: "React", version: "19.2.7", usage: "섹션과 공통 UI를 컴포넌트로 구성하고 모달·메뉴 상태를 관리" },
+  { category: "Frontend", technology: "React", version: "19.2.7", usage: "섹션과 공통 UI를 컴포넌트로 구성하고 모달과 메뉴 상태를 관리" },
   { category: "Frontend", technology: "TypeScript", version: "6.0.2", usage: "프로젝트 데이터와 컴포넌트 Props의 타입을 정의" },
   { category: "Styling", technology: "Tailwind CSS", version: "4.3.3", usage: "반응형 레이아웃과 컴포넌트 스타일을 유틸리티 클래스로 구현" },
   { category: "Styling", technology: "CSS", version: "Native", usage: "인트로 모션과 전역 초기화 스타일을 작성" },
-  { category: "Animation", technology: "GSAP", version: "3.15.0", usage: "Hero·섹션·카드의 등장 모션과 타임라인을 구현" },
+  { category: "Animation", technology: "GSAP", version: "3.15.0", usage: "Hero, 섹션, 카드의 등장 모션과 타임라인을 구현" },
   { category: "Animation", technology: "ScrollTrigger", version: "3.15.0", usage: "스크롤 위치에 맞춰 섹션 애니메이션의 시작과 복귀를 제어" },
   { category: "Build", technology: "Vite", version: "8.1.1", usage: "개발 서버, TypeScript 빌드와 정적 에셋 번들링에 사용" },
-  { category: "Quality", technology: "ESLint", version: "10.6.0", usage: "React·TypeScript 코드의 문법과 작성 규칙을 정적 검사" },
-  { category: "Deployment", technology: "GitHub Actions · Pages", version: "-", usage: "main 브랜치 푸시 시 빌드하고 GitHub Pages에 자동 배포" },
+  { category: "Quality", technology: "ESLint", version: "10.6.0", usage: "React, TypeScript 코드의 문법과 작성 규칙을 정적 검사" },
+  { category: "Deployment", technology: "GitHub Actions&Pages", version: "-", usage: "main 브랜치 푸시 시 빌드하고 GitHub Pages에 자동 배포" },
 ];
 
 const projectStructure = `src/
 ├─ App.tsx                 전체 섹션 순서와 인트로 상태
 ├─ main.tsx                React 애플리케이션 진입점
-├─ index.css               Tailwind·전역 스타일 진입점
+├─ index.css               Tailwind, 전역 스타일 진입점
 │
 ├─ assets/
-│  ├─ fonts/               LINE Seed·SEBANG·Sarina 웹폰트
-│  └─ images/              로고·아이콘·프로젝트 이미지
+│  ├─ fonts/               LINE Seed, SEBANG, Sarina 웹폰트
+│  └─ images/              로고, 아이콘,프로젝트 이미지
 │
 ├─ components/
-│  ├─ common/              Badge·Button·DotLabel 등 공통 UI
-│  └─ layout/              Header·SectionTitle 레이아웃 요소
+│  ├─ common/              Badge, Button, DotLabel 등 공통 UI
+│  └─ layout/              Header, SectionTitle 레이아웃 요소
 │
 ├─ data/
-│  ├─ AboutMe/             경력·교육·자격증 데이터
-│  ├─ Projects/            주요 프로젝트·아카이브 데이터
+│  ├─ AboutMe/             경력, 교육, 자격증 데이터
+│  ├─ Projects/            주요 프로젝트, 아카이브 데이터
 │  └─ SideProjects/        개인 프로젝트 카드 데이터
 │
 ├─ sections/
 │  ├─ Intro/               첫 진입 로고 모션
-│  ├─ Home/                Hero·협업사 영역
-│  ├─ Projects/            주요 프로젝트 카드·상세 모달
+│  ├─ Home/                Hero, 협업사 영역
+│  ├─ Projects/            주요 프로젝트 카드, 상세 모달
 │  ├─ ProjectArchive/      이전 프로젝트 아카이브
-│  ├─ Skills/              기술 스택·HOW I WORK
-│  ├─ SideProjects/        개인 프로젝트 카드·전용 모달
-│  ├─ AboutMe/             경력·교육·자격증
-│  └─ Contact/             연락처·Footer
+│  ├─ Skills/              기술 스택, HOW I WORK
+│  ├─ SideProjects/        개인 프로젝트 카드, 전용 모달
+│  ├─ AboutMe/             경력, 교육, 자격증
+│  └─ Contact/             연락처, Footer
 │
 ├─ styles/
-│  ├─ tokens.css           색상·폰트·간격·Radius·Shadow
-│  └─ reset.css            기본 스타일 초기화·컨테이너
+│  ├─ tokens.css           색상 ,폰트, 간격, Radius, Shadow
+│  └─ reset.css            기본 스타일 초기화, 컨테이너
 │
 └─ type/
    ├─ project.ts           주요 프로젝트 데이터 타입
@@ -183,7 +183,7 @@ const PortfolioProjectModal = ({ onClose }: PortfolioProjectModalProps) => {
               <div className="mt-12 rounded-md bg-black p-16 text-white">
                 <p className="text-sm font-bold">Typography</p>
                 <p className="mt-6 text-sm leading-relaxed text-white/75">
-                  LINE Seed KR · SEBANG Gothic · Sarina
+                  LINE Seed KR, SEBANG Gothic, Sarina
                 </p>
               </div>
             </section>

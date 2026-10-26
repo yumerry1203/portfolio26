@@ -6,12 +6,15 @@ import Badge from "@/components/common/Badge";
 import DotLabel from "@/components/common/DotLabel";
 import Button from "@/components/common/Button";
 
+const PORTFOLIO_CHARACTERS = Array.from("Portfolio");
+
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const mainPanelRef = useRef<HTMLDivElement>(null);
   const profilePanelRef = useRef<HTMLDivElement>(null);
   const portfolioTitleRef = useRef<HTMLHeadingElement>(null);
+  const portfolioCharactersRef = useRef<HTMLSpanElement[]>([]);
   const frontEndTitleRef = useRef<HTMLHeadingElement>(null);
   const nameTitleRef = useRef<HTMLHeadingElement>(null);
   const mobileProfileRef = useRef<HTMLImageElement>(null);
@@ -22,6 +25,7 @@ const Hero = () => {
     const mainPanel = mainPanelRef.current;
     const profilePanel = profilePanelRef.current;
     const portfolioTitle = portfolioTitleRef.current;
+    const portfolioCharacters = portfolioCharactersRef.current;
     const frontEndTitle = frontEndTitleRef.current;
     const nameTitle = nameTitleRef.current;
     const mobileProfile = mobileProfileRef.current;
@@ -38,6 +42,7 @@ const Hero = () => {
         timeline
           .set([mainPanel, profilePanel], { x: 0, opacity: 1, visibility: "visible" })
           .set([portfolioTitle, frontEndTitle, nameTitle, mobileProfile], { x: 0, y: 0, autoAlpha: 1 })
+          .set(portfolioCharacters, { x: 0, autoAlpha: 1, clipPath: "inset(0 0% 0 0)" })
           .fromTo(buttons, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
         return;
       }
@@ -45,7 +50,13 @@ const Hero = () => {
       if (isCompactHero) {
         timeline
           .set(mainPanel, { visibility: "visible", x: 0, opacity: 1 })
-          .fromTo([frontEndTitle, portfolioTitle], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.1, ease: "power3.out" })
+          .fromTo(frontEndTitle, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.42, ease: "power3.out" })
+          .fromTo(
+            portfolioCharacters,
+            { autoAlpha: 0, x: -5, clipPath: "inset(0 100% 0 0)" },
+            { autoAlpha: 1, x: 0, clipPath: "inset(0 0% 0 0)", duration: 0.2, stagger: 0.07, ease: "power1.out" },
+            "-=0.18",
+          )
           .fromTo(mobileProfile, { autoAlpha: 0, x: -28 }, { autoAlpha: 1, x: 0, duration: 0.48, ease: "power3.out" }, "-=0.18")
           .fromTo(nameTitle, { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 0.48, ease: "power3.out" }, "<")
           .fromTo(buttons, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.35, ease: "power2.out" }, "-=0.16");
@@ -56,6 +67,12 @@ const Hero = () => {
         .set([mainPanel, profilePanel], { visibility: "visible" })
         .to(mainPanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" })
         .to(profilePanel, { x: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, "<0.1")
+        .fromTo(
+          portfolioCharacters,
+          { autoAlpha: 0, x: -7, clipPath: "inset(0 100% 0 0)" },
+          { autoAlpha: 1, x: 0, clipPath: "inset(0 0% 0 0)", duration: 0.22, stagger: 0.075, ease: "power1.out" },
+          "-=0.5",
+        )
         .fromTo(buttons, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.05");
     }, hero);
 
@@ -90,7 +107,25 @@ const Hero = () => {
     <div ref={heroRef}>
       <div ref={stageRef} className="hero-stage relative mt-12 sm:mt-40">
         <div ref={mainPanelRef} className="hero-main-panel relative aspect-[1.32] w-full overflow-hidden rounded-[24px] border-[3px] border-secondary bg-black px-24 lg:aspect-auto lg:flex lg:h-533 lg:w-1076 lg:items-center lg:rounded-xl lg:border-0 lg:px-72">
-          <h1 ref={portfolioTitleRef} className="absolute left-1/2 top-[37%] z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-heading text-[clamp(5.2rem,16vw,10rem)] font-bold lg:static lg:translate-x-0 lg:translate-y-0 lg:text-[160px]">Portfolio</h1>
+          <h1
+            ref={portfolioTitleRef}
+            aria-label="Portfolio"
+            className="absolute left-1/2 top-[37%] z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-heading text-[clamp(5.2rem,16vw,10rem)] font-bold lg:static lg:translate-x-0 lg:translate-y-0 lg:text-[160px]"
+          >
+            <span aria-hidden="true">
+              {PORTFOLIO_CHARACTERS.map((character, index) => (
+                <span
+                  key={`${character}-${index}`}
+                  ref={(element) => {
+                    if (element) portfolioCharactersRef.current[index] = element;
+                  }}
+                  className="inline-block will-change-[clip-path,opacity,transform]"
+                >
+                  {character}
+                </span>
+              ))}
+            </span>
+          </h1>
           <h2 ref={frontEndTitleRef} className="absolute left-1/2 top-[9%] -translate-x-1/2 whitespace-nowrap font-point text-[clamp(3.2rem,9vw,6rem)] text-primary lg:left-auto lg:right-170 lg:top-120 lg:translate-x-0 lg:text-[76px]">Front-End</h2>
           <img ref={mobileProfileRef} src={Profile} alt="나유형 프로필 사진" className="absolute bottom-[-9%] left-[8%] w-[34%] lg:hidden" />
           <h3 ref={nameTitleRef} className="absolute bottom-[15%] right-[10%] text-right font-heading text-[clamp(2rem,5vw,4rem)] font-bold text-white/60 lg:bottom-130 lg:left-270 lg:right-auto lg:text-left lg:text-6xl">NA YU HYEONG
