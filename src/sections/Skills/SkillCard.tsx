@@ -2,25 +2,23 @@ interface SkillCardProps {
   number: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
 }
 
-const SkillCard = ({ number, title, description }: SkillCardProps) => (
-  <article className="group relative overflow-hidden rounded-md border border-white/25 bg-black/15 px-20 py-20 transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-base)] sm:px-24 sm:py-22">
-    <div
-      aria-hidden="true"
-      className="absolute inset-y-0 left-0 w-5 bg-gradient opacity-70 transition-opacity duration-300 group-hover:opacity-100"
-    />
+const SkillCard = ({ number, title, description, image, imageAlt }: SkillCardProps) => (
+  <article className="group relative overflow-hidden rounded-lg border border-white/25 bg-gray-dark/95 px-20 py-20 shadow-[var(--shadow-gray)] transition-[border-color,box-shadow] duration-300 hover:border-primary sm:px-28 sm:py-26">
+    <div className="flex items-center gap-18 sm:gap-24">
+      <div className="flex size-82 shrink-0 items-center justify-center sm:size-96">
+        <img src={image} alt={imageAlt} className="h-full w-full object-contain" loading="lazy" />
+      </div>
 
-    <div className="flex items-start gap-14 sm:gap-18">
-      <span className="inline-flex h-34 min-w-42 shrink-0 items-center justify-center rounded-full border border-primary bg-gray-dark px-8 font-heading text-sm font-bold text-primary sm:h-38 sm:min-w-48 sm:text-base">
-        {number}
-      </span>
-
-      <div className="min-w-0 pt-3">
-        <h3 className="font-body text-lg font-bold leading-snug text-primary sm:text-xl">
+      <div className="min-w-0">
+        <span className="font-heading text-xs font-bold text-primary sm:text-sm">{number}</span>
+        <h3 className="mt-4 font-heading text-lg font-bold leading-snug text-primary sm:text-xl">
           {title}
         </h3>
-        <p className="mt-10 text-sm leading-relaxed text-white sm:mt-12 sm:text-base">
+        <p className="mt-8 text-sm leading-relaxed text-white/75 sm:text-base">
           {description}
         </p>
       </div>
