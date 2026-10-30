@@ -2,10 +2,13 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SkillCard from "./SkillCard";
+import DotLabel from "@/components/common/DotLabel";
 import codeBackground from "@/assets/images/animated-code-typing.svg";
 import ideaCharacter from "@/assets/images/3d-developer-idea-transparent.png";
 import codingMonitor from "@/assets/images/3d-coding-monitor.png";
 import collaboration from "@/assets/images/3d-collaboration-handshake.png";
+import userDataFlow from "@/assets/images/3d-user-data-flow.png";
+import learningTechnology from "@/assets/images/3d-learning-technology.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,8 +28,8 @@ const skillItems: SkillItem[] = [
     title: "사용자 경험과 데이터 흐름을 고려한 UI 구현",
     description:
       "다양한 디바이스 환경과 사용자를 고려해 반응형 UI와 인터랙션을 구현합니다. API와 상태 관리 구조를 이해하고, 데이터 변화에 따른 로딩, 에러, 빈 상태 등 실제 서비스에 필요한 UI 상태를 구현하며 사용 과정에서 발견되는 불편과 문제를 개선합니다.",
-    image: ideaCharacter,
-    imageAlt: "노트북으로 작업하며 아이디어를 떠올리는 개발자 캐릭터",
+    image: userDataFlow,
+    imageAlt: "사용자와 데이터 흐름이 UI 화면으로 연결되는 3D 일러스트",
   },
   {
     id: "stability",
@@ -49,7 +52,7 @@ const skillItems: SkillItem[] = [
   {
     id: "problem-solving",
     number: "04",
-    title: "문제를 발견하고 함께 해결하는 과정",
+    title: "문제를 발견하고 함께 답을 찾는 방식",
     description:
       "구현 과정에서 발견한 문제를 적극적으로 공유하고, 원인과 영향을 파악해 관련 구성원과 해결 방향을 조율하며 개선해 나갑니다.",
     image: ideaCharacter,
@@ -58,11 +61,11 @@ const skillItems: SkillItem[] = [
   {
     id: "learning",
     number: "05",
-    title: "새로운 기술을 배우고 적용하는 과정",
+    title: "새로운 기술을 익히고 활용하는 방식",
     description:
       "새로운 기술과 개발 방식을 꾸준히 학습하고 적용합니다. AI 도구도 개발 과정에 활용하며, 결과를 이해하고 검토해 생산성과 완성도를 높입니다.",
-    image: codingMonitor,
-    imageAlt: "새로운 기술을 학습하는 코딩 화면",
+    image: learningTechnology,
+    imageAlt: "새로운 기술을 학습하고 개발에 적용하는 3D 일러스트",
   },
 ];
 
@@ -200,11 +203,24 @@ const SkillList = () => {
   return (
     <section ref={sectionRef} className="content-container mt-100 max-w-1300 sm:mt-140" aria-labelledby="how-i-work-title">
       <div ref={pinRef}>
-        <div>
-          <span className="font-heading text-lg font-bold text-white sm:text-2xl">HOW I WORK</span>
-          <h2 id="how-i-work-title" className="mt-6 font-heading text-4xl font-bold text-primary sm:text-6xl">
-            HOW I WORK_?
-          </h2>
+        <div className="flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-between lg:gap-40">
+          <div className="shrink-0">
+            <span className="font-heading text-lg font-bold text-white sm:text-2xl">03.</span>
+            <h2 id="how-i-work-title" className="mt-6 font-heading text-4xl font-bold text-primary sm:text-6xl">
+              HOW I WORK ?
+            </h2>
+          </div>
+
+          <div
+            className="flex w-full max-w-760 flex-wrap items-center justify-center gap-x-8 gap-y-2 rounded-full bg-white px-18 py-14 text-center shadow-[var(--shadow-base)] sm:flex-nowrap sm:justify-start sm:gap-16 sm:px-28 lg:ml-auto"
+            aria-live="polite"
+          >
+            <DotLabel variant="purpleLightLine" className="size-16 shrink-0 border-0 bg-gradient sm:size-22" />
+            <strong className="font-heading text-base text-black sm:text-xl">일하는 방식</strong>
+            <span className="w-full text-xs leading-snug text-gray-dark sm:w-auto sm:text-lg">
+              업무 과정에서 중요하게 생각하는 저만의 작업 방식을 소개합니다.
+            </span>
+          </div>
         </div>
 
         <div ref={stageRef} className="mt-32 grid min-h-0 gap-24 lg:min-h-640 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch lg:gap-32">

@@ -1,6 +1,7 @@
 import DotLabel from "@/components/common/DotLabel";
 import phoneIcon from "@/assets/images/ico-phone.svg";
 import mailIcon from "@/assets/images/ico-mail.svg";
+import { navigationItems } from "@/data/navigation";
 
 interface ContactInfoProps {
   icon: string;
@@ -52,12 +53,13 @@ const ContactFooter = () => (
       <nav className="absolute right-20 top-70 text-right sm:right-30 sm:top-90" aria-label="Footer navigation">
         <p className="font-heading text-lg text-primary">MENU</p>
         <ul className="mt-16 space-y-8 text-lg leading-none text-white/55">
-          <li><a className="transition-colors hover:text-white" href="#home">Home</a></li>
-          <li><a className="transition-colors hover:text-white" href="#skills">Skills</a></li>
-          <li><a className="transition-colors hover:text-white" href="#projects">Projects</a></li>
-          <li><a className="transition-colors hover:text-white" href="#side-projects">SideProjects</a></li>
-          <li><a className="transition-colors hover:text-white" href="#about">About Me</a></li>
-          <li><a className="transition-colors hover:text-white" href="#contact">Contact</a></li>
+          {navigationItems.map((item) => (
+            <li key={`footer-${item.href}`}>
+              <a className="transition-colors hover:text-white" href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 

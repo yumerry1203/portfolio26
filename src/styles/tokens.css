@@ -59,6 +59,7 @@
   --muted: rgba(78, 78, 78, 0.34);
   --purple: #CEA6E0;
   --purple-light: #F1DBFA;
+  --sky: #AEC7D8;
   --red: #EC563B;
   --green: #74D07D;
   --gradient: linear-gradient(135deg, #AEC7D8 0%, #CEA6E0 100%);
@@ -128,6 +129,7 @@
 
   --color-secondary: var(--purple-light);
   --color-secondary-foreground: var(--black);
+  --color-sky: var(--sky);
 
   --color-accent: var(--red);
   --color-accent-foreground: var(--white);

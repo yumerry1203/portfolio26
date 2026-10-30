@@ -1,16 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import logoBlack from "@/assets/images/logo-black.svg";
+import logoCircle from "@/assets/images/logo-circle.svg";
+import { navigationItems } from "@/data/navigation";
 
-const navigationItems = [
-  { label: "Home", href: "#home" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "SideProjects", href: "#side-projects" },
-  { label: "About Me", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
-
-const linkClassName = "relative block py-4 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100";
+const linkClassName = "relative block py-4 transition-colors duration-200 hover:text-primary focus-visible:text-primary focus-visible:outline-none after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,12 +107,16 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-40 items-center gap-12 sm:gap-32">
-        <img src={logoBlack} alt="나유형 포트폴리오" className="w-30 shrink-0 sm:w-auto" />
-        <div className="hidden h-px flex-1 bg-black sm:block" />
+      <header className="flex h-56 items-center gap-12 sm:h-72 sm:gap-32">
+        <img
+          src={logoCircle}
+          alt="나유형 포트폴리오"
+          className="w-46 shrink-0 motion-safe:animate-[spin_18s_linear_infinite] sm:w-60 lg:w-70"
+        />
+        <div className="hidden h-px flex-1 bg-white/65 sm:block" />
 
         <nav className="hidden sm:block" aria-label="주 메뉴">
-          <ul className="flex items-center gap-40 font-heading text-lg text-black">
+          <ul className="flex items-center gap-40 font-heading text-lg text-white">
             {navigationItems.map((item) => (
               <li key={item.href}>
                 <a className={linkClassName} href={item.href}>{item.label}</a>
@@ -138,9 +134,9 @@ const Header = () => {
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((current) => !current)}
         >
-          <span className={`h-2 w-24 bg-black transition-transform duration-300 ${isMenuOpen ? "translate-y-4 rotate-45" : ""}`} />
-          <span className={`h-2 w-24 bg-black transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
-          <span className={`h-2 w-24 bg-black transition-transform duration-300 ${isMenuOpen ? "-translate-y-4 -rotate-45" : ""}`} />
+          <span className={`h-2 w-24 bg-white transition-transform duration-300 ${isMenuOpen ? "translate-y-4 rotate-45" : ""}`} />
+          <span className={`h-2 w-24 bg-white transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+          <span className={`h-2 w-24 bg-white transition-transform duration-300 ${isMenuOpen ? "-translate-y-4 -rotate-45" : ""}`} />
         </button>
       </header>
 
