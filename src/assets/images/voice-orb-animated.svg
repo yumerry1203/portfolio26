@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+  <defs>
+    <radialGradient id="orb-base" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(438 402) rotate(48) scale(430)">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.98" />
+      <stop offset="0.3" stop-color="#EAF7FF" stop-opacity="0.96" />
+      <stop offset="0.6" stop-color="#BBDDF1" stop-opacity="0.94" />
+      <stop offset="0.82" stop-color="#D8B4EA" stop-opacity="0.92" />
+      <stop offset="1" stop-color="#CEA6E0" stop-opacity="0.72" />
+    </radialGradient>
+
+    <radialGradient id="sky-bloom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) scale(280 230)">
+      <stop stop-color="#A9DDF7" stop-opacity="0.95" />
+      <stop offset="0.58" stop-color="#AEC7D8" stop-opacity="0.7" />
+      <stop offset="1" stop-color="#AEC7D8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="purple-bloom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) scale(270 220)">
+      <stop stop-color="#D18CE8" stop-opacity="0.9" />
+      <stop offset="0.6" stop-color="#CEA6E0" stop-opacity="0.66" />
+      <stop offset="1" stop-color="#CEA6E0" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="mint-bloom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) scale(250 210)">
+      <stop stop-color="#D7F8EE" stop-opacity="0.9" />
+      <stop offset="0.58" stop-color="#BEEBD9" stop-opacity="0.58" />
+      <stop offset="1" stop-color="#BEEBD9" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="flow-sky" x1="165" y1="278" x2="820" y2="713" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CFF3FF" stop-opacity="0" />
+      <stop offset="0.4" stop-color="#A8D8F4" stop-opacity="0.75" />
+      <stop offset="0.72" stop-color="#BBA8EA" stop-opacity="0.52" />
+      <stop offset="1" stop-color="#CEA6E0" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="flow-purple" x1="770" y1="240" x2="215" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F1DBFA" stop-opacity="0" />
+      <stop offset="0.35" stop-color="#D7B2EA" stop-opacity="0.64" />
+      <stop offset="0.7" stop-color="#AEC7D8" stop-opacity="0.48" />
+      <stop offset="1" stop-color="#AEC7D8" stop-opacity="0" />
+    </linearGradient>
+
+    <clipPath id="orb-clip">
+      <circle cx="500" cy="500" r="294" />
+    </clipPath>
+
+    <filter id="outer-glow" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="38" />
+    </filter>
+
+    <filter id="soft-flow" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="22" />
+    </filter>
+
+    <filter id="inner-soft" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+
+    <filter id="liquid-surface" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="2" seed="8" result="noise">
+        <animate attributeName="baseFrequency" dur="12s" values="0.007 0.011;0.011 0.007;0.007 0.011" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="B" />
+      <feGaussianBlur stdDeviation="1.6" />
+    </filter>
+
+    <style>
+      .orb-pulse { transform-box: view-box; transform-origin: 500px 500px; animation: orb-pulse 7s ease-in-out infinite; }
+      .flow-a { transform-box: view-box; transform-origin: 500px 500px; animation: flow-a 13s ease-in-out infinite alternate; }
+      .flow-b { transform-box: view-box; transform-origin: 500px 500px; animation: flow-b 17s ease-in-out infinite alternate; }
+      .flow-c { transform-box: view-box; transform-origin: 500px 500px; animation: flow-c 11s ease-in-out infinite alternate; }
+      .bloom-sky { transform-box: view-box; transform-origin: 500px 500px; animation: bloom-sky 9s ease-in-out infinite alternate; }
+      .bloom-purple { transform-box: view-box; transform-origin: 500px 500px; animation: bloom-purple 12s ease-in-out infinite alternate; }
+      .bloom-mint { transform-box: view-box; transform-origin: 500px 500px; animation: bloom-mint 10s ease-in-out infinite alternate; }
+      .shine { animation: shine 8s ease-in-out infinite alternate; }
+
+      @keyframes orb-pulse {
+        0%, 100% { transform: scale(0.985); opacity: 0.94; }
+        50% { transform: scale(1.025); opacity: 1; }
+      }
+      @keyframes flow-a {
+        from { transform: translate(-18px, 12px) rotate(-8deg) scale(0.95); opacity: 0.42; }
+        to { transform: translate(22px, -20px) rotate(13deg) scale(1.08); opacity: 0.75; }
+      }
+      @keyframes flow-b {
+        from { transform: translate(16px, -16px) rotate(7deg) scale(1.04); opacity: 0.34; }
+        to { transform: translate(-24px, 18px) rotate(-16deg) scale(0.94); opacity: 0.68; }
+      }
+      @keyframes flow-c {
+        from { transform: translate(-10px, -20px) rotate(4deg) scale(0.92); opacity: 0.3; }
+        to { transform: translate(18px, 24px) rotate(-10deg) scale(1.07); opacity: 0.6; }
+      }
+      @keyframes bloom-sky {
+        from { transform: translate(-38px, -10px) scale(0.92); }
+        to { transform: translate(54px, 28px) scale(1.14); }
+      }
+      @keyframes bloom-purple {
+        from { transform: translate(42px, 34px) scale(1.08); }
+        to { transform: translate(-48px, -28px) scale(0.9); }
+      }
+      @keyframes bloom-mint {
+        from { transform: translate(-24px, 52px) scale(0.94); opacity: 0.72; }
+        to { transform: translate(36px, -46px) scale(1.12); opacity: 0.92; }
+      }
+      @keyframes shine {
+        from { opacity: 0.22; transform: translate(-18px, -10px); }
+        to { opacity: 0.58; transform: translate(14px, 18px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .orb-pulse, .flow-a, .flow-b, .flow-c, .bloom-sky, .bloom-purple, .bloom-mint, .shine { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- Soft water-and-air movement around the orb. These are filled shapes, not outline rings. -->
+  <g aria-hidden="true" filter="url(#soft-flow)">
+    <path class="flow-a" d="M117 512C183 367 306 257 455 213C602 170 784 235 865 358C752 298 646 296 559 335C440 388 391 505 300 566C239 607 175 593 117 512Z" fill="url(#flow-sky)" />
+    <path class="flow-b" d="M865 457C814 620 700 749 549 794C395 840 218 773 139 647C247 710 354 716 449 675C567 624 621 507 709 446C770 404 822 408 865 457Z" fill="url(#flow-purple)" />
+    <path class="flow-c" d="M222 279C335 192 491 159 627 208C760 256 845 370 852 491C792 391 699 337 598 333C473 328 382 412 279 424C210 432 164 373 222 279Z" fill="url(#flow-sky)" opacity="0.58" />
+  </g>
+
+  <circle cx="500" cy="500" r="324" fill="#C9E4F3" opacity="0.24" filter="url(#outer-glow)" class="orb-pulse" />
+  <circle cx="500" cy="500" r="308" fill="#CEA6E0" opacity="0.2" filter="url(#outer-glow)" class="flow-b" />
+
+  <!-- The visible edge remains a perfect circle while the color inside moves organically. -->
+  <g class="orb-pulse">
+    <circle cx="500" cy="500" r="300" fill="url(#orb-base)" filter="url(#liquid-surface)" />
+
+    <g clip-path="url(#orb-clip)" filter="url(#inner-soft)">
+      <ellipse class="bloom-sky" cx="390" cy="400" rx="278" ry="230" fill="url(#sky-bloom)" />
+      <ellipse class="bloom-purple" cx="610" cy="625" rx="270" ry="222" fill="url(#purple-bloom)" />
+      <ellipse class="bloom-mint" cx="495" cy="515" rx="250" ry="210" fill="url(#mint-bloom)" />
+      <ellipse class="shine" cx="412" cy="338" rx="188" ry="122" fill="#FFFFFF" opacity="0.34" filter="url(#inner-soft)" />
+    </g>
+
+    <circle cx="500" cy="500" r="292" fill="url(#orb-base)" opacity="0.2" />
+    <circle cx="500" cy="500" r="278" fill="#FFFFFF" opacity="0.08" filter="url(#inner-soft)" />
+  </g>
+</svg>

@@ -96,7 +96,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    const desktopMedia = window.matchMedia("(min-width: 640px)");
+    const desktopMedia = window.matchMedia("(min-width: 1024px)");
     const closeMenuOnDesktop = (event: MediaQueryListEvent) => {
       if (event.matches) setIsMenuOpen(false);
     };
@@ -107,7 +107,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-56 items-center gap-12 sm:h-72 sm:gap-32">
+      <header className="flex h-46 items-center gap-14 sm:h-54 sm:gap-28">
         <img
           src={logoCircle}
           alt="나유형 포트폴리오"
@@ -115,8 +115,8 @@ const Header = () => {
         />
         <div className="hidden h-px flex-1 bg-white/65 sm:block" />
 
-        <nav className="hidden sm:block" aria-label="주 메뉴">
-          <ul className="flex items-center gap-40 font-heading text-lg text-white">
+        <nav className="hidden lg:block" aria-label="주 메뉴">
+          <ul className="flex items-center gap-32 font-bricolage text-base text-white lg:gap-40 lg:text-lg">
             {navigationItems.map((item) => (
               <li key={item.href}>
                 <a className={linkClassName} href={item.href}>{item.label}</a>
@@ -128,7 +128,7 @@ const Header = () => {
         <button
           ref={menuButtonRef}
           type="button"
-          className="ml-auto flex h-36 w-36 flex-col items-center justify-center gap-6 sm:hidden"
+          className="ml-auto flex h-36 w-36 shrink-0 flex-col items-center justify-center gap-6 lg:hidden"
           aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -143,7 +143,7 @@ const Header = () => {
       <nav
         aria-label="플로팅 메뉴"
         aria-hidden={!isFloatingVisible}
-        className={`fixed bottom-16 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/95 px-24 py-12 text-white shadow-[var(--shadow-base)] backdrop-blur-sm transition-[opacity,transform] duration-300 motion-reduce:transition-none sm:block ${
+        className={`fixed bottom-16 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/95 px-24 py-12 text-white shadow-[var(--shadow-base)] backdrop-blur-sm transition-[opacity,transform] duration-300 motion-reduce:transition-none lg:block ${
           isFloatingVisible
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-16 opacity-0"
@@ -181,7 +181,7 @@ const Header = () => {
         aria-controls="mobile-navigation"
         tabIndex={isFloatingVisible ? 0 : -1}
         onClick={() => setIsMenuOpen(true)}
-        className={`fixed bottom-16 right-16 z-30 rounded-full border border-primary/60 bg-black px-16 py-10 font-heading text-sm text-primary shadow-[var(--shadow-base)] transition-[opacity,transform] duration-300 motion-reduce:transition-none sm:hidden ${
+        className={`fixed bottom-16 right-16 z-30 rounded-full border border-primary/60 bg-black px-16 py-10 font-heading text-sm text-primary shadow-[var(--shadow-base)] transition-[opacity,transform] duration-300 motion-reduce:transition-none lg:hidden ${
           isFloatingVisible && !isMenuOpen
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-16 opacity-0"
@@ -190,13 +190,13 @@ const Header = () => {
         MENU
       </button>
 
-      <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 sm:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
+      <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 lg:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
       <nav
         ref={mobileNavigationRef}
         id="mobile-navigation"
         aria-label="모바일 메뉴"
         aria-hidden={!isMenuOpen}
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(82vw,32rem)] flex-col bg-black px-28 pb-40 pt-56 text-white shadow-[-1rem_0_3rem_rgba(0,0,0,0.2)] transition-transform duration-500 ease-out sm:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(82vw,32rem)] flex-col bg-black px-28 pb-40 pt-56 text-white shadow-[-1rem_0_3rem_rgba(0,0,0,0.2)] transition-transform duration-500 ease-out lg:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           type="button"

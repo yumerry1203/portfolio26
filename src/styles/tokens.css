@@ -82,10 +82,14 @@
   --token-font-body: "LINE Seed KR", sans-serif;
   --token-font-heading: "SEBANG Gothic", sans-serif;
   --token-font-point: "Sarina", cursive;
+  --token-font-sedgwick: "Sedgwick Ave", "LINE Seed KR", cursive;
+  --token-font-bricolage: "Bricolage Grotesque", "LINE Seed KR", sans-serif;
 
   --font-body: var(--token-font-body);
   --font-heading: var(--token-font-heading);
   --font-point: var(--token-font-point);
+  --font-sedgwick: var(--token-font-sedgwick);
+  --font-bricolage: var(--token-font-bricolage);
 
   /* Weight */
   --fw-100: 100; /* font-thin */
@@ -145,6 +149,8 @@
   --font-body: var(--token-font-body);
   --font-heading: var(--token-font-heading);
   --font-point: var(--token-font-point);
+  --font-sedgwick: var(--token-font-sedgwick);
+  --font-bricolage: var(--token-font-bricolage);
 
   /* Radius */
   --radius-sm: 0.8rem;
