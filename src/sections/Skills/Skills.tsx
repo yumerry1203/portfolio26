@@ -1,6 +1,5 @@
 import SectionTitle from "@/components/layout/SectionTitle";
 import SkillBox from "./SkillBox";
-import SkillList from "./SkillList";
 
 const Skills = () => (
   <div className="w-full py-70 sm:py-120" id="skills">
@@ -15,7 +14,6 @@ const Skills = () => (
         <SkillBox />
       </div>
     </section>
-    <SkillList />
   </div>
 );
 

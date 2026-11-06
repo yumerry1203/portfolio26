@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 import lineArt from "@/assets/images/home-line-art.svg";
 
 const TITLE_CHARACTERS = Array.from("Portfolio");
@@ -26,6 +27,17 @@ const DevNoteIcon = () => (
   </svg>
 );
 
+const ArrowIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className="size-18 shrink-0 transition-transform duration-300 group-hover:translate-x-4 group-focus-visible:translate-x-4"
+    fill="none"
+  >
+    <path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const homeLinkClassName =
   "flex h-34 min-w-0 cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-[1rem] border px-4 font-body text-[1rem] font-medium transition-[flex,color,background-color,border-color] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary sm:h-44 sm:gap-7 sm:px-13 sm:text-[1.5rem] lg:h-49 lg:text-[2rem]";
 
@@ -36,6 +48,7 @@ const HeroV2 = () => {
   const titleCharactersRef = useRef<HTMLSpanElement[]>([]);
   const introRef = useRef<HTMLParagraphElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const documentLinksRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
   const getLinkClassName = (index: number) =>
@@ -59,15 +72,16 @@ const HeroV2 = () => {
     const name = nameRef.current;
     const intro = introRef.current;
     const description = descriptionRef.current;
+    const documentLinks = documentLinksRef.current;
     const buttons = buttonRef.current;
     const titleCharacters = titleCharactersRef.current;
 
-    if (!hero || !name || !intro || !description || !buttons) return;
+    if (!hero || !name || !intro || !description || !documentLinks || !buttons) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const context = gsap.context(() => {
       if (reduceMotion) {
-        gsap.set([name, intro, description, buttons, ...titleCharacters], {
+        gsap.set([name, intro, description, documentLinks, buttons, ...titleCharacters], {
           autoAlpha: 1,
           x: 0,
           y: 0,
@@ -87,6 +101,7 @@ const HeroV2 = () => {
         )
         .fromTo(intro, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.42 }, "-=0.12")
         .fromTo(description, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.42 }, "-=0.22")
+        .fromTo(documentLinks, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.38 }, "-=0.2")
         .fromTo(buttons, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.44 }, "-=0.18");
     }, hero);
 
@@ -136,6 +151,23 @@ const HeroV2 = () => {
             사용자 경험을 고민하고, 문제를 해결하며 더 나은 서비스를 만드는<br className="hidden sm:block" />
             프론트엔드 개발자입니다.
           </p>
+
+          <div ref={documentLinksRef} className="mt-24 flex flex-wrap items-center gap-x-28 gap-y-14 sm:mt-30 sm:gap-x-38">
+            <Link
+              to="/resume"
+              className="group inline-flex items-center gap-10 border-b border-white pb-5 font-body text-base font-medium text-white transition-colors duration-300 hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:text-primary focus-visible:outline-none sm:text-lg"
+            >
+              이력서
+              <ArrowIcon />
+            </Link>
+            <Link
+              to="/career"
+              className="group inline-flex items-center gap-10 border-b border-white pb-5 font-body text-base font-medium text-white transition-colors duration-300 hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:text-primary focus-visible:outline-none sm:text-lg"
+            >
+              경력기술서
+              <ArrowIcon />
+            </Link>
+          </div>
         </div>
 
         <div

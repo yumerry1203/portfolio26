@@ -201,11 +201,15 @@ const SkillList = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="content-container mt-100 max-w-1300 sm:mt-140" aria-labelledby="how-i-work-title">
-      <div ref={pinRef}>
+    <section
+      ref={sectionRef}
+      className="w-full bg-gray-dark py-70 sm:py-120"
+      aria-labelledby="how-i-work-title"
+    >
+      <div ref={pinRef} className="content-container max-w-1300">
         <div className="flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-between lg:gap-40">
           <div className="shrink-0">
-            <span className="font-heading text-lg font-bold text-white sm:text-2xl">03.</span>
+            <span className="font-heading text-lg font-bold text-white sm:text-2xl">06.</span>
             <h2 id="how-i-work-title" className="mt-6 font-heading text-4xl font-bold text-primary sm:text-6xl">
               HOW I WORK ?
             </h2>

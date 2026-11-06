@@ -1,32 +1,10 @@
-import { useState } from "react";
-import Home from "./sections/Home/Home"
-import AboutMe from "./sections/AboutMe/AboutMe"
-import Projects from "./sections/Projects/Projects"
-import ProjectArchive from "./sections/ProjectArchive/ProjectArchive"
-import SideProjects from "./sections/SideProjects/SideProjects"
-import Skills from "./sections/Skills/Skills"
-import Contact from "./sections/Contact/Contact"
-import Intro from "./sections/Intro/Intro"
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "@/app/AppRouter";
 
-const App = () => {
-  const [isIntroComplete, setIsIntroComplete] = useState(false);
+const App = () => (
+  <BrowserRouter basename="/portfolio26">
+    <AppRouter />
+  </BrowserRouter>
+);
 
-  return (
-    <>
-      {!isIntroComplete && <Intro onComplete={() => setIsIntroComplete(true)} />}
-      {isIntroComplete && (
-        <>
-          <Home />
-          <AboutMe />
-          <Skills />
-          <Projects />
-          <ProjectArchive />
-          <SideProjects />
-          <Contact />
-        </>
-      )}
-    </>
-  )
-}
-
-export default App
+export default App;
