@@ -182,16 +182,51 @@ src/
 
 ### 로컬 웹폰트
 
-- LINE Seed KR
-  - Thin
-  - Regular
-  - Bold
-- SEBANG Gothic
-  - Regular
-  - Bold
-- Sarina
+- LINE Seed KR (Thin/Regular/Bold) - 메인
+- SEBANG Gothic (Regular/Bold) - 포인트
 
 ### Google Fonts
 
-- Sedgwick Ave
-- Bricolage Grotesque
+- Sedgwick Ave - hero 전용
+- Bricolage Grotesque - 포인트
+
+## 🎨 Color System
+
+### Brand Colors
+
+![Primary](https://img.shields.io/badge/Primary-%23CEA6E0-CEA6E0?style=flat-square)
+![Secondary](https://img.shields.io/badge/Secondary-%23F1DBFA-F1DBFA?style=flat-square)
+![Sky](https://img.shields.io/badge/Sky-%23AEC7D8-AEC7D8?style=flat-square)
+![Accent](https://img.shields.io/badge/Accent-%23EC563B-EC563B?style=flat-square)
+![Success](https://img.shields.io/badge/Success-%2374D07D-74D07D?style=flat-square)
+
+### Neutral Colors
+
+![Pure Black](https://img.shields.io/badge/Pure_Black-%23000000-000000?style=flat-square)
+![Black](https://img.shields.io/badge/Black-%23141414-141414?style=flat-square)
+![Dark Gray](https://img.shields.io/badge/Dark_Gray-%232F2F2F-2F2F2F?style=flat-square)
+![Gray](https://img.shields.io/badge/Gray-%23999999-999999?style=flat-square)
+![White](https://img.shields.io/badge/White-%23FFFFFF-E5E5E5?style=flat-square)
+
+### Gradient
+
+![Gradient](https://img.shields.io/badge/Gradient-%23AEC7D8_to_%23CEA6E0-AEC7D8?style=flat-square)
+
+```css
+--primary: #CEA6E0;
+--secondary: #F1DBFA;
+--sky: #AEC7D8;
+--accent: #EC563B;
+--green: #74D07D;
+
+--pure-black: #000000;
+--black: #141414;
+--gray-dark: #2F2F2F;
+--gray: #999999;
+--white: #FFFFFF;
+
+--gradient: linear-gradient(
+  135deg,
+  #AEC7D8 0%,
+  #CEA6E0 100%
+);
