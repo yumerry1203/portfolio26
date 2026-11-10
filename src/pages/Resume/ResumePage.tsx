@@ -53,7 +53,7 @@ const ResumePage = () => (
     <ResumeSheet page={1} totalPages={2}>
       <h1 className="resume-title text-center text-[27px] font-bold tracking-[0.16em]">이력서</h1>
 
-      <header className="mt-8 grid grid-cols-[58px_160px_1fr] items-center gap-18">
+      <header className="mt-16 grid grid-cols-[58px_160px_1fr] items-center gap-18">
         <div className="resume-profile-photo h-60 w-58 overflow-hidden rounded-md bg-[#efefef]">
           <img src={Profile} alt="나유형 프로필" className="h-[145%] w-full object-cover object-top" />
         </div>
@@ -61,7 +61,7 @@ const ResumePage = () => (
           <strong className="resume-name block text-[20.5px]">나유형</strong>
           <span className="resume-role mt-2 block text-[14.4px] font-bold text-[#888]">Frontend Developer</span>
         </div>
-        <address className="resume-contact grid grid-cols-2 gap-x-14 gap-y-7 text-[8.5px] not-italic">
+        <address className="resume-contact grid grid-cols-2 gap-x-14 gap-y-7 text-[9px] not-italic">
           <span className="flex items-center gap-5"><ContactIcon type="phone" />010.6341.3324</span>
           <span className="flex items-center gap-5"><ContactIcon type="email" />moa3627@naver.com</span>
           <span className="col-span-2 flex items-center gap-5"><ContactIcon type="web" />https://yumerry1203.github.io/portfolio26</span>
@@ -69,13 +69,13 @@ const ResumePage = () => (
         </address>
       </header>
 
-      <section className="resume-intro-section mt-16">
+      <section className="resume-intro-section mt-24">
         <p className="resume-intro text-[16.4px] font-bold leading-[1.45]">
-          숨어 있는 문제를 날카롭게 끄집어내고, 발견한 문제는 그냥 넘기지 않습니다.<br />
+          숨어 있는 문제를 날카롭게 끄집어내고, 그냥 넘기지 않습니다.<br />
           적극적인 소통으로 해결까지 이끌어내는 프론트엔드 개발자 나유형입니다.
         </p>
-        <p className="resume-summary mt-7 text-[10.3px] text-[#888]">
-          사용자 경험뿐 아니라 코드의 구조와 유지보수까지 고민하며, 더 나은 구현 방식을 찾아갑니다.
+        <p className="resume-summary mt-7 text-[10.5px] text-[#777]">
+          코드의 구조와 유지보수를 함께 고려하며, 더 나은 구현 방법을 고민합니다.
         </p>
       </section>
 
