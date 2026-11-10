@@ -57,7 +57,7 @@ export const educations = [
     id:'3',
     date: "2019.02",
     description: "명지전문대학",
-    title: "명지전문대학 컴퓨터공학과 졸업",
+    title: "컴퓨터공학과 졸업",
   },
 ];
 

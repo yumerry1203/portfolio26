@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import logoCircle from "@/assets/images/logo-circle.svg";
 import { navigationItems } from "@/data/navigation";
 
@@ -140,15 +141,17 @@ const Header = () => {
         </button>
       </header>
 
-      <nav
-        aria-label="플로팅 메뉴"
-        aria-hidden={!isFloatingVisible}
-        className={`fixed bottom-16 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/95 px-24 py-12 text-white shadow-[var(--shadow-base)] backdrop-blur-sm transition-[opacity,transform] duration-300 motion-reduce:transition-none lg:block ${
-          isFloatingVisible
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none translate-y-16 opacity-0"
-        }`}
-      >
+      {createPortal(
+        <>
+          <nav
+            aria-label="플로팅 메뉴"
+            aria-hidden={!isFloatingVisible}
+            className={`fixed bottom-16 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/95 px-24 py-12 text-white shadow-[var(--shadow-base)] backdrop-blur-sm transition-[opacity,transform] duration-300 motion-reduce:transition-none lg:block ${
+              isFloatingVisible
+                ? "translate-y-0 opacity-100"
+                : "pointer-events-none translate-y-16 opacity-0"
+            }`}
+          >
         <ul className="flex items-center gap-24 font-heading text-sm lg:gap-32 lg:text-base">
           {navigationItems.map((item) => {
             const isActive = activeSection === item.href;
@@ -171,9 +174,9 @@ const Header = () => {
             );
           })}
         </ul>
-      </nav>
+          </nav>
 
-      <button
+          <button
         type="button"
         aria-label="플로팅 메뉴 열기"
         aria-hidden={!isFloatingVisible || isMenuOpen}
@@ -188,10 +191,10 @@ const Header = () => {
         }`}
       >
         MENU
-      </button>
+          </button>
 
-      <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 lg:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
-      <nav
+          <div className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 lg:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setIsMenuOpen(false)} />
+          <nav
         ref={mobileNavigationRef}
         id="mobile-navigation"
         aria-label="모바일 메뉴"
@@ -224,7 +227,10 @@ const Header = () => {
             </li>
           ))}
         </ul>
-      </nav>
+          </nav>
+        </>,
+        document.body,
+      )}
     </>
   );
 };
