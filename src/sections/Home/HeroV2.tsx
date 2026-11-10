@@ -122,9 +122,9 @@ const HeroV2 = () => {
 
       <div className="relative z-10 flex w-full min-h-0 flex-col justify-center">
         <div className="max-w-[74rem] lg:-mt-28">
-          <p ref={nameRef} className="font-sedgwick text-3xl text-secondary sm:text-[42px] lg:text-[52px]">
+         {/*  <p ref={nameRef} className="font-sedgwick text-3xl text-secondary sm:text-[42px] lg:text-[52px]">
             NaYuhyeong
-          </p>
+          </p> */}
 
           <h1 className="mt-4 whitespace-nowrap font-bricolage text-[58px] font-extrabold leading-[0.9] tracking-[-0.045em] text-white sm:text-[96px] lg:text-[162px]">
             <span className="sr-only">Portfolio</span>
@@ -191,7 +191,7 @@ const HeroV2 = () => {
           </button>
 
           <a
-            href="https://github.com/yumerry1203/portfolio26"
+            href="https://github.com/yumerry1203"
             target="_blank"
             rel="noreferrer"
             className={getLinkClassName(1)}

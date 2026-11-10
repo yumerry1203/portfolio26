@@ -1,9 +1,9 @@
 export const skillGroups = [
-  { label: "Frontend", skills: ["React", "TypeScript", "JavaScript", "React Native", "Vue.js"] },
+  { label: "Frontend", skills: ["React", "TypeScript", "Vue.js", "JavaScript", "React Native" ] },
   { label: "State & Data", skills: ["Zustand", "React Hook Form", "Zod"] },
-  { label: "UI & Styling", skills: ["HTML5/CSS", "Tailwind CSS", "shadcn/ui"] },
+  { label: "UI & Styling", skills: ["HTML5/CSS", "Tailwind CSS", "Radix UI", "GSAP"] },
   { label: "Tools & Environment", skills: ["Git", "GitLab", "ESLint", "Vite", "Figma"] },
-  { label: "AI Tools", skills: ["GPT-5 (검토 및 문서화)", "Codex (분석, 리팩토링)", "AI Agent (프로젝트 규칙)"] },
+  { label: "AI Tools", skills: ["Codex, Claude Code (설계 → 구현 → 리뷰 → 검증)", "AI Agent (프로젝트 규칙)"] },
 ] as const;
 
 export const experiences = [
