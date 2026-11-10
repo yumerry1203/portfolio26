@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-import lineArt from "@/assets/images/home-line-art.svg";
 
 const TITLE_CHARACTERS = Array.from("Portfolio");
 
@@ -53,7 +52,7 @@ const HeroV2 = () => {
 
   const getLinkClassName = (index: number) =>
     `${homeLinkClassName} ${
-      activeLink === index ? "border-transparent bg-gradient text-black" : "border-white bg-black text-white"
+      activeLink === index ? "border-black bg-black text-white" : "border-white/85 bg-transparent text-white"
     }`;
 
   const getLinkStyle = (index: number) => ({
@@ -76,12 +75,12 @@ const HeroV2 = () => {
     const buttons = buttonRef.current;
     const titleCharacters = titleCharactersRef.current;
 
-    if (!hero || !name || !intro || !description || !documentLinks || !buttons) return;
+    if (!hero || !intro || !description || !documentLinks || !buttons) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const context = gsap.context(() => {
       if (reduceMotion) {
-        gsap.set([name, intro, description, documentLinks, buttons, ...titleCharacters], {
+        gsap.set([...(name ? [name] : []), intro, description, documentLinks, buttons, ...titleCharacters], {
           autoAlpha: 1,
           x: 0,
           y: 0,
@@ -90,14 +89,18 @@ const HeroV2 = () => {
         return;
       }
 
-      gsap
-        .timeline({ defaults: { ease: "power3.out" } })
-        .fromTo(name, { autoAlpha: 0, x: -28 }, { autoAlpha: 1, x: 0, duration: 0.48 })
+      const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      if (name) {
+        timeline.fromTo(name, { autoAlpha: 0, x: -28 }, { autoAlpha: 1, x: 0, duration: 0.48 });
+      }
+
+      timeline
         .fromTo(
           titleCharacters,
           { autoAlpha: 0, y: 42, filter: "blur(10px)" },
           { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.46, stagger: 0.055 },
-          "-=0.2",
+          name ? "-=0.2" : 0,
         )
         .fromTo(intro, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.42 }, "-=0.12")
         .fromTo(description, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.42 }, "-=0.22")
@@ -113,13 +116,6 @@ const HeroV2 = () => {
       ref={heroRef}
       className="relative isolate flex min-h-0 flex-1 overflow-hidden px-20 pb-28 pt-20 sm:px-42 sm:pb-38 sm:pt-24 lg:px-60 lg:pb-52 lg:pt-28"
     >
-      <img
-        src={lineArt}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 z-0 hidden h-[82%] w-[58%] origin-[72%_54%] object-fill will-change-transform md:block"
-      />
-
       <div className="relative z-10 flex w-full min-h-0 flex-col justify-center">
         <div className="max-w-[74rem] lg:-mt-28">
          {/*  <p ref={nameRef} className="font-sedgwick text-3xl text-secondary sm:text-[42px] lg:text-[52px]">
@@ -147,7 +143,7 @@ const HeroV2 = () => {
             안녕하세요, <strong className="font-bold text-primary">Frontend Developer</strong> 나유형입니다.
           </p>
 
-          <p ref={descriptionRef} className="mt-18 max-w-[55rem] font-body text-sm leading-[1.7] text-gray sm:text-base lg:text-lg">
+          <p ref={descriptionRef} className="mt-18 max-w-[55rem] font-body text-sm leading-[1.7] text-white sm:text-base lg:text-lg">
             사용자 경험을 고민하고, 문제를 해결하며 더 나은 서비스를 만드는<br className="hidden sm:block" />
             프론트엔드 개발자입니다.
           </p>
