@@ -43,9 +43,9 @@ export const experiences = [
 export const educations = [
   {
     id:'1',
-    date: "2024.03 ~ 2024.07",
+    date: "2024.07",
     description: "이젠아카데미",
-    title: "UI/UX 웹 퍼블리싱 & 프론트엔드(React.js) 과정 760H",
+    title: "UI/UX 웹 퍼블리싱 & 프론트엔드(React.js) 과정 760H 수료",
   },
   {
     id:'2',
