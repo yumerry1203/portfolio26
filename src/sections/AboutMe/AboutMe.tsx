@@ -85,7 +85,7 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="w-full overflow-hidden bg-black text-white">
+    <section ref={sectionRef} className="w-full overflow-hidden bg-black text-white">
       <div className="content-container flex min-h-[100svh] flex-col justify-center py-80 sm:py-100 lg:py-120">
         <div className="grid items-center gap-52 lg:grid-cols-[0.95fr_0.82fr_1.18fr] lg:gap-30 xl:gap-48">
           <div className="about-introduction lg:self-stretch">

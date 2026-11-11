@@ -49,7 +49,7 @@ export const educations = [
   },
   {
     id:'2',
-    date: "2022.02",
+    date: "2020.02",
     description: "학점은행제",
     title: "컴퓨터공학과 학사학위 취득",
   },

@@ -7,9 +7,9 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ number, title, description, image, imageAlt }: SkillCardProps) => (
-  <article className="group relative overflow-hidden rounded-lg border border-white/25 bg-gray-dark/95 px-20 py-20 shadow-[var(--shadow-gray)] transition-[border-color,box-shadow] duration-300 hover:border-primary sm:px-28 sm:py-26">
-    <div className="flex items-center gap-18 sm:gap-24">
-      <div className="flex size-82 shrink-0 items-center justify-center sm:size-96">
+  <article className="group relative min-h-150 overflow-hidden rounded-lg border border-white/25 bg-gray-dark/95 px-24 py-24 shadow-[var(--shadow-gray)] transition-[border-color,box-shadow] duration-300 hover:border-primary sm:min-h-180 sm:px-36 sm:py-30">
+    <div className="flex h-full items-center gap-22 sm:gap-30">
+      <div className="flex size-106 shrink-0 items-center justify-center sm:size-128">
         <img src={image} alt={imageAlt} className="h-full w-full object-contain" loading="lazy" />
       </div>
 

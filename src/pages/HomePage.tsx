@@ -4,10 +4,10 @@ import Intro from "@/sections/Intro/Intro";
 import Home from "@/sections/Home/Home";
 import AboutMe from "@/sections/AboutMe/AboutMe";
 import Skills from "@/sections/Skills/Skills";
+import HowIWork from "@/sections/Skills/HowIWork";
 import Projects from "@/sections/Projects/Projects";
 import ProjectArchive from "@/sections/ProjectArchive/ProjectArchive";
 import SideProjects from "@/sections/SideProjects/SideProjects";
-import SkillList from "@/sections/Skills/SkillList";
 import Contact from "@/sections/Contact/Contact";
 
 const INTRO_SESSION_KEY = "portfolio-intro-viewed";
@@ -42,12 +42,14 @@ const HomePage = () => {
       {isIntroComplete && (
         <>
           <Home />
-          <AboutMe />
-          <Skills />
+          <div id="about">
+            <AboutMe />
+            <Skills />
+            <HowIWork />
+          </div>
           <Projects />
           <ProjectArchive />
           <SideProjects />
-          <SkillList />
           <Contact />
         </>
       )}

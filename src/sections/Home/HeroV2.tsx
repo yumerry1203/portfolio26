@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 
@@ -38,10 +38,9 @@ const ArrowIcon = () => (
 );
 
 const homeLinkClassName =
-  "flex h-34 min-w-0 cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-[1rem] border px-4 font-body text-[1rem] font-medium transition-[flex,color,background-color,border-color] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary sm:h-44 sm:gap-7 sm:px-13 sm:text-[1.5rem] lg:h-49 lg:text-[2rem]";
+  "group relative flex h-34 min-w-0 flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-[1.2rem] border border-white bg-transparent px-4 font-body text-[1rem] font-medium text-white transition-colors duration-500 ease-out before:absolute before:inset-0 before:translate-y-full before:bg-black before:transition-transform before:duration-500 before:ease-out hover:text-white hover:before:translate-y-0 focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary focus-visible:before:translate-y-0 sm:h-44 sm:px-13 sm:text-[1.5rem] lg:h-49 lg:text-[2rem]";
 
 const HeroV2 = () => {
-  const [activeLink, setActiveLink] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLParagraphElement>(null);
   const titleCharactersRef = useRef<HTMLSpanElement[]>([]);
@@ -49,22 +48,6 @@ const HeroV2 = () => {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const documentLinksRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
-
-  const getLinkClassName = (index: number) =>
-    `${homeLinkClassName} ${
-      activeLink === index ? "border-black bg-black text-white" : "border-white/85 bg-transparent text-white"
-    }`;
-
-  const getLinkStyle = (index: number) => ({
-    flex: activeLink === null ? "1 1 0%" : activeLink === index ? "2.35 1 0%" : "0.38 1 0%",
-  });
-
-  const getLabelClassName = (index: number) =>
-    `overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ${
-      activeLink !== null && activeLink !== index ? "max-w-0 opacity-0" : "max-w-[30rem] opacity-100"
-    }`;
-
-  const getLinkLabel = (index: number, label: string) => (activeLink === index ? `${label} 바로가기` : label);
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
@@ -169,49 +152,42 @@ const HeroV2 = () => {
         <div
           ref={buttonRef}
           className="mt-34 flex w-full max-w-[49rem] items-stretch gap-2 self-end sm:mt-40 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0"
-          onMouseLeave={() => setActiveLink(null)}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) setActiveLink(null);
-          }}
         >
           <button
             type="button"
-            className={getLinkClassName(0)}
-            style={getLinkStyle(0)}
-            onMouseEnter={() => setActiveLink(0)}
-            onFocus={() => setActiveLink(0)}
+            className={homeLinkClassName}
             onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <ProjectsIcon />
-            <span className={getLabelClassName(0)}>{getLinkLabel(0, "Projects")}</span>
+            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
+              <ProjectsIcon />
+              <span>Projects</span>
+            </span>
           </button>
 
           <a
             href="https://github.com/yumerry1203"
             target="_blank"
             rel="noreferrer"
-            className={getLinkClassName(1)}
-            style={getLinkStyle(1)}
-            onMouseEnter={() => setActiveLink(1)}
-            onFocus={() => setActiveLink(1)}
+            className={homeLinkClassName}
             aria-label="포트폴리오 GitHub 새 창으로 열기"
           >
-            <GithubIcon />
-            <span className={getLabelClassName(1)}>{getLinkLabel(1, "GitHub")}</span>
+            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
+              <GithubIcon />
+              <span>GitHub</span>
+            </span>
           </a>
 
           <a
             href="https://yumerry1203.github.io/react-practice-note/"
             target="_blank"
             rel="noreferrer"
-            className={getLinkClassName(2)}
-            style={getLinkStyle(2)}
-            onMouseEnter={() => setActiveLink(2)}
-            onFocus={() => setActiveLink(2)}
+            className={homeLinkClassName}
             aria-label="Frontend Dev Note 새 창으로 열기"
           >
-            <DevNoteIcon />
-            <span className={getLabelClassName(2)}>{getLinkLabel(2, "Dev Note")}</span>
+            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
+              <DevNoteIcon />
+              <span>Dev Note</span>
+            </span>
           </a>
         </div>
       </div>
