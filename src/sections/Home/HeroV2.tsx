@@ -1,6 +1,7 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
+import lineArt from "@/assets/images/home-line-art.svg";
 
 const TITLE_CHARACTERS = Array.from("Portfolio");
 
@@ -38,9 +39,10 @@ const ArrowIcon = () => (
 );
 
 const homeLinkClassName =
-  "group relative flex h-34 min-w-0 flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-[1.2rem] border border-white bg-transparent px-4 font-body text-[1rem] font-medium text-white transition-colors duration-500 ease-out before:absolute before:inset-0 before:translate-y-full before:bg-black before:transition-transform before:duration-500 before:ease-out hover:text-white hover:before:translate-y-0 focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary focus-visible:before:translate-y-0 sm:h-44 sm:px-13 sm:text-[1.5rem] lg:h-49 lg:text-[2rem]";
+  "flex h-34 min-w-0 cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-[1rem] border px-4 font-body text-[1rem] font-medium transition-[flex,color,background-color,border-color] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary sm:h-44 sm:gap-7 sm:px-13 sm:text-[1.5rem] lg:h-49 lg:text-[2rem]";
 
 const HeroV2 = () => {
+  const [activeLink, setActiveLink] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLParagraphElement>(null);
   const titleCharactersRef = useRef<HTMLSpanElement[]>([]);
@@ -48,6 +50,22 @@ const HeroV2 = () => {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const documentLinksRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+
+  const getLinkClassName = (index: number) =>
+    `${homeLinkClassName} ${
+      activeLink === index ? "border-transparent bg-gradient text-black" : "border-white bg-black text-white"
+    }`;
+
+  const getLinkStyle = (index: number) => ({
+    flex: activeLink === null ? "1 1 0%" : activeLink === index ? "2.35 1 0%" : "0.38 1 0%",
+  });
+
+  const getLabelClassName = (index: number) =>
+    `overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ${
+      activeLink !== null && activeLink !== index ? "max-w-0 opacity-0" : "max-w-[30rem] opacity-100"
+    }`;
+
+  const getLinkLabel = (index: number, label: string) => (activeLink === index ? `${label} 바로가기` : label);
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
@@ -99,11 +117,18 @@ const HeroV2 = () => {
       ref={heroRef}
       className="relative isolate flex min-h-0 flex-1 overflow-hidden px-20 pb-28 pt-20 sm:px-42 sm:pb-38 sm:pt-24 lg:px-60 lg:pb-52 lg:pt-28"
     >
+      <img
+        src={lineArt}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 z-0 hidden h-[82%] w-[58%] origin-[72%_54%] object-fill md:block"
+      />
+
       <div className="relative z-10 flex w-full min-h-0 flex-col justify-center">
         <div className="max-w-[74rem] lg:-mt-28">
-         {/*  <p ref={nameRef} className="font-sedgwick text-3xl text-secondary sm:text-[42px] lg:text-[52px]">
+          <p ref={nameRef} className="font-sedgwick text-3xl text-secondary sm:text-[42px] lg:text-[52px]">
             NaYuhyeong
-          </p> */}
+          </p>
 
           <h1 className="mt-4 whitespace-nowrap font-bricolage text-[58px] font-extrabold leading-[0.9] tracking-[-0.045em] text-white sm:text-[96px] lg:text-[162px]">
             <span className="sr-only">Portfolio</span>
@@ -152,42 +177,49 @@ const HeroV2 = () => {
         <div
           ref={buttonRef}
           className="mt-34 flex w-full max-w-[49rem] items-stretch gap-2 self-end sm:mt-40 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0"
+          onMouseLeave={() => setActiveLink(null)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setActiveLink(null);
+          }}
         >
           <button
             type="button"
-            className={homeLinkClassName}
+            className={getLinkClassName(0)}
+            style={getLinkStyle(0)}
+            onMouseEnter={() => setActiveLink(0)}
+            onFocus={() => setActiveLink(0)}
             onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
-              <ProjectsIcon />
-              <span>Projects</span>
-            </span>
+            <ProjectsIcon />
+            <span className={getLabelClassName(0)}>{getLinkLabel(0, "Projects")}</span>
           </button>
 
           <a
             href="https://github.com/yumerry1203"
             target="_blank"
             rel="noreferrer"
-            className={homeLinkClassName}
+            className={getLinkClassName(1)}
+            style={getLinkStyle(1)}
+            onMouseEnter={() => setActiveLink(1)}
+            onFocus={() => setActiveLink(1)}
             aria-label="포트폴리오 GitHub 새 창으로 열기"
           >
-            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
-              <GithubIcon />
-              <span>GitHub</span>
-            </span>
+            <GithubIcon />
+            <span className={getLabelClassName(1)}>{getLinkLabel(1, "GitHub")}</span>
           </a>
 
           <a
-            href="https://yumerry1203.github.io/react-practice-note/"
+            href="https://yumerry1203.github.io/yum-log/"
             target="_blank"
             rel="noreferrer"
-            className={homeLinkClassName}
+            className={getLinkClassName(2)}
+            style={getLinkStyle(2)}
+            onMouseEnter={() => setActiveLink(2)}
+            onFocus={() => setActiveLink(2)}
             aria-label="Frontend Dev Note 새 창으로 열기"
           >
-            <span className="relative z-10 flex items-center justify-center gap-3 whitespace-nowrap sm:gap-7">
-              <DevNoteIcon />
-              <span>Dev Note</span>
-            </span>
+            <DevNoteIcon />
+            <span className={getLabelClassName(2)}>{getLinkLabel(2, "Dev Note")}</span>
           </a>
         </div>
       </div>
