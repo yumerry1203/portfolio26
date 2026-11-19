@@ -2,45 +2,73 @@ interface ExperienceItemProps {
   period: string;
   company: string;
   role: string;
+  context?: string;
   note?: string;
+  summary?: string;
   responsibilities: readonly string[];
-  projects: string;
+  projects?: string;
 }
+
+const TECH_TERMS = [
+  "iOS/AOS 앱 모두 출시 완료 (2026.06.24)",
+  "React Native",
+  "React, TypeScript",
+  "Vue 3, TypeScript",
+  "HTML/CSS",
+  "JavaScript",
+] as const;
+
+const emphasizeTechTerms = (text: string) => {
+  const escapedTerms = TECH_TERMS.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`(${escapedTerms.join("|")})`, "g");
+
+  return text.split(pattern).map((part, index) => (
+    TECH_TERMS.includes(part as (typeof TECH_TERMS)[number])
+      ? <strong key={`${part}-${index}`}>{part}</strong>
+      : part
+  ));
+};
 
 const ExperienceItem = ({
   period,
   company,
   role,
+  context,
   note,
+  summary,
   responsibilities,
   projects,
 }: ExperienceItemProps) => (
-  <section className="resume-experience grid grid-cols-[98px_minmax(0,1fr)] gap-16">
-    <p className="resume-experience__period pt-2 text-[10.3px] font-medium text-[#969696]">{period}</p>
-
-    <div className="min-w-0">
-      <div className="resume-experience__heading flex flex-wrap items-baseline gap-x-6 gap-y-2 text-[12.3px]">
-        <h3 className="font-bold">{company}</h3>
-        <span className="font-medium">| {role}</span>
-        {note && <span className="resume-experience__note text-[9.2px] text-[#9d9d9d]">{note}</span>}
+  <section className="resume-experience">
+    <p className="resume-experience__period">{period}</p>
+    <div className="resume-experience__content">
+      <div className="resume-experience__heading">
+        <h3>{company}</h3>
+        <span>| {role}</span>
+        {context && <span className="resume-experience__context">{context}</span>}
+        {note && <span className="resume-experience__note">{note}</span>}
       </div>
 
-      <div className="mt-8 grid grid-cols-[58px_minmax(0,1fr)] gap-8">
-        <strong className="resume-experience__label text-[10.3px]">[담당 업무]</strong>
-        <ul className="resume-experience__list space-y-4 text-[10.3px] leading-[1.45]">
+      {summary && <p className="resume-experience__summary">{summary}</p>}
+
+      <div className="resume-experience__work">
+        <strong className="resume-experience__label">[담당 업무]</strong>
+        <ul className="resume-experience__list">
           {responsibilities.map((responsibility) => (
-            <li key={responsibility} className="flex gap-7">
-              <span className="mt-[0.62em] h-3 w-3 shrink-0 bg-black" aria-hidden="true" />
-              <span>{responsibility}</span>
+            <li key={responsibility}>
+              <span className="resume-list-square" aria-hidden="true" />
+              <span>{emphasizeTechTerms(responsibility)}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="resume-experience__projects mt-10 rounded-md bg-[#f5f5f5] px-12 py-7 text-[10.3px] leading-relaxed">
-        <strong className="mr-7">주요 프로젝트 :</strong>
-        {projects}
-      </div>
+      {projects && (
+        <div className="resume-experience__projects">
+          <strong>주요 프로젝트 :</strong>
+          <span>{projects}</span>
+        </div>
+      )}
     </div>
   </section>
 );

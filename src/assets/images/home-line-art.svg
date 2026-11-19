@@ -1,0 +1,45 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display:block" width="698" height="475" viewBox="0 0 698 475" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .flow-line {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+    animation: line-scan 8.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .flow-2 { animation-duration: 10.2s; animation-delay: -3.2s; }
+  .flow-3 { animation-duration: 9.4s; animation-delay: -6.8s; }
+  .flow-4 { animation-duration: 11.2s; animation-delay: -1.4s; }
+  .flow-5 { animation-duration: 9.8s; animation-delay: -7.6s; }
+  .flow-6 { animation-duration: 10.7s; animation-delay: -4.9s; }
+
+  @keyframes line-scan {
+    0% { stroke-dashoffset: 100; opacity: 0; }
+    12% { opacity: 0.16; }
+    42% { stroke-dashoffset: 0; opacity: 0.68; }
+    58% { stroke-dashoffset: 0; opacity: 0.5; }
+    88% { stroke-dashoffset: -100; opacity: 0.12; }
+    100% { stroke-dashoffset: -100; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-line { animation: none; opacity: 0; }
+  }
+</style>
+
+<g opacity="0.045" stroke="white">
+  <path d="M460.354 0.353553L0.353553 460.354"/>
+  <path d="M267.555 474.773L495.555 27.7728"/>
+  <path d="M593.501 456.035L563.501 28.035"/>
+  <path d="M683.855 385.479L154.855 225.479"/>
+  <path d="M697.923 230.494L217.923 155.494"/>
+  <path d="M671.068 70.4953L279.068 124.495"/>
+</g>
+
+<g opacity="0.18" stroke="#F1DBFA" stroke-width="1.5" stroke-linecap="round">
+  <path class="flow-line" pathLength="100" d="M460.354 0.353553L0.353553 460.354"/>
+  <path class="flow-line flow-2" pathLength="100" d="M267.555 474.773L495.555 27.7728"/>
+  <path class="flow-line flow-3" pathLength="100" d="M593.501 456.035L563.501 28.035"/>
+  <path class="flow-line flow-4" pathLength="100" d="M683.855 385.479L154.855 225.479"/>
+  <path class="flow-line flow-5" pathLength="100" d="M697.923 230.494L217.923 155.494"/>
+  <path class="flow-line flow-6" pathLength="100" d="M671.068 70.4953L279.068 124.495"/>
+</g>
+</svg>
