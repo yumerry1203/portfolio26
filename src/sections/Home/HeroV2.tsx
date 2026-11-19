@@ -131,7 +131,7 @@ const HeroV2 = () => {
             프론트엔드 개발자입니다.
           </p>
 
-          <div ref={documentLinksRef} className="mt-24 flex flex-wrap items-center gap-x-28 gap-y-14 sm:mt-30 sm:gap-x-38">
+          <div ref={documentLinksRef} className="mt-24 hidden flex-wrap items-center gap-x-28 gap-y-14 xl:flex xl:gap-x-38">
             <Link
               to="/resume"
               className="group inline-flex items-center gap-10 border-b border-white pb-5 font-body text-base font-medium text-white transition-colors duration-300 hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:text-primary focus-visible:outline-none sm:text-lg"
