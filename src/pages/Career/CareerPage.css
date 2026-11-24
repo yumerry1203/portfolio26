@@ -385,21 +385,6 @@
   margin-top: 11px;
 }
 
-.career-sheet--page-3 .career-outcome-list {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 12px;
-  margin-left: 50px;
-}
-
-.career-sheet--page-3 .career-outcome-list::before,
-.career-sheet--page-3 .career-outcome-list li > span {
-  display: none;
-}
-
-.career-sheet--page-3 .career-outcome-list li {
-  display: block;
-}
-
 .career-collaboration-section {
   margin: 20px 0 0 12px;
 }
